@@ -1,0 +1,410 @@
+GenericVoice:
+	Variants:
+		allies: .v01,.v03
+		england: .v01,.v03
+		france: .v01,.v03
+		germany: .v01,.v03
+		soviet: .r01,.r03
+		russia: .r01,.r03
+		ukraine: .r01,.r03
+		nod: .c01,.c03
+		blackh: .c01,.c03
+		marked: .c01,.c03
+		gdi: .c01,.c03
+		talon: .c01,.c03
+		zocom: .c01,.c03
+	Voices:
+		Select: await1,ready,report1,yessir1
+		Action: ackno,affirm1,noprob,overout,ritaway,roger,ugotit
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell12,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+	DisableVariants: Die, Burned, Zapped, Poisoned
+
+VehicleVoice:
+	Variants:
+		allies: .v00,.v02
+		england: .v00,.v02
+		france: .v00,.v02
+		germany: .v00,.v02
+		soviet: .r00,.r02
+		russia: .r00,.r02
+		ukraine: .r00,.r02
+		nod: .c00,.c02
+		blackh: .c00,.c02
+		marked: .c00,.c02
+		gdi: .c00,.c02
+		zocom: .c00,.c02
+		talon: .c00,.c02
+	Voices:
+		Select: vehic1,yessir1,report1,await1,unit1
+		Action: ackno,affirm1,movout1
+		Unload: movout1
+
+EngineerVoice:
+	Voices:
+		Select: eengin1,eyessir1
+		Action: eaffirm1,emovout1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+MedicVoice:
+	Voices:
+		Select: medawait,medreporting
+		Action: medack,medaffirm,medmove,medyessir
+		#Action: medstat,medgimme,medclear
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+MechanicVoice:
+	Voices:
+		Select: engawait,engyes
+		Move: engaffirm,engnoprob
+		Action: engnoprob,engicanfix
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+TanyaVoice:
+	Voices:
+		Select: yo1,yes1,yeah1
+		Move: onit1,cmon1,rokroll1
+		Action: tuffguy1,bombit1
+		Die: tandeth1
+		Burned: tandeth1
+		Zapped: tandeth1
+		Build: laugh1
+		Kill: gotit1,lefty1
+		Demolish: keepem1,tuffguy1
+		Poisoned: tandeth1
+
+DogVoice:
+	Voices:
+		Select: dogw3px
+		Move: dogy1
+		Attack: dogg5p
+		Die: dogw5,dogw7
+		Burned: dogw6
+		Zapped: dogw6
+		Poisoned: dogw5
+
+SpyVoice:
+	Voices:
+		Select: syessir1,scomnd1
+		Move: sonway1,sindeed1
+		Action: sking1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10, yell1
+		Zapped: dedman6, nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+ThiefVoice:
+	Voices:
+		Select: swhat1,syeah1
+		Action: saffirm1,smout1,sokay1
+		Attack: saffirm1,smout1,sokay1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+CivilianMaleVoice:
+	Voices:
+		Select: guyyeah1
+		Action: guyokay1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+CivilianFemaleVoice:
+	Voices:
+		Select: girlyeah
+		Action: girlokay
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+EinsteinVoice:
+	Voices:
+		Select: einah1
+		Action: einok1,einyes1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		
+MoebiusVoice:
+	Voices:
+		Select: mcomnd1,mhello1,myes1,mhmmm1,mthanks1
+		Move: myesyes1,mplan3,mtiber1,mcourse1
+		Action: myesyes1,mplan3,mtiber1,mcourse1
+		Die: nuyell1,nuyell4,nuyell5,nuyell6
+		Burned: yell1
+		Zapped: nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+ShokVoice:
+	Voices:
+		Select: jchrge1,jjuice1,jjump1,jpower1
+		Move: jdance1,jyes1
+		Attack: jburn1,jcrisp1,jshock1,jlight1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+
+StavrosVoice:
+	Voices:
+		Select: stavcmdr
+		Move: stavcrse, stavyes, stavmov
+		Attack: stavcrse, stavyes
+		Action: stavcrse, stavyes
+		Demolish: stavcrse
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		
+VolkovVoice:
+	Voices:
+		Select: comrade
+		Move: da, order
+		Action: attacking,fhomec,funion,frussia
+		Attack: attacking
+		Die: condia,condid
+		Burned: condia,condid
+		Zapped: condia,condid
+		Poisoned: condia,condid
+		Demolish: fhomec,frussia,funion
+		Kill: frussia,funion,fhomec
+		Build: frussia
+
+CommandoVoice:
+	Voices:
+		Select: ryeah1,ryes1,ryo1
+		Move: rcmon1,ronit1,rgotit1
+		Attack: ronit1,rgotit1,rnoprblm1
+		Action: ronit1,rgotit1,rnoprblm1
+		Demolish: rnoprblm1
+		Die: ramyell1
+		Burned: ramyell1
+		Zapped: ramyell1
+		Poisoned: ramyell1
+		Build: rrokroll1
+		Kill: rkeepem1,rlaugh1,rlefty1,rtuffguy1
+		
+ViceVoice:
+	Voices:
+		Select: fiend2
+		Move: fiend1
+		Attack: fiend1
+		Action: fiend1
+		Die: fiend2
+		Burned: fiend1
+		Zapped: fiend1
+		Poisoned: fiend1
+		Build: fiend1
+		
+KirovVoice:
+	Voices:
+		Select: kirsea,kirseb,kirsec,kirsed
+		Move: kirmoa,kirmob,kirmoc
+		Attack: kirata,kiratb,kiratc,kiratd
+		Action: kirmoa,kirmob,kirmoc
+		Die: kirdia,kirdib,kirdic,kirdid
+		Burned: kirdia,kirdib,kirdic,kirdid
+		Zapped: kirdia,kirdib,kirdic,kirdid
+		Poisoned: kirdia,kirdib,kirdic,kirdid
+		Build: kirsea
+		
+ChronoVoice:
+	Voices:
+		Select: ichrsea,ichrseb,ichrsec,ichrsed,ichrsee
+		Move: ichrseb,ichrsec,ichrsed,ichrsee
+		Attack: ichrata,ichratb,ichratc,ichratd
+		Action: ichrseb,ichrsec,ichrsed,ichrsee
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: ichrseb
+
+TitanVoice:
+	Voices:
+		Select: 32-i008
+		Move: 32-i000,32-i004
+		Attack: 32-i002,32-i006
+		Action: 32-i000,32-i004
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: 32-i000
+		
+TitanNodVoice:
+	Voices:
+		Select: 60-n100,60-n102,60-n104
+		Move: 60-n106,60-n108,60-n110
+		Attack: 60-n112,60-n114,60-n116
+		Action: 60-n106,60-n108,60-n110
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: 60-n100
+		
+TTruckVoice:
+	Voices:
+		Select: vdemsea, vdemseb, vdemsec, vdemsed
+		Move: vdemmoa, vdemmob, vdemmoc
+		Attack: vdemata, vdematb, vdematc, vdematd, vdemate
+		Action:  vdemmoa, vdemmob, vdemmoc
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vdemmoa
+		
+InfilVoice:
+	Voices:
+		Select: 12-i002,12-i004
+		Move: 12-i006,12-i008,12-i010
+		Attack: 12-i014,12-i016
+		Action: 12-i006,12-i008,12-i010
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: 12-i010
+		
+CarryAllVoice:
+	Voices:
+		Select: carasea,caraseb,carased
+		Move: caramoa,caramob,caramoc,caramod,carasec
+		Attack: caramoc,caramoa,caramob
+		Action:  caramoc,caramoa,caramob
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: caraseb
+		
+TDestVoice:
+	Voices:
+		Select: vtansea,vtanseb,vtansec,vtansed,vtansee
+		Move: vtanmoa,vtanmob,vtanmoc,vtanmod
+		Attack: vtanata,vtanatb,vtanatc,vtanatd,vtanate
+		Action:  vtanmoa,vtanmob,vtanmoc,vtanmod
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vtansea
+		
+SniperVoice:
+	Voices:
+		Select: isnisea,isniseb,isnisec,isnised
+		Move: isnimoa,isnimob,isnimoc,isnimod,isnimoe
+		Attack: isniata,isniatb,isniatc
+		Action: isnimoa,isnimob,isnimoc,isnimod,isnimoe
+		Die: isnidia,isnidib,isnidic
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: isnisea
+		
+HarrierVoice:
+	Voices:
+		Select: vintsea,vintseb,vintsec,vintsed
+		Move: vintmoa,vintmob,vintmoc,vintmod
+		Attack: vintata,vintatb,vintatc,vintatd
+		Action:  vintmoa,vintmob,vintmoc,vintmod
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vintsea
+
+DroneCarrVoice:
+	Voices:
+		Select: vairsea, vairseb, vairsec, vairsee
+		Move: vairmoa, vairmob, vairmoc, vairmod, vairmoe
+		Attack: vairata, vairatb, vairatc, vairatd, vairate
+		Action:  vairmoa, vairmob, vairmoc, vairmod, vairmoe
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vairsea
+		
+YuriVoice:
+	Voices:
+		Select: iyursea,iyurseb,iyursec,iyursed,iyursee
+		Move: iyurmoa,iyurmob,iyurmoc,iyurmod
+		Action: iyurmoa,iyurmob,iyurmoc,iyurmod
+		Attack: iyurata,iyuratb,iyuratc,iyuratd,iyurate
+		Die: iyurdia,iyurdib,iyurdic
+		Burned: iyurdia,iyurdib,iyurdic
+		Zapped: iyurdia, iyurdib,iyurdic
+		Poisoned: iyurdia,iyurdib,iyurdic
+		Demolish: iyuratc
+		Kill: iyuratc
+		Build: iyursec
+		
+DesVoice:
+	Voices:
+		Select: idesseb,idessec,idessed,idessee
+		Move: idesmoa,idesmob,idesmoc,idesmod,idesmoe
+		Attack: idesata,idesatb,idesatc,idesatd,idesate,idesatf
+		Action:  idesmoa,idesmob,idesmoc,idesmod,idesmoe
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: idessea
+		
+BorisVoice:
+	Voices:
+		Select: iborsea,iborseb,iborsec,iborsed,iborsee
+		Move: ibormoa,ibormob,ibormoc,ibormod,ibormoe
+		Action: ibormoa,ibormob,ibormoc,ibormod,ibormoe
+		Attack: iborata,iboratb,iboratc,iboratd,iborate
+		Demolish: iboraib
+		Die: ibordia, ibordib,ibordic,ibordid,ibordie
+		Burned: ibordia,ibordib,ibordic,ibordid,ibordie
+		Zapped: ibordia,ibordib,ibordic,ibordid,ibordie
+		Poisoned: ibordia,ibordib,ibordic,ibordid,ibordie
+		Kill: iborata,iboratb,iboratc,iboratd,iborate
+		Build: iborcra,iborcrb,iborcrc,iborcrd,iborcre
+		
+V3Voice:
+	Voices:
+		Select: vv3lsea,vv3lseb,vv3lsec,vv3lsed,vv3lsee
+		Move: vv3lmob,vv3lmoc,vv3lmod,vv3lmoe
+		Attack: vv3lata,vv3latb,vv3latc,vv3latd,vv3late
+		Action:  vv3lmob,vv3lmoc,vv3lmod,vv3lmoe
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vv3lsea,vv3lseb,vv3lsec,vv3lsed,vv3lsee
+		
+MirageVoice:
+	Voices:
+		Select: vmirsea, vmirseb, vmirsec, vmirsed, vmirsee, vmirsef
+		Move: vmirmoa, vmirmob, vmirmoc, vmirmod, vmirmoe, vmirmof, vmirmog
+		Attack: vmirata, vmiratb, vmiratc, vmiratd, vmirate
+		Action:  vmirmoa, vmirmob, vmirmoc, vmirmod, vmirmoe, vmirmof, vmirmog
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vmirsea, vmirseb, vmirsec, vmirsed, vmirsee, vmirsef
