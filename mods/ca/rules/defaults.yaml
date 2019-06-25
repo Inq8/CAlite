@@ -363,7 +363,6 @@
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^InfantryExperienceHospitalOverrides
 	Inherits@4: ^SpriteActor
-	Inherits@5: ^Cloakable
 	Inherits@bounty: ^GlobalBounty
 	RenderSprites:
 		PlayerPalette: playertd
@@ -1407,6 +1406,32 @@
 	GrantCondition@IDISABLE:
 		RequiresCondition: lowpower || empdisable
 		Condition: disabled
+		
+^DisableOnLowPowerOrForceDisabled:
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled && !invulnerability && !empdisable && !forceshield
+		Palette: disabled
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || empdisable || forcedisabled
+		Condition: disabled
+	ExternalCondition:
+		Condition: forcedisabled
+	TimedConditionBar@FSDISABLE:
+		Condition: forcedisabled
+		Color: FFFF66
+	WithDecoration@FORCEDISABLED:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: forcedisabled
+		ReferencePoint: Center
+		Offsets:
+			repairing: 10, 0
+	RepairableBuilding:
+		RepairCondition: repairing
 
 ^DisableOnLowPowerOrPowerDown:
 	Inherits: ^DisableOnLowPower
@@ -1435,31 +1460,58 @@
 		Offsets:
 			powerdown: -10, 0
 			
-^DisableOnForceShield:
-	WithColoredOverlay@FSDISABLE:
-		RequiresCondition: forcedisabled && !disabled && !forceshield && !invulnerability && !emppowerdown
+^DisableOnLowPowerOrPowerDownOrForceDisable:
+	Inherits: ^DisableOnLowPower
+	GrantCondition@IDISABLE:
+		RequiresCondition: lowpower || powerdown || empdisable || forcedisabled
+		Condition: disabled
+	ToggleConditionOnOrder:
+		DisabledSound: EnablePower
+		EnabledSound: DisablePower
+		Condition: powerdown
+		OrderName: PowerDown
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown || forcedisabled
+		ReferencePoint: Center
+		Offsets:
+			repairing: 10, 0
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+	PowerMultiplier@FORCEDISABLE:
+		RequiresCondition: forcedisabled
+		Modifier: 0
+	RepairableBuilding:
+		RepairCondition: repairing
+	WithBuildingRepairDecoration:
+		Offsets:
+			powerdown: -10, 0
+	TimedConditionBar@FSDISABLE:
+		Condition: forcedisabled
+		Color: FFFF66
+	ExternalCondition:
+		Condition: forcedisabled
+
+^DisabledByPowerOutage:
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled && !forceshield && !invulnerability && !emppowerdown
 		Palette: disabled
 	ExternalCondition:
 		Condition: forcedisabled
-	PowerMultiplier@FSPOWERDOWN:
-		RequiresCondition: forcedisabled
-		Modifier: 0
+	TimedConditionBar@FSDISABLE:
+		Condition: forcedisabled
+		Color: FFFF66
 	WithDecoration@FSPOWERDOWN:
 		Image: poweroff
 		Sequence: offline
 		Palette: chrome
 		RequiresCondition: forcedisabled && !forceshield
 		ReferencePoint: Center
-	TimedConditionBar@FSDISABLE:
-		Condition: forcedisabled
-		Color: FFFF66
-
-^DisabledByPowerOutage:
-	WithColoredOverlay@IDISABLE:
-		RequiresCondition: disabled && !forceshield && !invulnerability && !emppowerdown
-		Palette: disabled
 	GrantCondition@IDISABLE:
-		RequiresCondition: power-outage
+		RequiresCondition: power-outage || forcedisabled
 		Condition: disabled
 	AffectedByPowerOutage:
 		Condition: power-outage

@@ -610,7 +610,7 @@ THF:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move
 		CloakTypes: Cloak, Thief
 		IsPlayerPalette: false
-		PauseOnCondition: cloak-force-disabled || invisibility
+		PauseOnCondition: cloak-force-disabled
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
@@ -994,7 +994,8 @@ SNIPER:
 		CloakedCondition: hidden
 		Palette: cloakTD
 		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled && !invisibility
+		CloakTypes: Cloak, Thief
+		RequiresCondition: !cloak-force-disabled
 		UncloakOn: Unload, Infiltrate, Demolish, Dock, Move
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled

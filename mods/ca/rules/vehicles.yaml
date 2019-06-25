@@ -320,7 +320,7 @@ ARTY.nod:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		IconPalette: chrometd
-		Prerequisites: hq, ~vehicles.blackh, ~techlevel.medium, ~techlevel.funits
+		Prerequisites: hq, ~vehicles.marked, ~techlevel.medium, ~techlevel.funits
 		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Armament:
 		Weapon: 155mmTD

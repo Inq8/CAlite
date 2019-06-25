@@ -220,16 +220,19 @@ camera.spyplane:
 		
 camera.sathack:
 	Inherits: CAMERA
+	-RenderSpritesEditorOnly:
+	RenderSprites:
+		Image: satscan
+		Scale: 0.5
 	EditorOnlyTooltip:
 		Name: (support power proxy camera)
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
 	DetectCloaked:
-		Range: 24c0
-		CloakTypes: Cloak, Hijacker
-	WithDecoration:
-		Image: satscan
-		Sequence: idle
-		ReferencePoint: Center
-		ZOffset: 1023
+		Range: 10c0
+		CloakTypes: Cloak, Thief
+	
 
 SONAR:
 	Inherits: camera.spyplane

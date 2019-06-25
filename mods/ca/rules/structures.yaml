@@ -1,6 +1,6 @@
 MSLO:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits@shape: ^2x1Shape
 	Selectable:
 		Bounds: 48,24
@@ -68,7 +68,7 @@ MSLO:
 
 GAP:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -400,14 +400,14 @@ SYRD:
 
 IRON:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits@shape: ^2x1Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 130
 		Prerequisites: stek, ~structures.soviet, ~techlevel.superw
 		BuildLimit: 1
-		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Invulnerability
+		Description: Makes a group of units invulnerable\nfor a short time.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Iron Curtain
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -444,7 +444,7 @@ IRON:
 		WeaponDelay: 0
 		Effect: crate-effects
 		EffectSequence: invuln
-		Description: Invulnerability
+		Description: Iron Curtain
 		LongDesc: Makes a vehicles or structures invulnerable\nfor 20 seconds. Lethal to Infantry.
 		OnFireSound: ironcur9.aud
 		SelectTargetSpeechNotification: SelectTarget
@@ -454,6 +454,7 @@ IRON:
 		DisplayRadarPing: True
 		Cursor: ability
 		PauseOnCondition: disabled || emppowerdown
+		DisplayTimerStances: Ally, Neutral, Enemy
 	SupportPowerChargeBar:
 	Power:
 		Amount: -200
@@ -462,7 +463,7 @@ IRON:
 
 PDOX:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
@@ -516,6 +517,7 @@ PDOX:
 		KillCargo: yes
 		DisplayRadarPing: True
 		Range: 2
+		DisplayTimerStances: Ally, Neutral, Enemy
 	SupportPowerChargeBar:
 	Power:
 		Amount: -200
@@ -620,7 +622,7 @@ AGUN:
 
 DOME:
 	Inherits: ^Building
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
@@ -929,7 +931,7 @@ SAM:
 
 ATEK:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPower
+	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^2x2Shape
 	Selectable:
 		Bounds: 48,48
@@ -1725,6 +1727,7 @@ APWR:
 
 STEK:
 	Inherits: ^ScienceBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^3x2Shape
 	Selectable:
 		Bounds: 72,48
@@ -3300,7 +3303,7 @@ ATWR:
 	Inherits: ^DefenseTD
 	RenderSprites:
 		PlayerPalette: playertd
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPower
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense
@@ -3432,7 +3435,7 @@ CHAIN:
 
 HQ:
 	Inherits: ^BuildingTD
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
 		Type: Rectangle
@@ -3515,7 +3518,7 @@ HQ:
 
 EYE:
 	Inherits: ^ScienceBuildingTD
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,512,128, 420,-598,213
 		Type: Rectangle
@@ -3585,7 +3588,7 @@ EYE:
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
 		DisplayRadarPing: True
-		DisplayTimerStances: Ally
+		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayBeacon: True
 		CameraActor: camera
 		ArrowSequence: arrow
@@ -3978,7 +3981,7 @@ AFLD.gdi:
 
 GTEK:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^3x2Shape
 	Buildable:
 		Queue: Building
@@ -4036,7 +4039,7 @@ GTEK:
 
 TMPL:
 	Inherits: ^ScienceBuildingTD
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrForceDisabled
 	Inherits@shape: ^3x2Shape
 	HitShape:
 		UseTargetableCellsOffsets: false
@@ -4560,14 +4563,14 @@ TTUR:
 	
 SGEN:
 	Inherits: ^ScienceBuilding
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 130
 		Prerequisites: tmpl, ~structures.nod, ~techlevel.superw
 		BuildLimit: 1
 		IconPalette: chrometd
-		Description: Makes a group of units invisible\nfor a short time.\nRequires power to operate.\n  Special Ability: Invisibility\nMaximum 1 can be built.
+		Description: Makes a group of units invisible\nfor a short time.\nRequires power to operate.\n  Special Ability: Tiberium Stealth\nMaximum 1 can be built.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -4604,13 +4607,13 @@ SGEN:
 		Prerequisites: techlevel.superw
 		OrderName: stealthgenc
 		Icon: invis
-		IconPalette: temptd
+		IconPalette: chrometd
 		ChargeInterval: 3000
 		Weapon: StealthBubble
 		WeaponDelay: 0
 		Effect: crate-effects
 		EffectSequence: stealth
-		Description: Invisibility
+		Description: Tiberium Stealth
 		LongDesc: Makes a vehicles or structures invisible\nfor 30 seconds. Harmful to Infantry.
 		OnFireSound: cloak6.aud
 		SelectTargetSpeechNotification: SelectTarget
@@ -4618,6 +4621,7 @@ SGEN:
 		BeginChargeSpeechNotification: ChemStealthCharging
 		EndChargeSpeechNotification: ChemStealthReady
 		DisplayRadarPing: True
+		DisplayTimerStances: Ally, Neutral, Enemy
 		Cursor: chemmissile
 		PauseOnCondition: disabled || emppowerdown
 	SupportPowerChargeBar:
