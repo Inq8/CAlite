@@ -284,6 +284,7 @@
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
 	Repairable:
+		RepairBuildings: fix, rep
 	Chronoshiftable:
 	Passenger:
 		CargoType: Vehicle
@@ -604,6 +605,7 @@
 		Types: Ship
 	Chronoshiftable:
 	RepairableNear:
+		Buildings: syrd, spen, syrd.gdi, spen.nod
 	GpsDot:
 		String: Ship
 	WithDamageOverlay:
@@ -1426,7 +1428,7 @@
 		Image: poweroff
 		Sequence: offline
 		Palette: chrome
-		RequiresCondition: forcedisabled
+		RequiresCondition: forcedisabled && !forceshield
 		ReferencePoint: Center
 		Offsets:
 			repairing: 10, 0
@@ -1517,6 +1519,9 @@
 		Condition: power-outage
 	InfiltrateForPowerOutage:
 		Types: SpyInfiltrate, SabInfiltrate
+	PowerMultiplier@FORCEDISABLE:
+		RequiresCondition: forcedisabled
+		Modifier: 0
 	Power:
 		RequiresCondition: !disabled
 

@@ -203,9 +203,6 @@ Actors:
 	Actor50: tc03
 		Location: 22,97
 		Owner: Neutral
-	Actor51: tc03
-		Location: 22,95
-		Owner: Neutral
 	Actor52: tc03
 		Location: 69,77
 		Owner: Neutral
@@ -446,17 +443,11 @@ Actors:
 	Actor132: t08
 		Location: 34,87
 		Owner: Neutral
-	Actor133: t08
-		Location: 21,97
-		Owner: Neutral
 	Actor134: t08
 		Location: 24,97
 		Owner: Neutral
 	Actor135: t08
 		Location: 24,96
-		Owner: Neutral
-	Actor136: t08
-		Location: 22,94
 		Owner: Neutral
 	Actor137: t16
 		Location: 22,106
@@ -719,3 +710,18 @@ Actors:
 	Actor224: tc03
 		Owner: Neutral
 		Location: 70,109
+	Actor225: mine
+		Owner: Neutral
+		Location: 99,53
+	Actor227: mine
+		Owner: Neutral
+		Location: 21,60
+	Actor230: mine
+		Owner: Neutral
+		Location: 58,21
+	Actor231: mine
+		Owner: Neutral
+		Location: 52,108
+	Actor226: mine
+		Owner: Neutral
+		Location: 19,97

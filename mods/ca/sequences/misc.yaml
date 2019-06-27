@@ -688,6 +688,9 @@ overlay:
 	build-valid-snow:
 		Start: 2
 	build-valid-temperat:
+	build-valid-winter:
+	build-valid-jungle:
+	build-valid-barren:
 	build-invalid:
 		Start: 1
 	target-select:

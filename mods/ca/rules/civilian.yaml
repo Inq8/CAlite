@@ -124,6 +124,7 @@ FCOM:
 		String: Forward
 	SpawnActorOnDeath:
 		Actor: FCOM.Husk
+		OwnerType: InternalName
 	-Explodes:
 
 HOSP:
@@ -165,6 +166,7 @@ HOSP:
 		String: Hospital
 	SpawnActorOnDeath:
 		Actor: HOSP.Husk
+		OwnerType: InternalName
 	-Explodes:
 
 V01:
@@ -448,6 +450,7 @@ MISS:
 		String: Communications
 	SpawnActorOnDeath:
 		Actor: MISS.Husk
+		OwnerType: InternalName
 	-Explodes:
 
 BIO:
@@ -484,6 +487,7 @@ BIO:
 		String: Biohazard
 	SpawnActorOnDeath:
 		Actor: BIO.Husk
+		OwnerType: InternalName
 	-Explodes:
 
 OILB:
@@ -529,6 +533,7 @@ OILB:
 		Amount: 100
 	SpawnActorOnDeath:
 		Actor: OILB.Husk
+		OwnerType: InternalName
 	-Explodes:
 	
 OREP:
@@ -557,13 +562,10 @@ OREP:
 	CapturableProgressBar:
 	CapturableProgressBlink:
 	EngineerRepairable:
-	CashTrickler:
-		Interval: 375
-		Amount: -50
 	Tooltip:
 		Name: Power Station
 	TooltipDescription@ally:
-		Description: Provides enormous power for funds.
+		Description: Provides enormous power supply.
 		ValidStances: Ally
 	TooltipDescription@other:
 		Description: Capture to increase power supply.
@@ -576,6 +578,7 @@ OREP:
 		Amount: 100
 	SpawnActorOnDeath:
 		Actor: OREP.Husk
+		OwnerType: InternalName
 	-Explodes:
 
 V20:

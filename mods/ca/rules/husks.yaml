@@ -880,7 +880,7 @@ OREP.Husk:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Tooltip:
-		Name: Ruin (Ore Purifier)
+		Name: Ruin (Power Station)
 	TransformOnCapture:
 		IntoActor: orep
 	InfiltrateForTransform:

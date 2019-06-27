@@ -1056,7 +1056,8 @@ KIROV:
 		AltitudeVelocity: 0c50
 	AutoTarget:
 		InitialStance: HoldFire
-		InitialStanceAI: HoldFire
+		InitialStanceAI: AttackAnything
+		ScanRadius: 10
 	SelectionDecorations:
 	SpawnActorOnDeath:
 		Actor: kirov.Husk

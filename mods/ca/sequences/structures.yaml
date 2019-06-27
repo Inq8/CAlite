@@ -42,6 +42,11 @@ hosp:
 	dead:
 		Start: 8
 		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
 	make: hospmake
 		Length: *
 	emp-overlay: emp_fx01
@@ -69,6 +74,11 @@ bio:
 	dead:
 		Start: 2
 		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
 	make: biomake
 		Length: *
 	emp-overlay: emp_fx01

@@ -264,7 +264,7 @@ E6:
 	Captures:
 		CaptureTypes: building
 		PlayerExperience: 25
-		CaptureDelay: 200
+		CaptureDelay: 100
 	Voiced:
 		VoiceSet: EngineerVoice
 	Selectable:
@@ -943,7 +943,7 @@ N6:
 	Captures:
 		CaptureTypes: building
 		PlayerExperience: 25
-		CaptureDelay: 200
+		CaptureDelay: 100
 	Voiced:
 		VoiceSet: EngineerVoice
 	Selectable:

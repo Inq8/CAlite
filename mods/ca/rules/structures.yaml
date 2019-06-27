@@ -199,7 +199,7 @@ SPEN:
 		ProductionTypes: Ship
 	Production:
 		Produces: Ship, Submarine
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -326,7 +326,7 @@ SYRD:
 		ProductionTypes: Ship, Boat
 	Production:
 		Produces: Ship, Boat
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -1202,7 +1202,7 @@ FACT:
 		Range: 4c0
 	Production:
 		Produces: Building, Defense
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1434,7 +1434,7 @@ HPAD:
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Helicopter
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Reservable:
 	ProductionBar:
 		ProductionType: Aircraft
@@ -1531,7 +1531,7 @@ AFLD:
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Reservable:
 	ProvidesPrerequisite@soviet:
 		Factions: soviet, russia, ukraine
@@ -1826,7 +1826,7 @@ BARR:
 		ProductionTypes: Soldier, Infantry
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	GrantExternalConditionToProduced:
 		Condition: produced
 	PrimaryBuilding:
@@ -1943,7 +1943,7 @@ KENN:
 		ProductionTypes: Dog, Infantry
 	Production:
 		Produces: Infantry, Dog
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -2005,7 +2005,7 @@ TENT:
 		ProductionTypes: Soldier, Infantry
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	GrantExternalConditionToProduced:
 		Condition: produced
 	PrimaryBuilding:
@@ -2387,7 +2387,7 @@ PYLE:
 		ProductionTypes: Soldier, Infantry
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	ProductionBar:
@@ -2501,7 +2501,7 @@ HAND:
 		ExitCell: 1,2
 	Production:
 		Produces: Infantry, Soldier
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -2729,7 +2729,7 @@ AWEP:
 		ExitCell: 0,2
 	Production:
 		Produces: Vehicle
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -2988,7 +2988,7 @@ ASTRIP.AI:
 	-WithDeliveryAnimation:
 	Production:
 		Produces: Vehicle
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	ProductionQueue:
 		Type: Vehicle
 		Group: Vehicle
@@ -3135,7 +3135,7 @@ AFAC:
 	WithBuildingBib:
 	Production:
 		Produces: Building, Defense
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -3693,7 +3693,7 @@ HPAD2:
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Helicopter
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Reservable:
 	ProductionBar:
 		ProductionType: Aircraft
@@ -3930,7 +3930,7 @@ AFLD.gdi:
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	Reservable:
 	ProvidesPrerequisite@GDI:
 		Factions: gdi
@@ -4251,7 +4251,7 @@ SPEN.nod:
 		ProductionTypes: Submarine, Ship
 	Production:
 		Produces: Ship, Submarine
-		PauseOnCondition: forceshield
+		PauseOnCondition: forceshield || invulnerability
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	RepairsUnits:

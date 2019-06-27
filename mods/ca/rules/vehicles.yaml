@@ -1929,35 +1929,6 @@ DISR:
 		DecorationBounds: 44,38,0,-4
 	Carryable:
 		LocalOffset: 0,0,200
-	SpawnActorOnDeath:
-		Actor: DISR.Husk
-		OwnerType: InternalName
-		EffectiveOwnerFromOwner: true
-	AutoTargetPriority@DEFAULT:
-		RequiresCondition: !stance-attackanything && !assault-move
-		ValidTargets: Structure, Defense
-		InvalidTargets: NoAutoTarget, WaterStructure
-	AutoTargetPriority@UNITS:
-		RequiresCondition: !stance-attackanything && !assault-move
-		ValidTargets: Infantry, Vehicle, Water, Underwater
-		Priority: 2
-	AutoTargetPriority@DEFAULTWALL:
-		RequiresCondition: !stance-attackanything
-		ValidTargets: NoAutoTarget, WaterStructure
-		Priority: 3
-	AutoTargetPriority@ATTACKANYTHING:
-		RequiresCondition: !stance-attackanything && !assault-move
-		ValidTargets: Structure, Defense
-		InvalidTargets: NoAutoTarget
-	AutoTargetPriority@UNITSANYTHING:
-		RequiresCondition: !stance-attackanything && !assault-move
-		ValidTargets: Infantry, Vehicle, Water, Underwater
-		Priority: 2
-		InvalidTargets: NoAutoTarget
-	AutoTargetPriority@ATTACKANYTHINGWALL:
-		RequiresCondition: stance-attackanything
-		ValidTargets: NoAutoTarget, WaterStructure
-		Priority: 3
 	
 HMLRS:
 	Inherits: ^VehicleTD
@@ -2071,10 +2042,10 @@ RTNK:
 		UncloakSound: appear1.aud
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Move
 		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled && invisibility
+		RequiresCondition: !cloak-force-disabled && !invisibility
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
+		ValidDamageStates: Critical, Heavy
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 28,28
