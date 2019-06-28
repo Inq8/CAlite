@@ -219,19 +219,19 @@
 		Side: GDI
 		Description: ZOCOM:\n Special Unit: Disruptor
 	Faction@10:
-		Name: NOD
+		Name: Nod
 		InternalName: nod
-		Side: NOD
+		Side: Nod
 		Selectable: False
 	Faction@11:
 		Name: Black Hand
 		InternalName: blackh
-		Side: NOD
+		Side: Nod
 		Description: Black Hand:\n Special Unit: Howitzer
 	Faction@12:
 		Name: Marked
 		InternalName: marked
-		Side: NOD
+		Side: Nod
 		Description: Marked of Kane:\n Special Unit: Toxin Truck
 	Faction@random:
 		Name: Any
@@ -258,11 +258,11 @@
 		Side: Random
 		Description: Random GDI Faction\nA random GDI faction will be chosen when the game starts.
 	Faction@randomnod:
-		Name: NOD
+		Name: Nod
 		InternalName: RandomNOD
 		RandomFactionMembers: blackh, marked
 		Side: Random
-		Description: Random NOD Faction\nA random NOD faction will be chosen when the game starts.
+		Description: Random Nod Faction\nA random Nod faction will be chosen when the game starts.
 	ResourceType@ore:
 		Type: Ore
 		Name: Valuable Minerals

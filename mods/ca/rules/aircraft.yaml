@@ -975,7 +975,7 @@ rah66:
 		UncloakSound: appear1.aud
 		Palette: cloakTD
 		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled && airborne
+		RequiresCondition: !cloak-force-disabled && airborne && !invisibility
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical

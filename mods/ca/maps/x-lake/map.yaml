@@ -634,10 +634,10 @@ Actors:
 	Actor215: t08
 		Owner: Neutral
 		Location: 114,86
-	Actor216: t03
+	Actor216: t04
 		Owner: Neutral
 		Location: 115,91
-	Actor217: t03
+	Actor217: t04
 		Owner: Neutral
 		Location: 67,99
 	Actor218: t03

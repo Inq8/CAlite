@@ -69,7 +69,7 @@ Player:
 					TargetMetric: None
 					CheckRadius: 8c0
 			gdidropzone:
-				OrderName: dropzoneAI
+				OrderName: dropzone
 				MinimumAttractiveness: 5
 				Consideration@1:
 					Against: Enemy
@@ -175,45 +175,13 @@ Player:
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 3c0
-			IronCurtainPowerC:
-				OrderName: ironcurtainc
-				MinimumAttractiveness: 1000
-				FineScanRadius: 2
-				Consideration@2:
-					Against: Ally
-					Types: Structure
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 2c0
-				Consideration@3:
-					Against: Ally
-					Types: Tank
-					Attractiveness: 2
-					TargetMetric: Value
-					CheckRadius: 3c0
-			StealthGenC:
-				OrderName: stealthgenc
-				MinimumAttractiveness: 1000
-				FineScanRadius: 2
-				Consideration@2:
-					Against: Enemy
-					Types: Infantry
-					Attractiveness: 2
-					TargetMetric: Value
-					CheckRadius: 2c0
-				Consideration@3:
-					Against: Ally
-					Types: Tank
-					Attractiveness: 1
-					TargetMetric: Value
-					CheckRadius: 3c0
 			StealthGen:
 				OrderName: stealthgen
 				MinimumAttractiveness: 1000
 				FineScanRadius: 2
 				Consideration@2:
-					Against: Ally
-					Types: Structure
+					Against: Enemy
+					Types: Infantry
 					Attractiveness: 2
 					TargetMetric: Value
 					CheckRadius: 2c0

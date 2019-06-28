@@ -905,6 +905,7 @@ gmine:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			BARREN: TEMPERAT
+			JUNGLE: TEMPERAT
 
 railmine:
 	idle:
@@ -913,6 +914,7 @@ railmine:
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
 			BARREN: TEMPERAT
+			JUNGLE: TEMPERAT
 
 ctflag:
 	idle:
@@ -924,6 +926,7 @@ ctflag:
 		UseTilesetExtension: true
 		TilesetOverrides:
 			BARREN: TEMPERAT
+			JUNGLE: TEMPERAT
 		
 laserfire:
 	idle: veh-hit3
@@ -997,6 +1000,7 @@ split3:
 		Offset: 7, -13
 		UseTilesetExtension: true
 		TilesetOverrides:
+			DESERT: TEMPERAT
 			JUNGLE: TEMPERAT
 			WINTER: SNOW
 			BARREN: DESERT

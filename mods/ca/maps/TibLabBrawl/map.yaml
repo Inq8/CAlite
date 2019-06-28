@@ -843,9 +843,6 @@ Actors:
 	Actor267: cycl
 		Owner: Neutral
 		Location: 31,69
-	Actor268: gmine
-		Owner: Neutral
-		Location: 64,64
 	Actor275: mpspawn
 		Owner: Neutral
 		Location: 28,28
@@ -906,9 +903,6 @@ Actors:
 	Actor294: cycl
 		Owner: Neutral
 		Location: 12,9
-	Actor295: gmine
-		Owner: Neutral
-		Location: 11,11
 	Actor296: cycl
 		Owner: Neutral
 		Location: 116,9
@@ -933,9 +927,6 @@ Actors:
 	Actor303: cycl
 		Owner: Neutral
 		Location: 116,11
-	Actor304: gmine
-		Owner: Neutral
-		Location: 118,11
 	Actor305: cycl
 		Owner: Neutral
 		Location: 120,11
@@ -984,9 +975,6 @@ Actors:
 	Actor320: cycl
 		Owner: Neutral
 		Location: 116,118
-	Actor321: gmine
-		Owner: Neutral
-		Location: 118,118
 	Actor322: cycl
 		Owner: Neutral
 		Location: 120,118
@@ -1035,9 +1023,6 @@ Actors:
 	Actor337: cycl
 		Owner: Neutral
 		Location: 9,118
-	Actor338: gmine
-		Owner: Neutral
-		Location: 11,118
 	Actor339: cycl
 		Owner: Neutral
 		Location: 13,118
@@ -1715,18 +1700,6 @@ Actors:
 	Actor686: silo
 		Owner: Neutral
 		Location: 37,105
-	Actor687: mine
-		Owner: Neutral
-		Location: 46,82
-	Actor688: mine
-		Owner: Neutral
-		Location: 46,46
-	Actor689: mine
-		Owner: Neutral
-		Location: 82,46
-	Actor690: mine
-		Owner: Neutral
-		Location: 82,82
 	Actor631: e6
 		Owner: Neutral
 		Location: 69,62
@@ -2356,3 +2329,30 @@ Actors:
 		Location: 3,3
 		SubCell: 3
 		Facing: 92
+	Actor827: splitblue
+		Owner: Neutral
+		Location: 64,64
+	Actor828: splitblue
+		Owner: Neutral
+		Location: 46,46
+	Actor829: splitblue
+		Owner: Neutral
+		Location: 82,46
+	Actor830: splitblue
+		Owner: Neutral
+		Location: 11,11
+	Actor831: splitblue
+		Owner: Neutral
+		Location: 118,11
+	Actor832: splitblue
+		Owner: Neutral
+		Location: 11,118
+	Actor833: splitblue
+		Owner: Neutral
+		Location: 118,118
+	Actor834: splitblue
+		Owner: Neutral
+		Location: 82,82
+	Actor835: splitblue
+		Owner: Neutral
+		Location: 46,82

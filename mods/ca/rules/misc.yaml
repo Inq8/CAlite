@@ -276,20 +276,6 @@ FLARE.dropzone:
 		DeliveryOffset: -1,1
 		DeliveringActor: orcaca.reinforce
 		Facing: 0
-		
-FLARE.dropzoneAI:
-	Inherits: FLARE
-	RevealsShroud:
-		Range: 4c0
-		Type: CenterPosition
-	Tooltip:
-		Name: Dropzone Flare
-		ShowOwnerRow: false
-	FreeActorWithDelivery@2:
-		Actor: APC2.reinforceAI
-		DeliveryOffset: -1,1
-		DeliveringActor: orcaca.reinforce
-		Facing: 0
 
 MINE:
 	Inherits@1: ^SpriteActor
@@ -603,11 +589,11 @@ waypoint:
 		Categories: System
 
 fact.colorpicker:
-	Inherits: FACT
+	Inherits: AFAC
 	-Buildable:
 	-MapEditorData:
 	RenderSprites:
-		Image: fact
+		Image: afac
 		Palette: colorpicker
 
 CTFLAG:

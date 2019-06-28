@@ -714,6 +714,16 @@
 ^Plane:
 	Inherits: ^NeutralPlane
 	Inherits@2: ^GainsExperience
+	Inherits@3: ^Cloakable
+	Cloak@EXTERNALCLOAK:
+		RequiresCondition: invisibility || crate-cloak && !cloak-force-disabled && !airborne
+		InitialDelay: 0
+		CloakDelay: 90
+		IsPlayerPalette: true
+		Palette: cloakgreen
+		CloakSound: cloak5.aud
+		UncloakSound: appear1.aud
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
 	Repairable:
 		RepairBuildings: fix, rep
 		

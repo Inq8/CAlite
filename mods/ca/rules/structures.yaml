@@ -1887,7 +1887,7 @@ BARR.AI:
 		Image: BARR
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 30
 		Prerequisites: anypower, ~structures.soviet, ~botplayer
 		Description: Trains Infantry.
 	Valued:
@@ -2072,7 +2072,7 @@ TENT.AI:
 		Image: TENT
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 20
 		Prerequisites: anypower, ~structures.allies, ~botplayer
 		Description: Trains Infantry.
 	Valued:
@@ -2228,6 +2228,30 @@ BRIK:
 		Types: concrete
 	WithWallSpriteBody:
 		Type: concrete
+		
+CHAIN:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 20
+		Prerequisites: afac, ~structures.nod, ~techlevel.low
+		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Chain-link Fence
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	LineBuild:
+		NodeTypes: chain
+	LineBuildNode:
+		Types: chain
+	WithWallSpriteBody:
+		Type: chain
 
 CYCL:
 	Inherits: ^Wall
@@ -2355,7 +2379,7 @@ PYLE:
 			BottomRight: 1024, 640
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 20
 		Prerequisites: anypower, ~structures.gdi, ~techlevel.low
 		IconPalette: chrometd
 		Description: Trains infantry.
@@ -2445,7 +2469,7 @@ PYLE.AI:
 		Image: pyle
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 20
 		Prerequisites: anypower, ~structures.gdi, ~botplayer
 		Description: Trains Infantry.
 	Valued:
@@ -2475,14 +2499,14 @@ HAND:
 		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 20
 		Prerequisites: anypower, ~structures.nod, ~techlevel.low
 		IconPalette: chrometd
 		Description: Trains infantry.
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Hand of NOD
+		Name: Hand of Nod
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -2560,7 +2584,7 @@ HAND.AI:
 		Image: hand
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 20
 		Prerequisites: anypower, ~structures.nod, ~botplayer
 		Description: Trains Infantry.
 	Valued:
@@ -2791,7 +2815,7 @@ ASTRIP:
 		PlayerPalette: playertd
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 45
+		BuildPaletteOrder: 80
 		Prerequisites: proc2, ~structures.nod, ~techlevel.low
 		IconPalette: chrometd
 		Description: Provides a dropzone\nfor vehicle reinforcements
@@ -3069,7 +3093,7 @@ NUK2:
 			marked: nodnuk2
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 110
 		Prerequisites: hq, ~structures.td, ~techlevel.low
 		IconPalette: chrometd
 		Description: Provides power for other structures.
@@ -3261,7 +3285,7 @@ GTWR:
 		PlayerPalette: playertd
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 50
 		Prerequisites: pyle, ~structures.gdi, ~techlevel.low
 		IconPalette: chrometd
 		Description: Basic defensive structure.\n  Strong vs Infantry\n  Weak vs Tanks
@@ -3307,7 +3331,7 @@ ATWR:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 80
 		Prerequisites: hq, ~structures.gdi, ~techlevel.medium
 		IconPalette: chrometd
 		Description: Ground defensive structure.\n  Strong vs Tanks\n  Weak vs Infantry
@@ -3359,7 +3383,7 @@ OBLI:
 		PlayerPalette: playertd
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 90
+		BuildPaletteOrder: 80
 		Prerequisites: hq, ~structures.nod, ~techlevel.high
 		IconPalette: chrometd
 		Description: Experimental Base defence.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
@@ -3407,31 +3431,6 @@ OBLI:
 		Range: 5c0
 		RequiresCondition: !lowpower
 	-SpawnActorsOnSell:
-
-CHAIN:
-	Inherits: ^Wall
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 20
-		Prerequisites: barracks, ~structures.td, ~techlevel.low
-		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
-	Valued:
-		Cost: 50
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Chain-link Fence
-	Health:
-		HP: 30000
-	Armor:
-		Type: Wood
-	LineBuild:
-		Range: 5
-		NodeTypes: chain
-	LineBuildNode:
-		Types: chain
-	WithWallSpriteBody:
-		Type: chain
 
 HQ:
 	Inherits: ^BuildingTD
@@ -3528,7 +3527,7 @@ EYE:
 		PlayerPalette: playertd
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 130
 		Prerequisites: gtek, ~structures.gdi, ~techlevel.superw
 		IconPalette: chrometd
 		BuildLimit: 1
@@ -3773,7 +3772,7 @@ PROC2:
 	Tooltip:
 		Name: Refinery
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 60
 		Prerequisites: anypower, ~structures.td, ~techlevel.low
 		Queue: Building
 		IconPalette: chrometd
@@ -4055,7 +4054,7 @@ TMPL:
 		BuildPaletteOrder: 140
 		Prerequisites: hq, ~structures.nod, ~techlevel.superw
 		IconPalette: chrometd
-		Description: Provides NOD advanced technologies.\nRequires power to operate.\n  Special Ability: Neutron Bomb
+		Description: Provides Nod advanced technologies.\nRequires power to operate.\n  Special Ability: Neutron Bomb
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -4153,7 +4152,7 @@ PRIS:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 90
 		Prerequisites: ~disabled
 		Description: Experimental base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
@@ -4211,7 +4210,7 @@ SPEN.nod:
 		Name: Sub Pen
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 85
+		BuildPaletteOrder: 50
 		IconPalette: chrometd
 		Prerequisites: hand, ~structures.nod, ~techlevel.low
 		Description: Produces and repairs\nsubmarines and transports.
@@ -4255,10 +4254,10 @@ SPEN.nod:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	RepairsUnits:
+		HpPerStep: 1000
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
-		HpPerStep: 1000
 	RallyPoint:
 	ProductionBar:
 		ProductionType: Ship
@@ -4307,7 +4306,7 @@ SYRD.gdi:
 		Proxy: powerproxy.sonarpulse
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 85
+		BuildPaletteOrder: 40
 		Prerequisites: pyle, ~structures.gdi, ~techlevel.low
 		Description: Produces and repairs ships\nand transports.
 	Valued:
@@ -4360,9 +4359,10 @@ SYRD.gdi:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	RepairsUnits:
+		HpPerStep: 1000
+		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
-		HpPerStep: 1000
 	RallyPoint:
 	ProductionBar:
 		ProductionType: Ship
@@ -4474,7 +4474,7 @@ GUN2:
 	Tooltip:
 		Name: Turret
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 70
 		Prerequisites: hand, ~structures.nod, ~techlevel.medium
 		Queue: Defense
 		IconPalette: chrometd
@@ -4517,7 +4517,7 @@ TTUR:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 60
 		Prerequisites: hand, ~structures.nod, ~techlevel.low
 		IconPalette: chrometd
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
@@ -4603,9 +4603,9 @@ SGEN:
 		Range: 5c0
 		RequiresCondition: !disabled
 	WithBuildingBib:
-	IonCannonPower@STEALTHGENC:
+	IonCannonPower@STEALTHGEN:
 		Prerequisites: techlevel.superw
-		OrderName: stealthgenc
+		OrderName: stealthgen
 		Icon: invis
 		IconPalette: chrometd
 		ChargeInterval: 3000

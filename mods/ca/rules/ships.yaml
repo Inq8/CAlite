@@ -35,6 +35,7 @@ SS:
 		RequiresCondition: underwater
 	Cloak:
 		CloakTypes: Underwater
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Heal
 		InitialDelay: 0
 		CloakDelay: 50
 		CloakSound: subshow1.aud
@@ -109,6 +110,7 @@ MSUB:
 		RequiresCondition: underwater
 	Cloak:
 		CloakTypes: Underwater
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Heal
 		InitialDelay: 0
 		CloakDelay: 100
 		CloakSound: subshow1.aud
@@ -546,6 +548,7 @@ SS2:
 		RequiresCondition: underwater
 	Cloak:
 		CloakTypes: Underwater
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Heal
 		InitialDelay: 0
 		CloakDelay: 50
 		CloakSound: subshow1.aud
@@ -620,6 +623,7 @@ ICBMSUB:
 		RequiresCondition: underwater
 	Cloak:
 		CloakTypes: Underwater
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Heal
 		InitialDelay: 0
 		CloakDelay: 100
 		CloakSound: subshow1.aud

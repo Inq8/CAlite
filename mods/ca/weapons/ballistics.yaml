@@ -132,7 +132,7 @@ TurretGun:
 			Wood: 50
 	Warhead@3EffGround: CreateEffect
 		Explosions: large_explosion
-		ImpactSounds: kaboom12.aud
+		ImpactSounds: kaboom12.aud, xplos.aud
 		ValidTargets: Ground, Ship, Trees
 			
 TurretGunTD:

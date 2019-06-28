@@ -623,7 +623,7 @@ SHOK:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 130
+		BuildPaletteOrder: 115
 		Prerequisites: ~barr, stek, tsla, ~infantry.soviet, ~techlevel.high
 		Description: Elite infantry with portable Tesla coils.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
 	Valued:
@@ -653,8 +653,6 @@ SHOK:
 		Voice: Move
 	Voiced:
 		VoiceSet: ShokVoice
-	ProducibleWithLevel:
-		Prerequisites: barracks.upgraded
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 		
@@ -704,7 +702,7 @@ N2:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 40
 		Prerequisites: ~pyle, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
@@ -785,7 +783,7 @@ N4:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 35
+		BuildPaletteOrder: 70
 		Prerequisites: ~hand, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Advanced Anti-infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
@@ -826,7 +824,7 @@ N5:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 115
 		Prerequisites: ~infantry.nod, tmpl, ~techlevel.high
 		IconPalette: chrometd
 		Description: Advanced general-purpose infantry.\n  Strong vs all Ground units
@@ -880,7 +878,7 @@ RMBO:
 	Tooltip:
 		Name: Commando
 	Buildable:
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 120
 		Prerequisites: ~barrackstd, techcenter, ~techlevel.high
 		Queue: Infantry
 		IconPalette: chrometd
@@ -927,7 +925,7 @@ N6:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 60
 		Prerequisites: ~barrackstd, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Infiltrates and captures\nenemy structures.\Can also repair friendly structures, bridges & tank husks.\n  Special Ability:  Repair\n  Unarmed
@@ -971,7 +969,7 @@ SNIPER:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 35
+		BuildPaletteOrder: 55
 		Prerequisites: ~disabled
 		Description: Special marksman infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n Special Ability: Stealth
 	Valued:
@@ -1032,10 +1030,10 @@ BORIS:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 131
+		BuildPaletteOrder: 120
 		Prerequisites: ~infantry.soviet, stek, ~techlevel.high
 		BuildLimit: 1
-		Description: Elite commando infantry. Can designate buildings for destruction.\n  Strong vs Infantry, Buildings\n  Weak vs Aircraft\n  Special Ability: Laser Designator\n Maximum 1 can be trained.
+		Description: Elite commando infantry. Armed with C4.\nCan detect cloaked units.\n Maximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Aircraft\n  Special Ability: Destroy Building with C4
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1069,6 +1067,9 @@ BORIS:
 	VoiceAnnouncement:
 		Voice: Build
 	AnnounceOnKill:
+	IgnoresDisguise:
+	DetectCloaked:
+		CloakTypes: Cloak, Thief
 	Voiced:
 		VoiceSet: BorisVoice
 	ProducibleWithLevel:
@@ -1138,7 +1139,7 @@ SAB:
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 90
 		Prerequisites: hq, ~infantry.nod, ~techlevel.infonly
 		Description: Infiltrates enemy structures and steals technology.\n Can also detect cloaked units and spies.
 	Valued:
@@ -1146,7 +1147,7 @@ SAB:
 	Tooltip:
 		Name: Infiltrator
 	RevealsShroud:
-		Range: 10c0
+		Range: 6c0
 	Passenger:
 		PipType: Red
 		Voice: Move

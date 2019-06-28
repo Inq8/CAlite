@@ -90,7 +90,7 @@ Player:
 		CashTickUpNotification: CashTickUp
 		CashTickDownNotification: CashTickDown
 	DeveloperMode:
-		CheckboxDisplayOrder: 10
+		CheckboxDisplayOrder: 16
 	GpsWatcher:
 	Shroud:
 		FogCheckboxEnabled: True
