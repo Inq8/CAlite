@@ -7,10 +7,15 @@
    information, see COPYING.
 ]]
 
+UnitTypes = { "3tnk", "ttnk" }
+GDIUnitTypes = { "mtnk", "mtnk" }
+GDIMLRSTypes = { "hmlrs", "hmlrs" }
+BeachUnitTypes = { "e1", "e2", "e3", "e4", "e1", "e2", "e3", "e4", "e1", "e2", "e3", "e4", "e1", "e2", "e3", "shok" }
+GDIBeachUnitTypes = { "n1", "n2", "n3", "n2", "n1", "n2", "n3", "n1", "n1", "n2", "n3", "n1", "n1", "n1", "n1", "n1" }
 ProducedUnitTypes =
 {
-	{ factory = ABarracks1, types = { "n1", "n1", "n1", "n1", "e3", "e3" } },
-	{ factory = SBarracks1, types = { "e1", "e1", "e1", "e2", "e3", "e3" } },
+	{ factory = AlliedBarracks1, types = { "n1", "n1", "n1", "n1", "n3", "n3" } },
+	{ factory = SovietBarracks1, types = { "e1", "e1", "e1", "e2", "e3", "e3" } },
 	{ factory = SKennel1, types = { "dog" } },
 	{ factory = ANavalYard1, types = { "pt2" } },
 	{ factory = SSubPen1, types = { "ss" } },
@@ -51,6 +56,14 @@ SendSovietUnits = function(entryCell, unitTypes, interval)
 		BindActorTriggers(unit)
 	end)
 	Trigger.OnAllKilled(units, function() SendSovietUnits(entryCell, unitTypes, interval) end)
+end
+
+SendGDIUnits = function(entryCell, unitTypes, interval)
+	local units = Reinforcements.Reinforce(gdi, unitTypes, { entryCell }, interval)
+	Utils.Do(units, function(unit)
+		BindActorTriggers(unit)
+	end)
+	Trigger.OnAllKilled(units, function() SendGDIUnits(entryCell, unitTypes, interval) end)
 end
 
 ProduceUnits = function(t)
@@ -96,4 +109,11 @@ WorldLoaded = function()
 	SetupAlliedUnits()
 	SetupFactories()
 	Utils.Do(ProducedUnitTypes, ProduceUnits)
+	
+	SendSovietUnits(Entry2.Location, UnitTypes, 50)
+	SendSovietUnits(Entry3.Location, UnitTypes, 50)
+	SendGDIUnits(Entry1.Location, GDIUnitTypes, 50)
+	SendGDIUnits(Entry4.Location, GDIMLRSTypes, 50)
+	SendSovietUnits(Entry2.Location, BeachUnitTypes, 15)
+	SendGDIUnits(Entry1.Location, GDIBeachUnitTypes, 15)
 end

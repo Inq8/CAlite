@@ -771,7 +771,7 @@ KIROV.Husk:
 	RenderSprites:
 		Image: kirov
 	FallsToEarth:
-		Explosion: BarrelExplode
+		Explosion: KirovExplode
 		
 APC.Husk:
 	Inherits: ^Husk

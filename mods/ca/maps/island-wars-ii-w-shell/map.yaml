@@ -440,7 +440,7 @@ Actors:
 	Actor175: proc2
 		Owner: Multi0
 		Location: 51,69
-	ABarracks1: pyle
+	AlliedBarracks1: pyle
 		Owner: Multi0
 		Location: 50,65
 	Actor177: fact
@@ -458,7 +458,7 @@ Actors:
 	Actor183: powr
 		Owner: Multi1
 		Location: 76,52
-	SBarracks1: barr
+	SovietBarracks1: barr
 		Owner: Multi1
 		Location: 67,56
 	AlliedWarFactory1: awep
@@ -497,7 +497,7 @@ Actors:
 	Actor195: rep
 		Owner: Multi0
 		Location: 48,68
-	Actor196: hpad2
+	Helipad1: hpad2
 		Owner: Multi0
 		Location: 48,56
 	Actor197: hq
@@ -680,16 +680,7 @@ Actors:
 		Owner: Multi0
 		Location: 52,62
 		Facing: 175
-	Actor252: hmlrs
-		Owner: Multi0
-		Location: 49,47
-		TurretFacing: 191
-		Facing: 191
-	Actor253: hmlrs
-		Owner: Multi0
-		Location: 51,45
-		TurretFacing: 178
-		Facing: 178
+		Stance: AttackAnything
 	Actor254: mtnk
 		Owner: Multi0
 		Location: 59,61
@@ -700,6 +691,7 @@ Actors:
 		Location: 49,63
 		TurretFacing: 186
 		Facing: 186
+		Stance: ReturnFire
 	Actor256: 4tnk
 		Location: 66,59
 		Facing: 92
@@ -716,7 +708,7 @@ Actors:
 		SubCell: 3
 		Facing: 92
 		TurretFacing: 92
-	Actor259: n1
+	Actor259: medi
 		Owner: Multi0
 		Location: 53,67
 		SubCell: 3
@@ -742,39 +734,47 @@ Actors:
 		Owner: Multi1
 		Location: 60,82
 		Facing: 55
+		Stance: AttackAnything
 	Actor264: msub
 		Owner: Multi1
 		Location: 64,82
 		Facing: 40
+		Stance: AttackAnything
 	Actor265: ss
 		Owner: Multi1
 		Location: 63,85
 		Facing: 63
+		Stance: AttackAnything
 	Actor266: dd2
 		Owner: Multi0
 		Location: 46,78
 		TurretFacing: 177
 		Facing: 177
+		Stance: AttackAnything
 	Actor267: dd2
 		Owner: Multi0
 		Location: 46,81
 		TurretFacing: 201
 		Facing: 201
+		Stance: AttackAnything
 	Actor268: pt2
 		Owner: Multi0
 		Location: 50,78
 		TurretFacing: 175
 		Facing: 175
+		Stance: AttackAnything
 	Actor269: pt2
 		Owner: Multi0
 		Location: 51,81
 		TurretFacing: 154
 		Facing: 154
+		Stance: AttackAnything
 	Actor270: pt2
 		Owner: Multi0
 		Location: 53,79
 		TurretFacing: 177
 		Facing: 177
+		Stance: AttackAnything
 	Actor271: e1
 		Owner: Multi1
 		Location: 66,57
@@ -831,4 +831,28 @@ Actors:
 	Actor280: split2
 		Owner: Neutral
 		Location: 63,73
+	Entry1: waypoint
+		Owner: Neutral
+		Location: 18,66
+	Entry2: waypoint
+		Owner: Neutral
+		Location: 108,57
+	Paradrop1: waypoint
+		Owner: Neutral
+		Location: 51,59
+	Paradrop2: waypoint
+		Owner: Neutral
+		Location: 43,64
+	Paradrop3: waypoint
+		Owner: Neutral
+		Location: 46,69
+	Chinook1Entry: waypoint
+		Location: 45,126
+		Owner: Neutral
+	Entry3: waypoint
+		Owner: Neutral
+		Location: 86,30
+	Entry4: waypoint
+		Owner: Neutral
+		Location: 24,42
 Rules: rules.yaml

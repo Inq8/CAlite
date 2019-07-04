@@ -1092,7 +1092,7 @@ KIROV:
 	Voiced:
 		VoiceSet: KirovVoice
 	Explodes:
-		Weapon: BarrelExplode
+		Weapon: KirovExplode
 		RequiresCondition: !airborne
 		
 ORCACA:

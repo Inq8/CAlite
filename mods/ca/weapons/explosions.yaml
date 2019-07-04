@@ -165,6 +165,34 @@ BarrelExplode:
 		SmudgeType: Scorch
 		Size: 2
 		Delay: 5
+		
+KirovExplode:
+	Inherits: ^Explosion
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 2
+		ValidTargets: Ground, Trees
+		Versus:
+			None: 120
+			Wood: 100
+			Light: 60
+			Heavy: 35
+			Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, Incendiary
+	Warhead@2Eff: CreateEffect
+		Explosions: large_napalm
+		ImpactSounds: firebl3.aud
+		Delay: 2
+	Warhead@3EffWater: CreateEffect
+		Explosions: large_napalm
+		ImpactSounds: firebl3.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Ship, Structure, Bridge
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Scorch
+		Size: 2
+		Delay: 2
 
 ATMine:
 	Warhead@1Dam: SpreadDamage

@@ -1759,6 +1759,8 @@ BTR:
 			thf: spyturr
 			mort.tech: mortturr
 			shok.nod: testurr
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 TITAN:
 	Inherits: ^TankTD
@@ -1827,6 +1829,8 @@ TITAN:
 		DamageCooldown: 150
 	Carryable:
 		LocalOffset: 0,0,277
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 TITAN.nod:
 	Inherits: TITAN
@@ -1949,6 +1953,8 @@ DISR:
 		DecorationBounds: 44,38,0,-4
 	Carryable:
 		LocalOffset: 0,0,200
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 	
 HMLRS:
 	Inherits: ^VehicleTD
@@ -2015,6 +2021,8 @@ HMLRS:
 		Weapon: ArtilleryExplode
 		EmptyWeapon: UnitExplodeSmall
 		LoadedChance: 75
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 RTNK:
 	Inherits: ^Tank

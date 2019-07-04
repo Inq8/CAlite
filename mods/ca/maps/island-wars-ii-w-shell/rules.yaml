@@ -40,14 +40,21 @@ World:
 		Conditions:
 	DamageMultiplier@UNKILLABLE:
 		RequiresCondition: unkillable
-		Modifier: 0
+		Modifier: 50
 	ExternalCondition@UNKILLABLE:
 		Condition: unkillable
 
 ^Building:
 	DamageMultiplier@UNKILLABLE:
 		RequiresCondition: unkillable
-		Modifier: 0
+		Modifier: 5
+	ExternalCondition@UNKILLABLE:
+		Condition: unkillable
+		
+^Defense:
+	DamageMultiplier@UNKILLABLE:
+		RequiresCondition: unkillable
+		Modifier: 20
 	ExternalCondition@UNKILLABLE:
 		Condition: unkillable
 		
