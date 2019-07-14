@@ -11,7 +11,7 @@ MSLO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 140
-		Prerequisites: techcenter, ~techlevel.unrestricted
+		Prerequisites: techcenter, ~techlevel.unrestricted, ~techlevel.superw
 		BuildLimit: 1
 		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
 	Building:
@@ -4052,7 +4052,7 @@ TMPL:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
-		Prerequisites: hq, ~structures.nod, ~techlevel.superw
+		Prerequisites: hq, ~structures.nod
 		IconPalette: chrometd
 		Description: Provides Nod advanced technologies.\nRequires power to operate.\n  Special Ability: Neutron Bomb
 	Building:
