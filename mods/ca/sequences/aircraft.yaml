@@ -2,6 +2,18 @@ mig:
 	idle:
 		Facings: 16
 	icon: migicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 yak:
 	idle:
@@ -10,6 +22,18 @@ yak:
 		Length: 6
 		Facings: 8
 	icon: yakicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 heli:
 	idle:
@@ -21,6 +45,18 @@ heli:
 		Start: 4
 		Length: 8
 	icon: heliicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 hind:
 	idle:
@@ -35,6 +71,18 @@ hind:
 		Length: 6
 		Facings: 8
 	icon: hindicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 hindoriginal:
 	idle:
@@ -49,20 +97,18 @@ hindoriginal:
 		Length: 6
 		Facings: 8
 	icon: hindicon
-	
-mh60:
-	idle:
-		Facings: 32
-		UseClassicFacingFudge: True
-	rotor: lrotorlg
-		Length: 4
-	slow-rotor: lrotorlg
-		Start: 4
-		Length: 8
-	muzzle: minigun
-		Length: 6
-		Facings: 8
-	icon: hindicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 tran:
 	idle: tran3
@@ -84,6 +130,18 @@ tran:
 	unload: tran3
 		Start: 35
 	icon: tranicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 tran2:
 	idle:
@@ -105,6 +163,18 @@ tran2:
 	unload:
 		Start: 35
 	icon: tranicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 tran3:
 	idle:
@@ -126,6 +196,18 @@ tran3:
 	unload:
 		Start: 35
 	icon: tranicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
     
 tran4:
 	idle: tran3
@@ -147,6 +229,18 @@ tran4:
 	unload: tran3
 		Start: 35
 	icon: tranicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 tran1husk:
 	idle:
@@ -157,21 +251,85 @@ tran2husk:
 u2:
 	idle:
 		Facings: 16
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 badr:
 	idle:
 		Facings: 16
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		
+b2b:
+	idle:
+		Facings: 32
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 a10:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: a10icnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 c17:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 orca:
 	idle:
@@ -181,6 +339,18 @@ orca:
 		Start: 32
 		Facings: 32
 	icon: orcaicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 apch:
 	idle:
@@ -195,11 +365,35 @@ apch:
 		Length: 6
 		Facings: 8
 	icon: apchicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 uav:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 rah66:
 	idle:
@@ -211,6 +405,18 @@ rah66:
 		Start: 4
 		Length: 8
 	icon: rah66icnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 kirov:
 	idle:
@@ -222,6 +428,18 @@ kirov:
 		Start: 4
 		Length: 8
 	icon: kirovicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 frog:
 	idle:
@@ -230,18 +448,54 @@ frog:
 		Length: 6
 		Facings: 8
 	icon: frogicon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 orcaca:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: orcacaicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 harr:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: harricon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	
 mh60:
 	idle:
@@ -256,3 +510,15 @@ mh60:
 		Length: 6
 		Facings: 8
 	icon: mh60icon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512

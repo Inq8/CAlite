@@ -87,7 +87,8 @@
 		RequiresCondition: rank-elite
 		Modifier: 80
 	SelfHealing@ELITE:
-		Step: 200
+		Step: 0
+		PercentageStep: 5
 		Delay: 100
 		HealIfBelow: 100
 		DamageCooldown: 125
@@ -97,6 +98,7 @@
 		Sequence: rank-veteran-1
 		Palette: effect
 		ReferencePoint: Bottom, Right
+		ValidStances: Ally, Enemy, Neutral
 		RequiresCondition: rank-veteran == 1
 		ZOffset: 256
 	WithDecoration@RANK-2:
@@ -104,6 +106,7 @@
 		Sequence: rank-veteran-2
 		Palette: effect
 		ReferencePoint: Bottom, Right
+		ValidStances: Ally, Enemy, Neutral
 		RequiresCondition: rank-veteran == 2
 		ZOffset: 256
 	WithDecoration@RANK-ELITE:
@@ -111,6 +114,7 @@
 		Sequence: rank-elite
 		Palette: effect
 		ReferencePoint: Bottom, Right
+		ValidStances: Ally, Enemy, Neutral
 		RequiresCondition: rank-elite
 		ZOffset: 256
 
@@ -457,6 +461,8 @@
 		HealIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: hospitalheal
+	ExternalCondition@MEDIFV:
+		Condition: hospitalheal
 	GrantConditionOnPrerequisite@HOSPITAL:
 		Condition: hospital
 		Prerequisites: hosp
@@ -519,6 +525,9 @@
 		RequiresCondition: revealonfire
 	RevealOnDeath:
 		Duration: 100
+	DetectCloaked:
+		CloakTypes: Cloak
+		Range: 1c0
 
 ^Soldier:
 	Inherits: ^Infantry
@@ -534,8 +543,6 @@
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1,idle2
 		StandSequences: stand,stand2
-	DetectCloaked:
-		CloakTypes: Thief
 
 ^CivInfantry:
 	Inherits: ^Infantry
@@ -715,6 +722,7 @@
 	Inherits: ^NeutralPlane
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^Cloakable
+	Inherits@4: ^EmpDisable
 	Cloak@EXTERNALCLOAK:
 		RequiresCondition: invisibility || crate-cloak && !cloak-force-disabled && !airborne
 		InitialDelay: 0
@@ -726,6 +734,8 @@
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
 	Repairable:
 		RepairBuildings: fix, rep
+	KillsSelf:
+		RequiresCondition: empdisable
 		
 ^PlaneTD:
 	Inherits@1: ^Plane
@@ -743,8 +753,6 @@
 	Aircraft:
 		CanHover: True
 		CruisingCondition: cruising
-		TakeoffSounds: htoff1.aud
-		LandingSounds: hland1.aud
 		WaitDistanceFromResupplyBase: 4c0
 		TakeOffOnResupply: true
 		VTOL: true
@@ -914,6 +922,13 @@
 	-TimedConditionBar@FS:
 	-ExternalCondition@FS:
 	-PowerMultiplier@FSPOWERDOWN:
+	-CaptureManager:
+	-Capturable:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	Sellable:
+		RequiresCondition: !build-incomplete && !being-demolished
+		SellSounds: cashturn.aud
 	DrawLineToTarget:
 	RenderRangeCircle:
 	Explodes:

@@ -31,7 +31,6 @@
 25mm:
 	Inherits: ^Cannon
 	ReloadDelay: 31
-	Range: 4c0
 	Report: cannon2.aud
 	Projectile: Bullet
 		Speed: 853

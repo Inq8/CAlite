@@ -1144,28 +1144,8 @@ btr:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
-	muzzle: minigun
-		Length: 6
-		Facings: 8
-	muzzle2: gunfire2
-		Length: 2
-	spinner: mrj
-		Start: 32
-		Length: 32
-	turret: brdm
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	turret2: 1tnk
-		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-	turret3: stnk
+	turret: stnk
 		Start: 38
-		Facings: 32
-		UseClassicFacingFudge: True
-	turret4: bttnk
-		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
 	open:
@@ -1192,22 +1172,50 @@ btr.destroyed:
 		Facings: 32
 		UseClassicFacingFudge: True
 		ZOffset: -512
+	turret: samtur
+		Facings: 32
+		UseClassicFacingFudge: True
+		
+ifv:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	muzzle: minigun
+		Length: 6
+		Facings: 8
+	muzzle2: gunfire2
+		Length: 2
+	spinner: mrj
+		Start: 32
+		Length: 32
+	medic: mouse
+		Start: 194
+		Length: 1
 	turret: brdm
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
-
-maa:
-	idle: mgg
-		Facings: 32
-		UseClassicFacingFudge: True
-	turret: ftrk
+	turret2: 1tnk
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
-	muzzle: smokeygun
-		Length: 12
-		Tick: 30
+	turret3: stnk
+		Start: 38
+		Facings: 32
+		UseClassicFacingFudge: True
+	turret4: bttnk
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	turret5:
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	open:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
@@ -1220,49 +1228,15 @@ maa:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-	icon: magunicon
+	icon: ifvicon
 
-maa.destroyed:
-	idle: mgg
+ifv.destroyed:
+	idle: ifv
 		Facings: 32
 		UseClassicFacingFudge: True
 		ZOffset: -512
-	turret: ftrk
+	turret: 1tnk
 		Start: 32
-		Facings: 32
-		UseClassicFacingFudge: True
-
-msamtruck:
-	idle: mgg
-		Facings: 32
-		UseClassicFacingFudge: True
-	turret: samtur
-		Facings: 32
-		UseClassicFacingFudge: True
-	muzzle: samfire
-		Length: 18
-		Facings: 8
-		Offset: -2,-2
-	emp-overlay: emp_fx01
-		Length: *
-		BlendMode: Additive
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-	chrono-overlay: chronofade
-		Length: *
-		BlendMode: Additive
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-	icon: msamtruckicon
-
-msamtruck.destroyed:
-	idle: mgg
-		Facings: 32
-		UseClassicFacingFudge: True
-		ZOffset: -512
-	turret: samtur
 		Facings: 32
 		UseClassicFacingFudge: True
 
@@ -1283,19 +1257,18 @@ gcan:
 		UseTilesetCode: false
 		ZOffset: 512
 	icon: gcanicon
-
+	
 titan:
-	stand:
+	stand: titanlegs
 		Facings: 16
-	run:
+	run: titanlegs
 		Start: 16
 		Facings: 16
 		Length: 14
-		Tick: 100
-	shoot:
-		Length: 1
-		Facings: 16
-		Tick: 100
+		Tick: 90
+	turret: titanturr
+		Facings: 32
+		UseClassicFacingFudge: True
 	muzzle: smokeygun
 		Length: 12
 		Tick: 30
@@ -1312,12 +1285,6 @@ titan:
 		UseTilesetCode: false
 		ZOffset: 512
 	icon: titanicnh
-
-titan.destroyed:
-	idle: titan
-		Start: 96
-		Facings: -8
-		ZOffset: -512
 
 ttrk:
 	idle:
@@ -1389,11 +1356,11 @@ hmlrs:
 		ZOffset: 512
 	icon: hmlrsicnh
 		
-tankd:
-	idle: tankd
+tnkd:
+	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
-	turret: tankd
+	turret:
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -1411,13 +1378,13 @@ tankd:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-	icon: tankdicon
+	icon: tnkdicon
 	
-tankd.destroyed:
-	idle: tankd
+tnkd.destroyed:
+	idle: tnkd
 		Facings: 32
 		UseClassicFacingFudge: True
-	turret: tankd
+	turret: tnkd
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
@@ -1504,3 +1471,28 @@ rtnk.destroyed:
 		UseClassicFacingFudge: True
 		ZOffset: -512
 	
+msar:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	spinner: msarspinner
+		Length: 32
+	make: msarmake
+		Length: *
+		Tick: 50
+	idle-static: msardeployed
+		Length: 14
+		Tick: 80
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: msaricnh

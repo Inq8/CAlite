@@ -98,8 +98,56 @@ Player:
 					Attractiveness: -5
 					TargetMetric: None
 					CheckRadius: 8c0
+			rparatroopers:
+				OrderName: RussianParatroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			nparatroopers:
+				OrderName: BlackhParatroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
 			parabombs:
 				OrderName: UkraineParabombs
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			rparabombs:
+				OrderName: RussiaParabombs
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 5c0
+			iparabombs:
+				OrderName: IraqParabombs
 				MinimumAttractiveness: 1
 				Consideration@1:
 					Against: Enemy
@@ -144,8 +192,8 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 3c0
-			chemmissile:
-				OrderName: cmissile
+			EMPmissile:
+				OrderName: empmissile
 				MinimumAttractiveness: 3000
 				Consideration@1:
 					Against: Enemy
@@ -197,7 +245,7 @@ Player:
 		RefineryTypes: proc, proc2
 	CaptureManagerBotModule:
 		RequiresCondition: enable-rush-ai || enable-normal-ai || enable-turtle-ai
-		CapturingActorTypes: e6, n6, thf
+		CapturingActorTypes: e6, n6
 		CheckCaptureTargetsForVisibility: false
 		MaximumCaptureTargetOptions: 15
 	BaseBuilderBotModule@rush:
@@ -259,6 +307,7 @@ Player:
 			gun2: 7
 			tsla: 5
 			obli: 5
+			ltur: 10
 			ftur: 10
 			ttur: 10
 			htur: 3
@@ -348,6 +397,7 @@ Player:
 			gun2: 7
 			tsla: 5
 			obli: 5
+			ltur: 10
 			ftur: 10
 			ttur: 10
 			htur: 3
@@ -437,6 +487,7 @@ Player:
 			gun2: 7
 			tsla: 5
 			obli: 5
+			ltur: 10
 			ftur: 10
 			ttur: 10
 			htur: 3
@@ -526,6 +577,7 @@ Player:
 			gun2: 7
 			tsla: 5
 			obli: 5
+			ltur: 10
 			ftur: 10
 			ttur: 10
 			htur: 3
@@ -592,11 +644,10 @@ Player:
 			sab: 2
 			shok: 15
 			shok.nod: 15
+			acol: 15
 			rmbo: 15
 			tnya: 15
 			boris: 15
-			thf: 15
-			thf.nod: 15
 			harv: 10
 			harv2: 10
 			apc: 20
@@ -614,8 +665,9 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
+			ifv: 70
 			2tnk: 45
-			tankd: 45
+			tnkd: 45
 			rtnk: 45
 			3tnk: 70
 			4tnk: 40
@@ -654,8 +706,6 @@ Player:
 		UnitLimits:
 			dog: 2
 			sab: 2
-			thf: 1
-			thf.nod: 1
 			apc: 2
 			apc2: 2
 			apc2.nod: 2
@@ -702,11 +752,10 @@ Player:
 			sab: 2
 			shok: 15
 			shok.nod: 15
+			acol: 15
 			rmbo: 15
 			tnya: 15
 			boris: 15
-			thf: 15
-			thf.nod: 15
 			harv: 10
 			harv2: 10
 			apc: 20
@@ -724,8 +773,9 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
+			ifv: 70
 			2tnk: 45
-			tankd: 45
+			tnkd: 45
 			rtnk: 45
 			3tnk: 70
 			4tnk: 40
@@ -764,8 +814,6 @@ Player:
 		UnitLimits:
 			dog: 2
 			sab: 2
-			thf: 1
-			thf.nod: 1
 			apc: 2
 			apc2: 2
 			apc2.nod: 2
@@ -812,11 +860,10 @@ Player:
 			sab: 2
 			shok: 15
 			shok.nod: 15
+			acol: 15
 			rmbo: 15
 			tnya: 15
 			boris: 15
-			thf: 15
-			thf.nod: 15
 			harv: 10
 			harv2: 10
 			apc: 20
@@ -834,8 +881,9 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
+			ifv: 70
 			2tnk: 45
-			tankd: 45
+			tnkd: 45
 			rtnk: 45
 			3tnk: 70
 			4tnk: 40
@@ -874,8 +922,6 @@ Player:
 		UnitLimits:
 			dog: 2
 			sab: 2
-			thf: 1
-			thf.nod: 1
 			apc: 2
 			apc2: 2
 			apc2.nod: 2

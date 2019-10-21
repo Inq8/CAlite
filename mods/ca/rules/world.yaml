@@ -141,7 +141,7 @@
 			Tiberium: 70
 			BlueTiberium: 70
 			Beach: 70
-			Water: 25		
+			Water: 15		
 	Locomotor@CLOUD:
 		Name: cloud
 		Crushes: crate
@@ -157,6 +157,21 @@
 				PathingCost: -300
 			BlueTiberium: 100
 				PathingCost: -300
+			Beach: 100
+			Water: 100
+			River: 100
+	Locomotor@BALLOON:
+		Name: balloon
+		SharesCell: false
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 100
+			Road: 100
+			Bridge: 100
+			Ore: 100
+			Gems: 100
+			Tiberium: 100
+			BlueTiberium: 100
 			Beach: 100
 			Water: 100
 			River: 100
@@ -177,7 +192,7 @@
 		Name: England
 		InternalName: england
 		Side: Allies
-		Description: England: \nSpecial Unit: Harrier
+		Description: England: \nSpecial Unit: Mirage Tank\nSpecial Unit: Sniper
 	Faction@2:
 		Name: France
 		InternalName: france
@@ -187,7 +202,7 @@
 		Name: Germany
 		InternalName: germany
 		Side: Allies
-		Description: Germany: \nSpecial Unit: Tank Destroyer
+		Description: Germany: \n Special Unit: Tank Destroyer\n Special Unit: IFV
 	Faction@4:
 		Name: Soviet
 		InternalName: soviet
@@ -197,42 +212,47 @@
 		Name: Russia
 		InternalName: russia
 		Side: Soviet
-		Description: Russia: \nSpecial Unit: V3 Rocket launcher
+		Description: Russia: \n Special Unit: Kirov Airship\n Special Unit: Tesla Tank
 	Faction@6:
 		Name: Ukraine
 		InternalName: ukraine
 		Side: Soviet
-		Description: Ukraine: \nSpecial Unit: Frogfoot
+		Description: Ukraine: \n Special Unit: Frogfoot\n Special Unit: MAD tank
 	Faction@7:
+		Name: Iraq
+		InternalName: iraq
+		Side: Soviet
+		Description: Iraq: \n Special Unit: Scud launcher\n Special Structure: Toxin Turret
+	Faction@8:
 		Name: GDI
 		InternalName: gdi
 		Side: GDI
 		Selectable: False
-	Faction@8:
+	Faction@9:
 		Name: Talon
 		InternalName: talon
 		Side: GDI
-		Description: Steel Talons:\n Special Unit: Hover MLRS
-	Faction@9:
+		Description: Steel Talons:\n Special Unit: Titan\n Special Unit: HMLRS
+	Faction@10:
 		Name: ZOCOM
 		InternalName: zocom
 		Side: GDI
 		Description: ZOCOM:\n Special Unit: Disruptor
-	Faction@10:
+	Faction@11:
 		Name: Nod
 		InternalName: nod
 		Side: Nod
 		Selectable: False
-	Faction@11:
+	Faction@12:
 		Name: Black Hand
 		InternalName: blackh
 		Side: Nod
-		Description: Black Hand:\n Special Unit: Howitzer
-	Faction@12:
+		Description: Black Hand:\n Special Unit: Howitzer\n Special Ability: Inferno Bomb
+	Faction@13:
 		Name: Marked
 		InternalName: marked
 		Side: Nod
-		Description: Marked of Kane:\n Special Unit: Toxin Truck
+		Description: Marked of Kane:\n Special Unit: Acolyte
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -248,7 +268,7 @@
 	Faction@randomsoviet:
 		Name: Soviet
 		InternalName: RandomSoviet
-		RandomFactionMembers: russia, ukraine
+		RandomFactionMembers: russia, ukraine, iraq
 		Side: Random
 		Description: Random Soviet Faction\nA random Soviet faction will be chosen when the game starts.
 	Faction@randomgdi:
@@ -358,7 +378,7 @@ World:
 	MPStartUnits@mcvonly:
 		Class: none
 		ClassName: MCV Only
-		Factions: allies, england, france, germany, soviet, russia, ukraine
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
 		BaseActor: mcv
 	MPStartUnits@lightallies:
 		Class: light
@@ -371,7 +391,7 @@ World:
 	MPStartUnits@lightsoviet:
 		Class: light
 		ClassName: Light Support
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		BaseActor: mcv
 		SupportActors: e1,e1,e1,e3,e3
 		InnerSupportRadius: 3
@@ -387,7 +407,7 @@ World:
 	MPStartUnits@heavysoviet:
 		Class: heavy
 		ClassName: Heavy Support
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		BaseActor: mcv
 		SupportActors: e1,e1,e1,e3,e3,3tnk,3tnk
 		InnerSupportRadius: 3

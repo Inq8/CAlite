@@ -158,6 +158,25 @@ BADR.Husk:
 	RenderSprites:
 		Image: badr
 	-RevealOnDeath:
+	
+B2B.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: B2 Stealth Bomber
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 223
+	SmokeTrailWhenDamaged@0:
+		Offset: -432,560,0
+		Interval: 2
+		MinDamage: Undamaged
+	SmokeTrailWhenDamaged@1:
+		Offset: -432,-560,0
+		Interval: 2
+		MinDamage: Undamaged
+	RenderSprites:
+		Image: b2b
+	-RevealOnDeath:
 
 MIG.Husk:
 	Inherits: ^PlaneHusk
@@ -474,18 +493,18 @@ RTNK.Husk:
 	RenderSprites:
 		Image: rtnk.destroyed
 		
-TANKD.Husk:
+TNKD.Husk:
 	Inherits: ^Husk
 	Tooltip:
 		Name: Husk (Tank Destroyer)
 	ThrowsParticle@turret:
 		Anim: turret
 	TransformOnCapture:
-		IntoActor: tankd
+		IntoActor: tnkd
 	InfiltrateForTransform:
-		IntoActor: tankd
+		IntoActor: tnkd
 	RenderSprites:
-		Image: tankd.destroyed
+		Image: tnkd.destroyed
 		
 APC2.Husk:
 	Inherits: ^HuskTD

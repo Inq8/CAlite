@@ -125,19 +125,12 @@ Player:
 		Enabled: True
 		DisplayOrder: 13
 		Prerequisites: techlevel.superw
-	LobbyPrerequisiteCheckbox@Funits:
-		ID: funits
-		Label: Faction Units
-		Description: Enable or Disable Faction Special Units
-		Enabled: True
-		DisplayOrder: 14
-		Prerequisites: techlevel.funits
 	LobbyPrerequisiteCheckbox@REVEALONFIRE:
 		ID: revealonfire
 		Label: Reveal on Fire
 		Description: Units reveal themselves when firing.
 		Enabled: True
-		DisplayOrder: 15
+		DisplayOrder: 14
 		Prerequisites: global.revealonfire
 	FrozenActorLayer:
 	BaseAttackNotifier:

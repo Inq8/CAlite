@@ -5,7 +5,7 @@ DOG:
 		BuildAtProductionType: Dog
 		BuildPaletteOrder: 50
 		Prerequisites: ~kenn, ~techlevel.infonly
-		Description: Anti-infantry unit.\nCan detect cloaked units and spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Anti-infantry unit.\nCan detect spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	RenderSprites:
 		Scale: 0.7
 		PlayerPalette: player
@@ -77,8 +77,6 @@ DOG:
 		Modifier: 150
 		RequiresCondition: run
 	IgnoresDisguise:
-	DetectCloaked:
-		CloakTypes: Cloak, Thief
 	Voiced:
 		VoiceSet: DogVoice
 	-TakeCover:
@@ -277,7 +275,7 @@ SPY:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
 		Prerequisites: ~infantry.allies, dome, ~tent, ~techlevel.medium
-		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\nCan detect cloaked units and spies.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
+		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\nLoses disguise when attacking.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n  Special Ability: Disguised
 	Valued:
 		Cost: 500
 	-Tooltip:
@@ -313,8 +311,6 @@ SPY:
 		ZOffset: 256
 		RequiresCondition: disguise
 	IgnoresDisguise:
-	DetectCloaked:
-		CloakTypes: Cloak, Thief
 	AttackMove:
 		Voice: Move
 	Voiced:
@@ -574,7 +570,7 @@ THF:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 110
-		Prerequisites: ~barr, fix, ~techlevel.medium
+		Prerequisites: ~barr, dome, ~techlevel.medium
 		Description: Steals enemy credits.\nHijacks enemy vehicles.\n  Unarmed
 	Valued:
 		Cost: 500
@@ -608,7 +604,7 @@ THF:
 		InitialDelay: 250
 		CloakDelay: 120
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move
-		CloakTypes: Cloak, Thief
+		CloakTypes: Cloak
 		IsPlayerPalette: false
 		PauseOnCondition: cloak-force-disabled
 	GrantConditionOnDamageState@UNCLOAK:
@@ -825,7 +821,7 @@ N5:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 115
-		Prerequisites: ~infantry.nod, tmpl, ~techlevel.high
+		Prerequisites: ~infantry.nod, dome, ~techlevel.high
 		IconPalette: chrometd
 		Description: Advanced general-purpose infantry.\n  Strong vs all Ground units
 	Valued:
@@ -859,15 +855,6 @@ N5:
 		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, FireDeath, ElectricityDeath
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
-		
-N5R2:
-	Inherits: N5
-	RenderSprites:
-		Image: N5
-	ProducibleWithLevel:
-		Prerequisites: techlevel.infonly
-		InitialLevels: 2
-	-Buildable:
 
 RMBO:
 	Inherits: ^Soldier
@@ -903,8 +890,6 @@ RMBO:
 	AttackFrontal:
 		Voice: Attack
 	AttackMove:
-	WithDeathAnimation:
-		DeathSequencePalette: playertd
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		StandSequences: stand,stand2
@@ -970,7 +955,7 @@ SNIPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 55
-		Prerequisites: ~disabled
+		Prerequisites: ~infantry.england, dome, ~techlevel.high
 		Description: Special marksman infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n Special Ability: Stealth
 	Valued:
 		Cost: 500
@@ -992,21 +977,18 @@ SNIPER:
 		CloakedCondition: hidden
 		Palette: cloakTD
 		IsPlayerPalette: true
-		CloakTypes: Cloak, Thief
+		CloakTypes: Cloak
 		RequiresCondition: !cloak-force-disabled
 		UncloakOn: Unload, Infiltrate, Demolish, Dock, Move
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
+		ValidDamageStates: Heavy, Critical
 	WithDecoration@hidden:
 		Image: pips
 		Sequence: pip-hidden
 		Palette: temptd
 		ReferencePoint: Top, Right
 		ZOffset: 256
-		RequiresCondition: hidden
-	SpeedMultiplier:
-		Modifier: 90
 		RequiresCondition: hidden
 	AttackFrontal:
 		Voice: Attack
@@ -1141,7 +1123,7 @@ SAB:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
 		Prerequisites: hq, ~infantry.nod, ~techlevel.infonly
-		Description: Infiltrates enemy structures and steals technology.\n Can also detect cloaked units and spies.
+		Description: Covert Infantry. Infiltrates enemy structures and steals technology.\nCan detect cloaked units and spies.\n  Special Ability: Infiltrate\n Special Ability: Stealth
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1167,16 +1149,87 @@ SAB:
 		StandSequences: stand
 		IdleSequences: idle1
 	Health:
-		HP: 6000
+		HP: 5000
 	Mobile:
-		Speed: 71
+		Speed: 61
 		Voice: Move
 	Armament:
 		Weapon: SilencedPPK
 	AttackFrontal:
 		Voice: Attack
+	Cloak:
+		InitialDelay: 100
+		CloakDelay: 200
+		Palette: cloakTD
+		IsPlayerPalette: true
+		CloakTypes: Cloak
+		RequiresCondition: !cloak-force-disabled
+		UncloakOn: Unload, Infiltrate, Demolish, Dock, Attack
+		UncloakSound: appear1.aud
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Heavy, Critical
 	IgnoresDisguise:
-	DetectCloaked:
-		CloakTypes: Cloak, Thief
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+		
+ACOL:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 115
+		IconPalette: chrometd
+		Prerequisites: ~hand, hq, ~infantry.marked, ~techlevel.high
+		Description: Elite infantry with a portable Oblisk.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft\n Special Ability: Regains health on tiberium
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Acolyte
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Mobile:
+		Voice: Move
+	RevealsShroud:
+		Range: 5c0
+	Armament@PRIMARY:
+		Weapon: PortaLaser
+		LocalOffset: 427,0,341
+	TakeCover:
+		ProneOffset: 227,0,-245
+	AttackFrontal:
+		Voice: Attack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		StandSequences: stand,stand2
+		IdleSequences: idle3
+	AttackMove:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	Guard:
+		Voice: Move
+	Voiced:
+		VoiceSet: AcolVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	-GrantConditionOnPrerequisite@BIO:
+	-WithDecoration@HAZMAT:
+	-DamagedByTerrain:
+	DamagedByTerrain:
+		Terrain: Tiberium, BlueTiberium
+		Damage: -100
+		DamageInterval: 16
+		DamageTypes: ToxinDeath
+	GrantConditionOnTerrain@THEAL:
+		Condition: tibheal
+		TerrainTypes: Tiberium, BlueTiberium
+	WithDecoration@THEAL:
+		Image: pips
+		Sequence: medic
+		Palette: temptd
+		ReferencePoint: Bottom, Left
+		RequiresCondition: tibheal

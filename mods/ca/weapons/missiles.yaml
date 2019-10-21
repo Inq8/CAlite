@@ -80,7 +80,7 @@ HellfireAG:
 		HorizontalRateOfTurn: 10
 		RangeLimit: 8c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
+		Damage: 4000
 		Versus:
 			None: 30
 			Wood: 90
@@ -98,8 +98,29 @@ HellfireAG.Harrier:
 	BurstDelays: 14
 	Projectile: Missile
 		RangeLimit: 9c512
+		Image: MISSILE
+		Inaccuracy: 512
 	Warhead@1Dam: SpreadDamage
-		Damage: 12000
+		Spread: 341
+		Damage: 1525
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water, Trees
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 70
+			Heavy: 40
+			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, Air, Ship, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: med_splash
+		ImpactSounds: splashl1.aud, splashl2.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Ship, Structure, Bridge
 			
 
 HellfireAA:
@@ -125,17 +146,11 @@ HellfireAA:
 HellfireAA.Orca:
 	Inherits: HellfireAA
 	Report: orcamis1.aud
-	
-HellfireAA.Harrier:
-	Inherits: HellfireAA
-	Report: migmis.aud, migmis2.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 8000
 
 MammothTusk:
 	Inherits: ^AntiGroundMissile
 	ReloadDelay: 60
-	Range: 6c0
+	Range: 6c512
 	Burst: 2
 	ValidTargets: Air, Infantry
 	Projectile: Missile
@@ -415,7 +430,7 @@ SCUD:
 		LaunchAngle: 62
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
-		Damage: 4500
+		Damage: 3400
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Trees
 		Versus:
@@ -434,14 +449,26 @@ SCUD:
 		
 SCUDV3:
 	Inherits: SCUD
-	Range: 13c0
+	Range: 10c0
 	MinRange: 4c0
 	Report: nukemisl.aud
 	Projectile: Bullet
-		Speed: 210
+		Speed: 180
 		Image: V3
 	Warhead@1Dam: SpreadDamage
-		Damage: 4800
+		Spread: 512
+		Damage: 3800
+		DamageTypes: Prone50Percent, TriggerProne, ToxinDeath
+		Versus:
+			None: 100
+			Wood: 75
+			Light: 75
+			Heavy: 35
+			Concrete: 80
+	Warhead@3Eff: CreateEffect
+		Explosions: large_chem
+		ExplosionPalette: temptd
+		ImpactSounds: firebl3.aud
 		
 HonestJohn:
 	ReloadDelay: 120
@@ -462,7 +489,7 @@ HonestJohn:
 		LaunchAngle: 45
 	Warhead@1Dam: SpreadDamage
 		Spread: 512
-		Damage: 2200
+		Damage: 2100
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Versus:
 			None: 90
@@ -861,3 +888,31 @@ stnkRocketsAA:
 SubAA:
 	Inherits: HellfireAA
 	MinRange: 0c256
+	
+BTRSAM:
+	Inherits: Nike
+	ReloadDelay: 50
+	Burst: 2
+	BurstDelays: 12
+	Projectile: Missile
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 25
+		Speed: 328
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: Air
+		Versus:
+			Light: 60
+			
+TitanSam:
+	Inherits: Nike
+	ReloadDelay: 50
+	Projectile: Missile
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 25
+		Speed: 328
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		ValidTargets: Air
+		Versus:
+			Light: 60

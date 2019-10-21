@@ -44,6 +44,9 @@ explosion:
 	artillery_explosion: art-exp1
 	building: fball1
 		Offset: 0,-9
+	building2: fball1
+		Offset: 0,-9
+		FlipX: true
 	small_splash: h2o_exp3
 	large_explosion: frag1
 		Offset: -2,0
@@ -69,9 +72,15 @@ explosion:
 		Tick: 80
 	ion_ring: ring1
 		BlendMode: Alpha
-		Tick: 80
+		Tick: 40
+		ZOffset: 2046
+	ion_ring2: ring2
+		BlendMode: Alpha
+		Tick: 50
+		ZOffset: 2046
 	small_chem: chemball
 	med_chem: chemball2
+	large_chem: chemball3
 	frag_1: frag1cnc
 	frag_3: frag3cnc
 	scud_explosion: fball1cnc
@@ -115,6 +124,17 @@ explosion:
 		BlendMode: Additive
 		Tick: 70
 		ZOffset: 512
+	ionexp: ionexp
+		Tick: 110
+	b2bexp: b2bexp
+		BlendMode: Additive
+		Tick: 80
+		ZOffset: 2046
+	b2bexp2: b2bexp
+		BlendMode: Additive
+		Tick: 80
+		ZOffset: 2046
+		FlipX: true
 
 burn-l:
 	idle:
@@ -523,6 +543,11 @@ tbomb:
 		Start: 8
 		Length: 5
 		ZOffset: 1023
+		
+b2bomb:
+	idle:
+		Length: *
+		ZOffset: 1023
 
 smokland:
 	open: playersmoke
@@ -576,7 +601,7 @@ atomic:
 		Length: *
 		ZOffset: 1023
 		
-chemicbm:
+empicbm:
 	up: atomicupcnc
 		Length: *
 		ZOffset: 511
@@ -588,7 +613,7 @@ ionsfx:
 	idle:
 		Length: *
 		Offset: 0, -78
-		ZOffset: 1023
+		ZOffset: 2048
 
 bubbles:
 	idle:
@@ -651,13 +676,15 @@ icon:
 	ioncannon: ionicon
 	airstrike: airstkicon
 	a10airstrike: bombicnh
-	cmissile: cmissileicon
+	empmissile: empicon
 	hacksat: hacksaticon
 	uavicon: uavicon
 	airdropicon: airdropicon
 	forceshieldicon: forceshieldicon
 	orcaca: orcacarein
 	invis: invisicon
+	infbomb: b2bicnh
+	carpetbomb: cbombicon
 
 quee:
 	idle:

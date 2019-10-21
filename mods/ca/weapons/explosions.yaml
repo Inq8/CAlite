@@ -179,7 +179,7 @@ KirovExplode:
 			Light: 60
 			Heavy: 35
 			Concrete: 10
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, Incendiary
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Eff: CreateEffect
 		Explosions: large_napalm
 		ImpactSounds: firebl3.aud

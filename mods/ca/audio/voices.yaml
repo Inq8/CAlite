@@ -7,6 +7,7 @@ GenericVoice:
 		soviet: .r01,.r03
 		russia: .r01,.r03
 		ukraine: .r01,.r03
+		iraq: .r01,.r03
 		nod: .c01,.c03
 		blackh: .c01,.c03
 		marked: .c01,.c03
@@ -31,6 +32,7 @@ VehicleVoice:
 		soviet: .r00,.r02
 		russia: .r00,.r02
 		ukraine: .r00,.r02
+		iraq: .r00,.r02
 		nod: .c00,.c02
 		blackh: .c00,.c02
 		marked: .c00,.c02
@@ -108,7 +110,7 @@ ThiefVoice:
 	Voices:
 		Select: swhat1,syeah1
 		Action: saffirm1,smout1,sokay1
-		Attack: saffirm1,smout1,sokay1
+		Attack: candy,pickclean,fivefinger
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
 		Burned: dedman10,yell1
 		Zapped: dedman6,nuyell3
@@ -273,7 +275,7 @@ TTruckVoice:
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
 		Build: vdemmoa
 		
-InfilVoice:
+AcolVoice:
 	Voices:
 		Select: 12-i002,12-i004
 		Move: 12-i006,12-i008,12-i010
@@ -284,6 +286,18 @@ InfilVoice:
 		Zapped: dedman6,nuyell3
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
 		Build: 12-i010
+		
+InfilVoice:
+	Voices:
+		Select: 21-i002,21-i010
+		Move: 21-i016,21-i010
+		Attack: 21-i000, 21-i004
+		Action: 21-i000, 21-i022
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: 21-i000
 		
 CarryAllVoice:
 	Voices:
@@ -297,7 +311,7 @@ CarryAllVoice:
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
 		Build: caraseb
 		
-TDestVoice:
+TnkdVoice:
 	Voices:
 		Select: vtansea,vtanseb,vtansec,vtansed,vtansee
 		Move: vtanmoa,vtanmob,vtanmoc,vtanmod
@@ -387,7 +401,7 @@ BorisVoice:
 		
 V3Voice:
 	Voices:
-		Select: vv3lsea,vv3lseb,vv3lsec,vv3lsed,vv3lsee
+		Select: vv3lsea,vv3lseb,vv3lsec,vv3lsee
 		Move: vv3lmob,vv3lmoc,vv3lmod,vv3lmoe
 		Attack: vv3lata,vv3latb,vv3latc,vv3latd,vv3late
 		Action:  vv3lmob,vv3lmoc,vv3lmod,vv3lmoe

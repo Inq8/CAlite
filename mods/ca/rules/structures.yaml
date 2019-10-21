@@ -11,7 +11,7 @@ MSLO:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 140
-		Prerequisites: techcenter, ~techlevel.unrestricted
+		Prerequisites: techcenter, ~techlevel.unrestricted, ~techlevel.superw
 		BuildLimit: 1
 		Description: Provides an atomic bomb.\nRequires power to operate.\nMaximum 1 can be built.\n  Special Ability: Atom Bomb
 	Building:
@@ -219,7 +219,7 @@ SPEN:
 		Range: 10c0
 	RenderDetectionCircle:
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: ships.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -230,6 +230,9 @@ SPEN:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: ships.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: ships.iraq
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: ships.soviet
@@ -242,6 +245,9 @@ SPEN:
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
 		Prerequisite: ships.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: ships.iraq
 	ProvidesPrerequisite@buildingname:
 	MapEditorData:
 		ExcludeTilesets: INTERIOR
@@ -438,7 +444,6 @@ IRON:
 	IonCannonPower@IRONCURTAIN:
 		OrderName: ironcurtain
 		Icon: invuln
-		Prerequisites: techlevel.enhanced
 		ChargeInterval: 3000
 		Weapon: IronCurtain
 		WeaponDelay: 0
@@ -513,6 +518,7 @@ PDOX:
 		InsufficientPowerSpeechNotification: InsufficientPower
 		BeginChargeSpeechNotification: ChronosphereCharging
 		EndChargeSpeechNotification: ChronosphereReady
+		LaunchSound: chronocharge.aud
 		Duration: 400
 		KillCargo: yes
 		DisplayRadarPing: True
@@ -633,7 +639,7 @@ DOME:
 		Queue: Building
 		BuildPaletteOrder: 90
 		Prerequisites: proc, ~structures.ra, ~techlevel.medium
-		Description: Provides an overview\nof the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Description: Provides an overview\nof the battlefield.\nRequires power to operate.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -663,10 +669,6 @@ DOME:
 		RequiresCondition: !jammed && !disabled
 	InfiltrateForExploration:
 		Types: SpyInfiltrate, SabInfiltrate
-	DetectCloaked:
-		Range: 10c0
-		RequiresCondition: !disabled
-	RenderDetectionCircle:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@radar:
@@ -834,7 +836,7 @@ FTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 60
-		Prerequisites: barr, ~structures.soviet, ~techlevel.low
+		Prerequisites: barr, ~!structures.iraq, ~structures.soviet, ~techlevel.low
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 600
@@ -969,6 +971,7 @@ ATEK:
 		LongDesc: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
 		RevealDelay: 375
 		LaunchSpeechNotification: SatelliteLaunched
+		LaunchSound: gpsreveal.aud
 		DisplayTimerStances: Ally, Neutral, Enemy
 	SupportPowerChargeBar:
 	Power:
@@ -1036,10 +1039,10 @@ WEAP:
 		Produces: Vehicle
 		PauseOnCondition: forceshield
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine
+		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
 	ProvidesPrerequisite@ra:
-		Factions: allies, england, france, germany, soviet, russia, ukraine
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.ra
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
@@ -1057,7 +1060,7 @@ WEAP:
 		Factions: germany
 		Prerequisite: vehicles.germany
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -1068,6 +1071,9 @@ WEAP:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -1095,6 +1101,9 @@ WEAP:
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
 		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: vehicles.iraq
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -1159,7 +1168,7 @@ FACT:
 		Prerequisites: ~disabled
 		Description: Produces structures.
 	ProvidesPrerequisite@ra:
-		Factions: allies, england, france, germany, soviet, russia, ukraine
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: structures.ra
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
@@ -1177,7 +1186,7 @@ FACT:
 		Factions: germany
 		Prerequisite: structures.germany
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: structures.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -1188,6 +1197,9 @@ FACT:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: structures.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: structures.iraq
 	ProvidesPrerequisite@ai:
 		Prerequisite: botplayer
 		RequiresCondition: normalbotplayer || brutalbotplayer
@@ -1474,10 +1486,10 @@ HPAD:
 		RequiresPrerequisites: structures.germany
 		Prerequisite: aircraft.germany
 	ProvidesPrerequisite@soviets:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: aircraft.soviet
 	ProvidesPrerequisite@all:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, gdi, talon, zocom, nod, blackh, marked
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, nod, blackh, marked
 		Prerequisite: aircraft.all
 	ProvidesPrerequisite@buildingname:
 	Targetable:
@@ -1534,7 +1546,7 @@ AFLD:
 		PauseOnCondition: forceshield || invulnerability
 	Reservable:
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: aircraft.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -1545,6 +1557,9 @@ AFLD:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: aircraft.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: aircraft.iraq
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: aircraft.soviet
@@ -1557,13 +1572,16 @@ AFLD:
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
 		Prerequisite: aircraft.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: aircraft.iraq
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
 		Prerequisites: aircraft.soviet
 		Icon: spyplane
 		ChargeInterval: 3750
 		Description: Spy Plane
-		LongDesc: Reveals an area of the map\nand cloaked enemy units.
+		LongDesc: Reveals an area of the map.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: SpyPlaneReady
 		LaunchSound: spyplane.aud
@@ -1578,7 +1596,7 @@ AFLD:
 		CircleSequence: circles
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
-		Prerequisites: aircraft.soviet
+		Prerequisites: aircraft.soviet, !aircraft.russia
 		Icon: paratroopers
 		ChargeInterval: 7500
 		Description: Paratroopers
@@ -1596,17 +1614,75 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
-	AirstrikePower@parabombs:
+	ParatroopersPower@Russianparatroopers:
+		OrderName: RussianParatroopers
+		Prerequisites: aircraft.russia
+		Icon: paratroopers
+		ChargeInterval: 9000
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of shock troops\nanywhere on the map.
+		SquadSize: 1
+		SquadOffset: 0,1792,0
+		DropItems: SHOK,SHOK,SHOK,SHOK,SHOK
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+	AirstrikePower@UkraineParabombs:
 		OrderName: UkraineParabombs
-		Prerequisites: aircraft.soviet, techlevel.superw
-		Icon: parabombs
-		ChargeInterval: 7500
-		Description: Parabombs
-		LongDesc: A squad of Badgers drop parachuted\nbombs on your target.
+		Prerequisites: aircraft.ukraine, techlevel.superw
+		Icon: carpetbomb
+		ChargeInterval: 9000
+		Description: Carpet Bomb
+		LongDesc: A squad of Badgers drop\nbombs on your target.
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
 		UnitType: badr.bomber
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: a10airstrike
+		BeaconPosterPalette: temptd
+		SquadSize: 3
+		ArrowSequence: arrow
+		ClockSequence: clockTD
+		CircleSequence: circles
+	AirstrikePower@Russianparabombs:
+		OrderName: RussiaParabombs
+		Prerequisites: aircraft.russia, techlevel.superw
+		Icon: parabombs
+		ChargeInterval: 7500
+		Description: Tesla Parabombs
+		LongDesc: A Badger bomber drops parachuted\nteslabombs on your target.
+		SelectTargetSpeechNotification: SelectTarget
+		CameraActor: camera
+		CameraRemoveDelay: 150
+		UnitType: badr.tbomber
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: pbmbicon
+		SquadSize: 1
+		SquadOffset: 0,1792,0
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+	AirstrikePower@Iraqiparabombs:
+		OrderName: IraqParabombs
+		Prerequisites: aircraft.iraq, techlevel.superw
+		Icon: parabombs
+		ChargeInterval: 7500
+		Description: Chemical Parabombs
+		LongDesc: A Badger bomber drops parachuted\nchemical bombs on your target.
+		SelectTargetSpeechNotification: SelectTarget
+		CameraActor: camera
+		CameraRemoveDelay: 150
+		UnitType: badr.cbomber
 		QuantizedFacings: 8
 		DisplayBeacon: true
 		BeaconPoster: pbmbicon
@@ -1839,7 +1915,7 @@ BARR:
 	ProvidesPrerequisite@barracksRA:
 		Prerequisite: barracksRA
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: infantry.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -1850,6 +1926,9 @@ BARR:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: infantry.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: infantry.iraq
 	ProvidesPrerequisite@sovietstructure:
 		RequiresPrerequisites: structures.soviet
 		Prerequisite: infantry.soviet
@@ -1862,6 +1941,9 @@ BARR:
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
 		Prerequisite: infantry.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: infantry.iraq
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -1917,7 +1999,7 @@ KENN:
 		Prerequisites: anypower, ~structures.soviet, ~techlevel.infonly
 		Description: Trains Attack Dogs.
 	Valued:
-		Cost: 100
+		Cost: 200
 	Tooltip:
 		Name: Kennel
 	-GivesBuildableArea:
@@ -2149,7 +2231,7 @@ SBAG:
 		Prerequisites: fact, ~structures.allies, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 50
+		Cost: 30
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -2183,7 +2265,7 @@ FENC:
 		Prerequisites: fact, ~structures.soviet, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 50
+		Cost: 30
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -2237,7 +2319,7 @@ CHAIN:
 		Prerequisites: afac, ~structures.nod, ~techlevel.low
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 	Valued:
-		Cost: 50
+		Cost: 30
 	CustomSellValue:
 		Value: 0
 	Tooltip:
@@ -2638,7 +2720,7 @@ AWEP:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine
+		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
@@ -2659,7 +2741,7 @@ AWEP:
 		Factions: germany
 		Prerequisite: vehicles.germany
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -2670,6 +2752,9 @@ AWEP:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@gdi:
 		Factions: gdi, zocom, talon
 		Prerequisite: vehicles.gdi
@@ -2715,6 +2800,9 @@ AWEP:
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
 		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@gdistructure:
 		RequiresPrerequisites: structures.gdi
 		Prerequisite: vehicles.gdi
@@ -2848,7 +2936,7 @@ ASTRIP:
 		ActorType: c17.cargo
 		ReadyAudio: ReinforcementsArrived
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine
+		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
@@ -2869,7 +2957,7 @@ ASTRIP:
 		Factions: germany
 		Prerequisite: vehicles.germany
 	ProvidesPrerequisite@soviet:
-		Factions: soviet, russia, ukraine
+		Factions: soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.soviet
 	ProvidesPrerequisite@sovietvanilla:
 		Factions: soviet
@@ -2880,6 +2968,9 @@ ASTRIP:
 	ProvidesPrerequisite@ukraine:
 		Factions: ukraine
 		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraq:
+		Factions: iraq
+		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@gdi:
 		Factions: gdi, talon, zocom
 		Prerequisite: vehicles.gdi
@@ -2924,7 +3015,10 @@ ASTRIP:
 		Prerequisite: vehicles.russia
 	ProvidesPrerequisite@ukrainianstructure:
 		RequiresPrerequisites: structures.ukraine
-		Prerequisite: vehicles.ukraine	
+		Prerequisite: vehicles.ukraine
+	ProvidesPrerequisite@iraqistructure:
+		RequiresPrerequisites: structures.iraq
+		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@gdivanillastructure:
 		RequiresPrerequisites: structures.gdivanilla
 		Prerequisite: vehicles.gdivanilla
@@ -2964,6 +3058,27 @@ ASTRIP:
 		CameraActor: camera.paradrop
 		DisplayBeacon: true
 		BeaconPoster: lrairdropicon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+	ParatroopersPower@Blackhparatroopers:
+		OrderName: BlackhParatroopers
+		Prerequisites: vehicles.nod
+		Icon: paratroopers
+		UnitType: c17
+		ChargeInterval: 7500
+		Description: Paratroopers
+		LongDesc: A Cargo Plane drops a squad of infantry\nanywhere on the map.
+		SquadSize: 1
+		SquadOffset: 0,1792,0
+		DropItems: N1,N1,N4,N3,N3,N1,N1,N4
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
@@ -3451,7 +3566,7 @@ HQ:
 		BuildPaletteOrder: 90
 		Prerequisites: proc2, ~structures.td, ~techlevel.medium
 		IconPalette: chrometd
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\n  Requires power to operate.
+		Description: Provides an overview of the battlefield.\n  Requires power to operate.
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -3495,9 +3610,27 @@ HQ:
 		LaunchSound: hacksat.aud
 		SelectTargetSpeechNotification: SelectTarget
 		PauseOnCondition: disabled
-	DetectCloaked:
-		Range: 10
-	RenderDetectionCircle:
+	AirstrikePower@BlackhandFirebomb:
+		OrderName: Infernobomb
+		Prerequisites: radar.blackh, techlevel.superw
+		Icon: infbomb
+		IconPalette: chrometd
+		ChargeInterval: 9000
+		Description: Inferno Bomb
+		LongDesc: A B2 bomber drops\ninferno bombs on your target.
+		SelectTargetSpeechNotification: SelectTarget
+		CameraActor: camera
+		CameraRemoveDelay: 150
+		UnitType: b2b
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: a10airstrike
+		BeaconPosterPalette: temptd
+		SquadSize: 1
+		SquadOffset: 0,1792,0
+		ArrowSequence: arrow
+		ClockSequence: clockTD
+		CircleSequence: circles
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@radar:
@@ -3505,6 +3638,9 @@ HQ:
 	ProvidesPrerequisite@nodrad:
 		Factions: nod, marked, blackh
 		Prerequisite: radar.nod
+	ProvidesPrerequisite@bhrad:
+		Factions: blackh
+		Prerequisite: radar.blackh
 	ProvidesPrerequisite@gdirad:
 		Factions: gdi, zocom, talon
 		Prerequisite: radar.gdi
@@ -3583,7 +3719,7 @@ EYE:
 		LongDesc: Initiate an Ion Cannon strike.\nApplies instant damage to a small area.
 		BeginChargeSpeechNotification: IonCannonCharging
 		EndChargeSpeechNotification: IonCannonReady
-		LaunchSound: ion1.aud
+		LaunchSound: ion2.aud
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
 		DisplayRadarPing: True
@@ -3720,7 +3856,7 @@ HPAD2:
 		RequiresPrerequisites: structures.nod
 		Prerequisite: aircraft.blackh
 	ProvidesPrerequisite@all:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, gdi, talon, zocom, nod, blackh, marked
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, nod, blackh, marked
 		Prerequisite: aircraft.all
 	ProvidesPrerequisite@buildingname:
 	Targetable:
@@ -4052,7 +4188,7 @@ TMPL:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 140
-		Prerequisites: hq, ~structures.nod, ~techlevel.superw
+		Prerequisites: hq, ~structures.nod
 		IconPalette: chrometd
 		Description: Provides Nod advanced technologies.\nRequires power to operate.\n  Special Ability: Neutron Bomb
 	Building:
@@ -4068,20 +4204,20 @@ TMPL:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 4c0
-	NukePower@Chemmiss:
-		OrderName: cmissile
-		Icon: cmissile
+	NukePower@Empmiss:
+		OrderName: empmissile
+		Icon: empmissile
 		Prerequisites: techlevel.high, techlevel.superw
 		Cursor: empmissile
 		ChargeInterval: 9000
-		Description: Neutron Missile
-		LongDesc: Launches an advanced Neutron Missile,\nwhich kills infantry and disables vehicles and structures.
+		Description: EMP Missile
+		LongDesc: Launches an advanced EMP Missile,\nCauses limited damage but temporarily disables vehicles and structures.\nAircraft caught in the blast will crash.
 		BeginChargeSpeechNotification: EMMissilePrepping
 		EndChargeSpeechNotification: EMMissileReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
 		IncomingSpeechNotification: EMMissileLaunchDetected
-		MissileWeapon: Chemicbm
+		MissileWeapon: Empicbm
 		MissilePalette: temptd
 		DisplayBeacon: True
 		BeaconPoster: cmissile
@@ -4153,10 +4289,10 @@ PRIS:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
-		Prerequisites: ~disabled
+		Prerequisites: atek, ~structures.allies, ~techlevel.high
 		Description: Experimental base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1200
+		Cost: 1000
 	Tooltip:
 		Name: Prism Tower
 	Building:
@@ -4299,7 +4435,7 @@ SPEN.nod:
 SYRD.gdi:
 	Inherits: ^Building
 	RenderSprites:
-		Image: SYRD
+		Image: GSYRD
 		PlayerPalette: playernavy
 	InfiltrateForSupportPower:
 		Types: SpyInfiltrate
@@ -4511,6 +4647,32 @@ GUN2:
 		Amount: -40
 	BodyOrientation:
 		UseClassicFacingFudge: True
+		
+LTUR:
+	Inherits: GUN2
+	RenderSprites:
+		Image: ltur
+		PlayerPalette: playertd
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Laser Turret
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: hand, ~structures.nod, ~techlevel.low
+		Queue: Defense
+		IconPalette: chrometd
+		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Turreted:
+		TurnSpeed: 12
+		InitialFacing: 34
+	-Armament:
+	Armament:
+		Weapon: LaserTur
+		LocalOffset: 512,0,172
+		PauseOnCondition: emppowerdown
+	Power:
+		Amount: -25
 
 TTUR:
 	Inherits: ^Defense
@@ -4518,7 +4680,7 @@ TTUR:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 60
-		Prerequisites: hand, ~structures.nod, ~techlevel.low
+		Prerequisites: barr, ~structures.iraq, ~techlevel.low
 		IconPalette: chrometd
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
@@ -4684,3 +4846,45 @@ CRAM:
 		RevokeDelay: 40
 		RevokeOnNewTarget: False
 		RevokeAll: True
+
+INDP:
+	Inherits: ^Building
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~disabled
+		Description: Provides power for other structures.
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Industrial Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: __ xx xx ==
+		Dimensions: 2,4
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	Power:
+		Amount: 100
+	Targetable:
+		TargetTypes: Ground, Structure, C4, DetonateAttack, SpyInfiltrate, PowerInfiltrate
+	ScalePowerWithHealth:
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	InfiltrateForPowerOutage:
+		Types: SpyInfiltrate, PowerInfiltrate

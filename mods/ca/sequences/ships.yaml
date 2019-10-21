@@ -5,6 +5,9 @@ ss:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -27,6 +30,9 @@ ca:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -54,6 +60,9 @@ dd:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -75,6 +84,9 @@ pt:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -99,6 +111,9 @@ lst:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -113,6 +128,9 @@ msub:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -127,6 +145,9 @@ ss2:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -141,6 +162,9 @@ icbmsub:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -165,6 +189,9 @@ dd2:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -186,6 +213,9 @@ pt2:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive
@@ -203,6 +233,9 @@ carr:
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 	chrono-overlay: chronofade
 		Length: *
 		BlendMode: Additive

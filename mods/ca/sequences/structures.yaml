@@ -1888,6 +1888,41 @@ gun2:
 		UseTilesetCode: false
 		ZOffset: 512
 	icon: gun2icnh
+	
+ltur:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	damaged-idle:
+		Start: 32
+		Facings: 32
+		UseClassicFacingFudge: True
+	make: lturmake
+		Length: *
+		Tick: 80
+	muzzle: gunfire2
+		Length: *
+	bib: mbGUN
+		UseTilesetExtension: true
+		TilesetOverrides:
+			WINTER: TEMPERAT
+			SNOW: TEMPERAT
+			BARREN: TEMPERAT
+		Length: *
+		Offset: -1,-1
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: lturicnh
 
 hpad2:
 	idle:
@@ -2475,3 +2510,51 @@ cram:
 		UseTilesetCode: false
 		ZOffset: 512
 	icon: cramicnh
+	
+gsyrd:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: gsyrdmake
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: syrdicon
+	fake-icon: syrficon
+	
+indp:
+	idle:
+	damaged-idle:
+	make: powrmake
+		Length: *
+	dead: powrdead
+		Tick: 800
+	bib: bib3
+		Length: *
+		UseTilesetExtension: true
+		TilesetOverrides:
+			INTERIOR: TEMPERAT
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: powricon
+	fake-icon: fpwricon

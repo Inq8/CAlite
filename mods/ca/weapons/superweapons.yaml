@@ -5,11 +5,11 @@ ParaBomb:
 	Projectile: GravityBomb
 		Image: PARABOMB
 		OpenSequence: open
-		Velocity: 0, 0, -86
+		Velocity: 0, 0, -45
 		Acceleration: 0, 0, 0
 		Shadow: False
 	Warhead@1Dam: SpreadDamage
-		Spread: 768
+		Spread: 1c0
 		Damage: 30000
 		Versus:
 			None: 30
@@ -21,7 +21,7 @@ ParaBomb:
 		SmudgeType: Crater
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
 	Warhead@3Eff: CreateEffect
-		Explosions: building
+		Explosions: building, building2
 		ImpactSounds: kaboom25.aud
 		ValidTargets: Ground, Ship, Trees
 	Warhead@4EffWater: CreateEffect
@@ -29,6 +29,98 @@ ParaBomb:
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure
+		
+TeslaParaBomb:
+	Inherits: ParaBomb
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 30000
+		InvalidTargets: Air
+		Versus:
+			None: 30
+			Wood: 75
+			Light: 65
+			Heavy: 30
+			Concrete: 40
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: tsla_bomb
+		ExplosionPalette: ra2effect
+		ImpactSounds: kirbo1.aud, kirbo2.aud
+		ValidTargets: Ground, Water, Ship, Trees
+		
+ChemParaBomb:
+	Inherits: ParaBomb
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 30000
+		Versus:
+			None: 70
+			Wood: 50
+			Light: 65
+			Heavy: 50
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 1
+	Warhead@3Eff: CreateEffect
+		Explosions: med_chem
+		ExplosionPalette: temptd
+		ImpactSounds: firetrt1.aud
+		ValidTargets: Ground, Ship, Trees
+		
+CarpetBomb:
+	Inherits: ParaBomb
+	Report: bwhis.aud
+	-Projectile:
+	Projectile: GravityBomb
+		Image: BOMBLET
+		Velocity: 0, 0, -45
+		Acceleration: 0, 0, 0
+		Shadow: true
+		
+InfernoBomb:
+	Inherits: CarpetBomb
+	Projectile: GravityBomb
+		Image: B2BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 30000
+		Versus:
+			None: 80
+			Wood: 50
+			Light: 75
+			Concrete: 25
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 2
+	Warhead@3Eff: CreateEffect
+		Explosions: b2bexp, b2bexp2
+		ExplosionPalette: tseffect
+		ImpactSounds: expnew06.aud
+		ValidTargets: Ground, Ship, Trees
+	Warhead@4Dam_areanuke1: SpreadDamage
+		Spread: 2c0
+		Damage: 1000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 5
+		ValidTargets: Ground, Trees, Water, Underwater, Air
+		Versus:
+			Wood: 50
+			Concrete: 25
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@8Dam_areanuke2: SpreadDamage
+		Spread: 3c0
+		Damage: 6000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 10
+		ValidTargets: Trees
+		DamageTypes: Incendiary
 
 Atomic:
 	ValidTargets: Ground, Trees, Water, Underwater, Air
@@ -157,7 +249,7 @@ IonCannon:
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: ion_ring
+		Explosions: ion_ring2
 		ExplosionPalette: tseffect
 	Warhead@3Smu_impact: LeaveSmudge
 		SmudgeType: Scorch
@@ -173,7 +265,7 @@ IonCannon:
 		Size: 2,1
 		Delay: 6
 
-Chemicbm:
+Empicbm:
 	ValidTargets: Ground, Water
 	Warhead@1Dam_impact: SpreadDamage
 		Range: 0, 1c1, 2c1, 3c1, 3c512, 4c1, 4c512
@@ -181,7 +273,7 @@ Chemicbm:
 		Falloff: 1000, 368, 135, 90, 68, 37, 10
 		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 		Versus:
-			None: 150
+			None: 20
 			Wood: 20
 			Light: 20
 			Heavy: 20
@@ -192,9 +284,9 @@ Chemicbm:
 		ImpactSounds: empexpl.aud
 	Warhead@emp: GrantExternalCondition
 		Range: 5c0
-		Duration: 500
+		Duration: 800
 		Condition: empdisable
-		ValidTargets: Ground, Vehicle
+		ValidTargets: Ground, Vehicle, Air
 	Warhead@2Smu_impact: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@3Smu_area: LeaveSmudge

@@ -71,14 +71,14 @@ Napalmtd:
 		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 726
-		Damage: 1500
+		Damage: 1400
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water
 		Versus:
 			None: 100
-			Wood: 70
-			Light: 70
-			Heavy: 50
+			Wood: 60
+			Light: 60
+			Heavy: 40
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
@@ -303,7 +303,7 @@ MADTankDetonate:
 	InvalidTargets: MADTank, Infantry
 	Warhead@1Dam: HealthPercentageDamage
 		Spread: 7c0
-		Damage: 12
+		Damage: 19
 		InvalidTargets: MADTank, Infantry
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -314,40 +314,84 @@ MADTankDetonate:
 		ImpactActors: false
 		
 Laser:
-	ReloadDelay: 40
-	Burst: 3
-	BurstDelays: 2
+	ReloadDelay: 120
 	ValidTargets: Ground, Water
 	InvalidTargets: Air, Chrono
-	Range: 8c0
+	Range: 9c512
 	Report: oblfire.aud
 	Projectile: LaserZap
-		Width: 65
+		Width: 56
 		HitAnim: laserfire
+		Color: FF000080
 		ZOffset: 2047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 25
+		SecondaryBeamWidth: 90
 		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FF150A
+		SecondaryBeamColor: FF000040
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Chrono, Air
 		Spread: 42
-		Damage: 12000
+		Damage: 25000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		Versus:
-			Light: 60
+			Light: 70
 			Wood: 60
 			Heavy: 101
-			Concrete: 35
+			Concrete: 45
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+
+LaserTur:
+	Inherits: Laser
+	ReloadDelay: 40
+	Range: 6c0
+	Report: lastur1.aud
+	Projectile: LaserZap
+		Width: 45
+		Duration: 5
+		HitAnim: laserfire
+		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 65
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FF000030
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Damage: 5500
+		Versus:
+			None: 120
+			Wood: 73
+			Heavy: 60
+			
+PortaLaser:
+	Inherits: Laser
+	ReloadDelay: 30
+	Burst: 2
+	BurstDelays: 3
+	Range: 5c512
+	Report: lastur1.aud
+	Projectile: LaserZap
+		Width: 30
+		Duration: 3
+		HitAnim: laserfire
+		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 50
+		SecondaryBeamZOffset: 2047
+		SecondaryBeamColor: FF000030
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+		Versus:
+			Wood: 73
+			Heavy: 60
 
 PrisLaser:
 	ValidTargets: Ground, Water
 	InvalidTargets: Air, Chrono
 	ReloadDelay: 25
-	Range: 7c0
+	Range: 8c0
 	Report: prisfire.aud
 	Projectile: LaserZap
 		Width: 35
@@ -361,13 +405,13 @@ PrisLaser:
 	Warhead@1Dam: SpreadDamage
 		InvalidTargets: Air, Chrono
 		Spread: 42
-		Damage: 12000
+		Damage: 13000
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		Versus:
 			None: 100
 			Wood: 70
-			Light: 30
-			Heavy: 65
+			Light: 80
+			Heavy: 75
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
@@ -427,14 +471,14 @@ FrogBomb:
 		Shadow: true
 	Warhead@1Dam: SpreadDamage
 		Spread: 726
-		Damage: 1500
+		Damage: 1400
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water
 		Versus:
 			None: 100
 			Wood: 70
-			Light: 70
-			Heavy: 50
+			Light: 60
+			Heavy: 40
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -577,96 +621,45 @@ Railgun:
 			Concrete: 15
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 		
-MRailgun:
-	ReloadDelay: 40
-	Burst: 2
-	BurstDelays: 6
-	Range: 6c768
-	Report: railuse5.aud
+IonZap:
+	ReloadDelay: 50
+	Range: 5c768
+	Report: ion1.aud
 	InvalidTargets: Air
 	Projectile: Railgun
-		Duration: 15
+		Duration: 7
 		Blockable: true
 		DamageActorsInLine: false
-		BeamColor: 00FF00C8
+		BeamColor: ffffff
 		BeamWidth: 40
-		HelixThickness: 16
-		HelixRadius: 32
+		BeamAlphaDeltaPerTick: -16
+		HelixThickness: 32
+		HelixRadius: 10
+		HelixPitch: 30
+		HelixRadiusDeltaPerTick: 16
+		HelixAlphaDeltaPerTick: -16
+		HelixAngleDeltaPerTick: 16
+		QuantizationCount: 4
+		HelixColor: D8FCfC
 		HitAnim: explosion
-		HitAnimSequence: small_explosion
-		ZOffset: 2046
+		HitAnimSequence: ionexp
+		HitAnimPalette: temptd
+		ZOffset: 2045
 	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 1000, 1000
-		Damage: 4000
-		ValidStances: Neutral, Enemy
+		Spread: 512
+		Damage: 10000
+		ValidStances: Ally, Neutral, Enemy
 		InvalidTargets: Air
 		AffectsParent: false
 		Versus:
 			None: 100
-			Wood: 65
-			Light: 75
-			Heavy: 50
-			Concrete: 15
+			Wood: 75
+			Light: 85
+			Heavy: 75
+			Concrete: 45
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-	Warhead@2Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 1000, 1000
-		Damage: 2500
-		ValidStances: Ally
-		InvalidTargets: Air
-		AffectsParent: false
-		Versus:
-			None: 100
-			Wood: 65
-			Light: 75
-			Heavy: 50
-			Concrete: 15
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
-		
-MLaser:
-	ReloadDelay: 40
-	Burst: 2
-	BurstDelays: 6
-	Range: 6c768
-	Report: obelmod1.aud
-	InvalidTargets: Air
-	Projectile: LaserZap
-		Width: 65
-		HitAnim: laserfire
-		ZOffset: 2047
-		SecondaryBeam: true
-		SecondaryBeamWidth: 25
-		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FF150A
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 1000, 1000
-		Damage: 4000
-		ValidStances: Neutral, Enemy
-		InvalidTargets: Air
-		AffectsParent: false
-		Versus:
-			None: 100
-			Wood: 65
-			Light: 75
-			Heavy: 50
-			Concrete: 15
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-	Warhead@2Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 1000, 10
-		Damage: 2500
-		ValidStances: Ally
-		InvalidTargets: Air
-		AffectsParent: false
-		Versus:
-			None: 100
-			Wood: 65
-			Light: 75
-			Heavy: 50
-			Concrete: 15
-		DamageTypes: Prone100Percent, TriggerProne, FireDeath
-	Warhead@2Smu: LeaveSmudge
+	Warhead@2Eff: CreateEffect
+		Explosions: ion_ring
+		ExplosionPalette: tseffect
+	Warhead@3Smu_impact: LeaveSmudge
 		SmudgeType: Scorch
-		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep

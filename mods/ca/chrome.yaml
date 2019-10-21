@@ -779,6 +779,7 @@ flags: buttons.png
 	Random: 60,112,30,15
 	russia: 0,127,30,15
 	ukraine: 30,127,30,15
+	iraq: 120,112,30,15
 	blackh: 60,127,30,15
 	nod: 0,142,30,15
 	marked: 0,142,30,15

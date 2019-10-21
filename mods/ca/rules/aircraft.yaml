@@ -41,7 +41,7 @@ BADR.Bomber:
 	Inherits: ^NeutralPlane
 	AttackBomber:
 	Armament:
-		Weapon: ParaBomb
+		Weapon: CarpetBomb
 	Health:
 		HP: 30000
 	Aircraft:
@@ -78,6 +78,65 @@ BADR.Bomber:
 	GivesExperience:
 		Experience: 1000
 	Interactable:
+	
+BADR.TBomber:
+	Inherits: BADR.Bomber
+	Armament:
+		Weapon: TeslaParaBomb
+		
+BADR.CBomber:
+	Inherits: BADR.Bomber
+	Armament:
+		Weapon: ChemParaBomb
+
+B2B:
+	Inherits: ^NeutralPlane
+	AttackBomber:
+	Armament:
+		Weapon: InfernoBomb
+	Health:
+		HP: 30000
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 5
+		Speed: 215
+		Repulsable: False
+		MaximumPitch: 56
+	AmmoPool:
+		Ammo: 1
+	-Selectable:
+	SelectionDecorations:
+		RenderSelectionBars: False
+	-Voiced:
+	Tooltip:
+		Name: B2 Stealth Bomber
+	Contrail@1:
+		Offset: -432,560,0
+	Contrail@2:
+		Offset: -432,-560,0
+	SpawnActorOnDeath:
+		Actor: B2B.Husk
+	SmokeTrailWhenDamaged@0:
+		Offset: -432,560,0
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -432,-560,0
+		Interval: 2
+	-EjectOnDeath:
+	-MapEditorData:
+	RejectsOrders:
+	GivesExperience:
+		Experience: 1000
+	Interactable:
+	Cloak@NORMAL:
+		InitialDelay: 0
+		CloakDelay: 200
+		UncloakSound: appear1.aud
+		IsPlayerPalette: true
+		RequiresCondition: !cloak-force-disabled && airborne
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
 
 MIG:
 	Inherits: ^Plane
@@ -87,7 +146,6 @@ MIG:
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 50
 		Prerequisites: ~afld, stek, ~techlevel.high
-		BuildDurationModifier: 50
 		Description: Fast Ground-Attack Plane.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 2000
@@ -152,14 +210,14 @@ FROG:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 51
-		Prerequisites: ~afld, ~aircraft.ukraine, ~techlevel.medium, ~techlevel.funits
+		Prerequisites: ~afld, ~aircraft.ukraine, ~techlevel.medium
 		Description: Fast Ground-Attack Plane.\n  Strong vs Buildings, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1800
+		Cost: 1750
 	Tooltip:
 		Name: Frogfoot Attack Plane
 	Health:
-		HP: 9000
+		HP: 8000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -178,7 +236,7 @@ FROG:
 		CruiseAltitude: 2560
 		InitialFacing: 192
 		TurnSpeed: 4
-		Speed: 195
+		Speed: 185
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeoffSounds: migtoff1.aud
@@ -187,8 +245,8 @@ FROG:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 4
-		PipCount: 4
+		Ammo: 6
+		PipCount: 6
 		AmmoCondition: ammo
 	SelectionDecorations:
 	Contrail@1:
@@ -217,13 +275,13 @@ YAK:
 		Prerequisites: ~afld, ~techlevel.medium
 		Description: Attack Plane armed with\ndual machine guns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 1350
+		Cost: 1250
 	Tooltip:
 		Name: Yak Attack Plane
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 6000
+		HP: 5500
 	RevealsShroud:
 		Range: 11c0
 		Type: GroundPosition
@@ -232,13 +290,13 @@ YAK:
 		Range: 9c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: Vulcan.Yak
+		Weapon: ChainGun.Yak
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: Vulcan.Yak
+		Weapon: ChainGun.Yak
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
@@ -262,8 +320,6 @@ YAK:
 	ReturnOnIdle:
 	SelectionDecorations:
 	WithMuzzleOverlay:
-	Contrail:
-		Offset: -853,0,0
 	SpawnActorOnDeath:
 		Actor: YAK.Husk
 	SmokeTrailWhenDamaged:
@@ -304,6 +360,8 @@ TRAN:
 		Speed: 128
 		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Gems,Tiberium,BlueTiberium
 		AltitudeVelocity: 0c58
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 	WithIdleOverlay@ROTOR1AIR:
 		Offset: 597,0,213
 		Sequence: rotor
@@ -382,17 +440,16 @@ HELI:
 		Queue: Aircraft
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: ~hpad, ~!aircraft.england, ~!aircraft.soviet, atek, ~techlevel.high, ~techlevel.funits
-		BuildDurationModifier: 50
+		Prerequisites: ~hpad, ~aircraft.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
-		Cost: 2000
+		Cost: 1700
 	Tooltip:
 		Name: Longbow
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 10000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -414,6 +471,8 @@ HELI:
 		LandWhenIdle: false
 		TurnSpeed: 4
 		Speed: 149
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -439,18 +498,6 @@ HELI:
 		DecorationBounds: 36,28
 	Rearmable:
 		RearmActors: hpad, hpad2
-		
-HELI.all:
-	Inherits: HELI
-	RenderSprites:
-		Image: heli
-	Buildable:
-		Queue: Aircraft
-		BuildAtProductionType: Helicopter
-		BuildPaletteOrder: 40
-		Prerequisites: ~hpad, ~aircraft.allies, atek, ~techlevel.high, ~!techlevel.funits
-		BuildDurationModifier: 50
-		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 
 HIND:
 	Inherits: ^Helicopter
@@ -493,6 +540,8 @@ HIND:
 		LandWhenIdle: false
 		TurnSpeed: 4
 		Speed: 112
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -569,7 +618,7 @@ a10:
 	Tooltip:
 		Name: Warthog
 	Health:
-		HP: 8500
+		HP: 8000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -590,7 +639,7 @@ a10:
 		CruiseAltitude: 2560
 		InitialFacing: 192
 		TurnSpeed: 4
-		Speed: 190
+		Speed: 185
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeoffSounds: migtoff1.aud
@@ -598,7 +647,7 @@ a10:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 5
+		Ammo: 4
 		AmmoCondition: ammo
 	Selectable:
 		Bounds: 36,28,0,2
@@ -666,6 +715,7 @@ c17:
 	Inherits: ^PlaneTD
 	ParaDrop:
 		DropRange: 4c0
+		ChuteSound: chute1.aud
 	Health:
 		HP: 30000
 	Armor:
@@ -785,6 +835,8 @@ APCH:
 		AltitudeVelocity: 0c100
 		TurnSpeed: 4
 		Speed: 160
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 	Health:
 		HP: 10000
 	RevealsShroud:
@@ -834,14 +886,14 @@ ORCA:
 	RenderSprites:
 		PlayerPalette: playertd
 	Valued:
-		Cost: 2000
+		Cost: 1750
 	Tooltip:
 		Name: Orca
 	Buildable:
 		Queue: Aircraft
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
-		Prerequisites: ~hpad2, ~aircraft.gdi, ~techlevel.high
+		Prerequisites: ~hpad2, ~aircraft.gdi, ~techlevel.medium
 		IconPalette: chrometd
 		Description: Helicopter Gunship with AG Missiles.\n  Strong vs Buildings, Tanks\n  Weak vs Infantry
 	Aircraft:
@@ -852,7 +904,7 @@ ORCA:
 		LandingSounds: orcadwn1.aud
 		Speed: 169
 	Health:
-		HP: 11000
+		HP: 9500
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -890,7 +942,7 @@ ORCA:
 	Rearmable:
 		RearmActors: hpad, hpad2
 
-uav:
+UAV:
 	Inherits: ^PlaneTD
 	RenderSprites:
 		PlayerPalette: playertd
@@ -927,7 +979,7 @@ uav:
 	GivesExperience:
 		Experience: 1000
 
-rah66:
+RAH66:
 	Inherits: ^HelicopterTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -968,6 +1020,8 @@ rah66:
 		AltitudeVelocity: 0c100
 		TurnSpeed: 4
 		Speed: 141
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 	Cloak@NORMAL:
 		InitialDelay: 100
 		CloakDelay: 200
@@ -1015,15 +1069,14 @@ KIROV:
 		Queue: Aircraft
 		BuildAtProductionType: Plane
 		BuildPaletteOrder: 55
-		BuildLimit: 1
-		Prerequisites: ~afld, stek, ~aircraft.soviet, ~techlevel.high
-		Description: Heavily Armoured Airship, equipped with\nBombs.\nMaximum 1 can be built.\n  Strong vs Structures.\n  Weak vs Anti Aircraft
+		Prerequisites: ~afld, stek, ~aircraft.russia, ~techlevel.high
+		Description: Heavily Armoured Airship, equipped with\nBombs.\n  Strong vs Structures.\n  Weak vs Anti Aircraft
 	Valued:
-		Cost: 2800
+		Cost: 2000
 	Tooltip:
 		Name: Kirov Airship
 	Health:
-		HP: 120000
+		HP: 80000
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -1050,8 +1103,8 @@ KIROV:
 		InitialFacing: 192
 		TurnSpeed: 3
 		Speed: 50
-		TakeoffSounds:
-		LandingSounds:
+		TakeoffSounds: htoff1.aud
+		LandingSounds: hland1.aud
 		Voice: Move
 		AltitudeVelocity: 0c50
 	AutoTarget:
@@ -1187,8 +1240,8 @@ HARR:
 		Queue: Aircraft
 		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 40
-		Prerequisites: atek, ~hpad, ~aircraft.england, ~techlevel.high, ~techlevel.funits
-		Description: Fast VTOL Attack Plane armed\nwith powerful missiles.\n  Strong vs Tanks\n  Weak vs Infantry
+		Prerequisites: atek, ~hpad, ~aircraft.allies, ~techlevel.high
+		Description: Fast VTOL Attack Plane armed\nwith powerful explosive missiles.\n  Strong vs Structures, Infantry\n  Weak vs Aircraft
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -1202,11 +1255,7 @@ HARR:
 	RevealsShroud@GAPGEN:
 		Range: 10c0
 		Type: GroundPosition
-	Armament@PRIMARY:
-		Weapon: HellfireAA.Harrier
-		LocalOffset: 0,-213,-85, 0,213,-85
-		PauseOnCondition: !ammo
-	Armament@SECONDARY:
+	Armament:
 		Weapon: HellfireAG.Harrier
 		LocalOffset: 0,213,-85, 0,-213,-85
 		PauseOnCondition: !ammo

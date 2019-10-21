@@ -47,6 +47,8 @@ FLAK-23-AG:
 	Inherits: ^AACannon
 	Range: 6c0
 	ValidTargets: Ground, Water
+	Projectile: Bullet
+		Blockable: True
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air, Ground, Water
 	Warhead@2Eff: CreateEffect
@@ -261,23 +263,6 @@ Vulcan:
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure, Bridge
 		Delay: 10
-
-Vulcan.Yak:
-	Inherits: ^HeavyMG
-	Range: 6c0
-	Burst: 3
-	BurstDelays: 2
-	FirstBurstTargetOffset: -2984,0,0
-	FollowingBurstTargetOffset: 746,0,0
-	ReloadDelay: 125
-	Report: gun5.aud
-	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 10000
-		Versus:
-			Wood: 15
-			Light: 100
-			Heavy: 35
 		
 GTChainGun:
 	Inherits: Vulcan
@@ -302,11 +287,11 @@ ChainGun.Yak:
 	Projectile: Bullet
 		Blockable: false
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 2000
 		Versus:
 			None: 100
 			Wood: 50
-			Light: 60
+			Light: 40
 			Heavy: 25
 			Concrete: 25
 
@@ -364,6 +349,7 @@ M60mgTD:
 
 SilencedPPK:
 	Inherits: ^SnipeWeapon
+	Range: 3c512
 	Report: silppk.aud
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
