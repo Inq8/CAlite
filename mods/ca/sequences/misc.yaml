@@ -128,11 +128,11 @@ explosion:
 		Tick: 110
 	b2bexp: b2bexp
 		BlendMode: Additive
-		Tick: 80
+		Tick: 90
 		ZOffset: 2046
 	b2bexp2: b2bexp
 		BlendMode: Additive
-		Tick: 80
+		Tick: 90
 		ZOffset: 2046
 		FlipX: true
 
@@ -710,34 +710,23 @@ minv:
 	icon: jmin
 
 overlay:
-	build-valid-desert:
-	build-valid-interior:
-	build-valid-snow:
-		Start: 2
-	build-valid-temperat:
-	build-valid-winter:
-	build-valid-jungle:
-	build-valid-barren:
+	Defaults: trans.icn
+		AddExtension: False
+	build-valid:
 	build-invalid:
-		Start: 1
+		Start: 2
+	target-valid:
 	target-select:
-		Start: 2
-	target-valid-desert:
-	target-valid-interior:
-	target-valid-snow:
-		Start: 2
-	target-valid-temperat:
-	target-valid-winter:
-	target-valid-jungle:
-	target-valid-barren:
-	target-invalid:
 		Start: 1
+	target-invalid:
+		Start: 2
 
 editor-overlay:
-	copy: overlay
-		Start: 0
-	paste: overlay
-		Start: 1
+	Defaults: trans.icn
+		AddExtension: False
+	copy:
+	paste:
+		Start: 2
 
 resources:
 	Defaults:
@@ -923,11 +912,11 @@ craters:
 mine:
 	idle:
 		UseTilesetExtension: true
-		ZOffset: -512
+		ZOffset: -1024
 
 gmine:
 	idle:
-		ZOffset: -512
+		ZOffset: -1024
 		UseTilesetExtension: true
 		TilesetOverrides:
 			INTERIOR: TEMPERAT
@@ -1116,3 +1105,47 @@ mindanim:
 		Tick: 200
 		BlendMode: Alpha
 		Offset: 0, 0
+		
+paratarget:
+	cursor: mouse
+		Start: 82
+		Length: 8
+		Tick: 80
+
+paradirection:
+	arrow-t: mouse
+		Start: 1
+		Y: -7
+		Offset: 0, -19, 0
+	arrow-tr: mouse
+		Start: 2
+		X: 6
+		Y: -5
+		Offset: 15, -15, 0
+	arrow-r: mouse
+		Start: 3
+		X: 7
+		Offset: 19, 0, 0
+	arrow-br: mouse
+		Start: 4
+		X: 6
+		Y: 5
+		Offset: 15, 15, 0
+	arrow-b: mouse
+		Start: 5
+		Y: 7
+		Offset: 0, 19, 0
+	arrow-bl: mouse
+		Start: 6
+		X: -6
+		Y: 5
+		Offset: -15, 15, 0
+	arrow-l: mouse
+		Start: 7
+		X: -8
+		Offset: -19, 0, 0
+	arrow-tl: mouse
+		Start: 8
+		X: -6
+		y: 5
+		Offset: -15, -15, 0

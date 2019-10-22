@@ -291,6 +291,8 @@ MINE:
 	AppearsOnRadar:
 	RadarColorFromTerrain:
 		Terrain: Ore
+	AppearsOnMapPreview:
+		Terrain: Ore
 	SeedsResource:
 	MapEditorData:
 		Categories: Resource spawn
@@ -311,6 +313,8 @@ GMINE:
 		Dimensions: 1,1
 	AppearsOnRadar:
 	RadarColorFromTerrain:
+		Terrain: Gems
+	AppearsOnMapPreview:
 		Terrain: Gems
 	SeedsResource:
 		ResourceType: Gems
@@ -621,6 +625,8 @@ SPLIT2:
 	SeedsResource:
 		ResourceType: Tiberium
 		Interval: 55
+	AppearsOnMapPreview:
+		Terrain: Tiberium
 	MapEditorData:
 		Categories: Resource spawn
 
@@ -632,6 +638,8 @@ SPLIT3:
 	SeedsResource:
 		ResourceType: Tiberium
 		Interval: 55
+	AppearsOnMapPreview:
+		Terrain: Tiberium
 	WithIdleAnimation:
 		Interval: 175
 	MapEditorData:
@@ -645,6 +653,8 @@ SPLITBLUE:
 	SeedsResource:
 		ResourceType: BlueTiberium
 		Interval: 110
+	AppearsOnMapPreview:
+		Terrain: BlueTiberium
 	WithIdleAnimation:
 		Interval: 210
 	Tooltip:
@@ -653,4 +663,3 @@ SPLITBLUE:
 		Terrain: BlueTiberium
 	MapEditorData:
 		Categories: Resource spawn
-

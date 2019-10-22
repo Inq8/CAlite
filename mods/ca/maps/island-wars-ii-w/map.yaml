@@ -497,5 +497,5 @@ Actors:
 	Actor162: t12.husk
 		Owner: Neutral
 		Location: 61,18
-        
+		
 Rules: rules.yaml

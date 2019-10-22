@@ -199,6 +199,7 @@ ATMine:
 		Spread: 256
 		Damage: 40000
 		AffectsParent: true
+		InvalidTargets: Mine
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
@@ -229,6 +230,23 @@ OreExplosion:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Res: CreateResource
 		AddsResourceType: Ore
+		Size: 1,1
+	Warhead@2Eff: CreateEffect
+		Explosions: med_explosion
+		ImpactSounds: kaboom25.aud
+
+TibExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 9
+		Damage: 1000
+		Versus:
+			None: 90
+			Wood: 70
+			Light: 60
+			Heavy: 20
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@3Res: CreateResource
+		AddsResourceType: Tiberium
 		Size: 1,1
 	Warhead@2Eff: CreateEffect
 		Explosions: med_explosion

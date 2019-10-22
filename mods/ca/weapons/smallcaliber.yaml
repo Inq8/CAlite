@@ -328,6 +328,9 @@ M60mg:
 	Range: 4c0
 	Report: pillbox1.aud
 	Burst: 5
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Light: 30
 	
 M60mgTD:
 	Inherits: M60mg

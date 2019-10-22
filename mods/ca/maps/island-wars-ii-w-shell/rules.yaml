@@ -4,7 +4,7 @@ World:
 	-SpawnMPUnits:
 	-MPStartLocations:
 	-CrateSpawner:
-	-StartGameNotification
+	-StartGameNotification:
 	MusicPlaylist:
 		BackgroundMusic: bigf226m
 		DisableWorldSounds: true

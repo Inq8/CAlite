@@ -514,6 +514,8 @@ weap:
 	idle:
 	damaged-idle:
 		Start: 1
+	place: weapmake
+		Start: 14
 	make: weapmake
 		Length: *
 	build-top: weap3
@@ -1411,6 +1413,8 @@ awep:
 	make: awepmake
 		Length: *
 		Tick: 80
+	place: awepmake
+		Start: 19
 	build-top: awep2
 		Length: 10
 		ZOffset: 511
@@ -1561,6 +1565,8 @@ nsam:
 	dead:
 		Start: 128
 		Tick: 800
+	place:
+		Start: 0
 	make: nsammake
 		Length: 20
 		Tick: 30

@@ -126,6 +126,7 @@ FCOM:
 		Actor: FCOM.Husk
 		OwnerType: InternalName
 	-Explodes:
+	AppearsOnMapPreview:
 
 HOSP:
 	Inherits: ^TechBuilding
@@ -168,6 +169,7 @@ HOSP:
 		Actor: HOSP.Husk
 		OwnerType: InternalName
 	-Explodes:
+	AppearsOnMapPreview:
 
 V01:
 	Inherits: ^CivBuilding
@@ -489,6 +491,7 @@ BIO:
 		Actor: BIO.Husk
 		OwnerType: InternalName
 	-Explodes:
+	AppearsOnMapPreview:
 
 OILB:
 	Inherits: ^TechBuilding
@@ -535,6 +538,7 @@ OILB:
 		Actor: OILB.Husk
 		OwnerType: InternalName
 	-Explodes:
+	AppearsOnMapPreview:
 	
 OREP:
 	Inherits: ^TechBuilding
@@ -565,13 +569,13 @@ OREP:
 	Tooltip:
 		Name: Power Station
 	TooltipDescription@ally:
-		Description: Provides enormous power supply.
+		Description: Provides additional income when resources are collected.
 		ValidStances: Ally
 	TooltipDescription@other:
-		Description: Capture to increase power supply.
+		Description: Capture to refine collected resources.
 		ValidStances: Neutral, Enemy
-	Power:
-		Amount: 1000
+	ResourcePurifier:
+		Modifier: 20
 	GpsDot:
 		String: Oil
 	GivesCashOnCapture:
@@ -580,6 +584,7 @@ OREP:
 		Actor: OREP.Husk
 		OwnerType: InternalName
 	-Explodes:
+	AppearsOnMapPreview:
 
 V20:
 	Inherits: ^DesertCivBuilding

@@ -200,6 +200,8 @@ Cursors:
 		sell2:
 			Start: 148
 			Length: 12
+		invisible:
+			Start: 34
 		empmissile:
 			Start: 248
 			Length: 20

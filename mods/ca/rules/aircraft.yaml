@@ -8,7 +8,7 @@ BADR:
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 5
-		Speed: 149
+		Speed: 180
 		Repulsable: False
 		MaximumPitch: 56
 	Cargo:
@@ -47,7 +47,7 @@ BADR.Bomber:
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 5
-		Speed: 149
+		Speed: 180
 		Repulsable: False
 		MaximumPitch: 56
 	AmmoPool:
@@ -183,7 +183,6 @@ MIG:
 	AmmoPool:
 		Ammo: 8
 		AmmoCondition: ammo
-	ReturnOnIdle:
 	Selectable:
 		Bounds: 36,28,0,2
 		DecorationBounds: 40,29,0,1
@@ -213,7 +212,7 @@ FROG:
 		Prerequisites: ~afld, ~aircraft.ukraine, ~techlevel.medium
 		Description: Fast Ground-Attack Plane.\n  Strong vs Buildings, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1750
+		Cost: 1850
 	Tooltip:
 		Name: Frogfoot Attack Plane
 	Health:
@@ -240,7 +239,6 @@ FROG:
 		RepulsionSpeed: 40
 		MaximumPitch: 56
 		TakeoffSounds: migtoff1.aud
-	ReturnOnIdle:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -317,7 +315,6 @@ YAK:
 		PipCount: 6
 		ReloadDelay: 11
 		AmmoCondition: ammo
-	ReturnOnIdle:
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	SpawnActorOnDeath:
@@ -443,7 +440,7 @@ HELI:
 		Prerequisites: ~hpad, ~aircraft.allies, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith multi-purpose missiles.\n  Strong vs Buildings, Vehicles, Aircraft\n  Weak vs Infantry
 	Valued:
-		Cost: 1700
+		Cost: 1800
 	Tooltip:
 		Name: Longbow
 	UpdatesPlayerStatistics:
@@ -467,8 +464,8 @@ HELI:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	Aircraft:
-		LandWhenIdle: false
 		TurnSpeed: 4
 		Speed: 149
 		TakeoffSounds: htoff1.aud
@@ -509,13 +506,13 @@ HIND:
 		Prerequisites: ~hpad, ~aircraft.soviet, ~techlevel.medium
 		Description: Helicopter gunship armed\nwith dual chainguns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 1500
+		Cost: 1550
 	Tooltip:
 		Name: Hind
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 11000
+		HP: 12000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -536,8 +533,8 @@ HIND:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	Aircraft:
-		LandWhenIdle: false
 		TurnSpeed: 4
 		Speed: 112
 		TakeoffSounds: htoff1.aud
@@ -634,7 +631,6 @@ a10:
 	AttackAircraft:
 		AttackTurnDelay: 70
 		FacingTolerance: 20
-	ReturnOnIdle:
 	Aircraft:
 		CruiseAltitude: 2560
 		InitialFacing: 192
@@ -727,7 +723,7 @@ c17:
 		LandingSounds: vc130diva.aud, vc130divb.aud
 		Repulsable: False
 		MaximumPitch: 36
-	FlyAwayOnIdle:
+		IdleBehavior: LeaveMap
 	Cargo:
 		MaxWeight: 10
 		PipCount: 10
@@ -775,10 +771,10 @@ c17.cargo:
 		LandingSounds: vc130diva.aud, vc130divb.aud
 		Repulsable: False
 		MaximumPitch: 36
+		IdleBehavior: LeaveMap
 	Cargo:
 		MaxWeight: 10
 		PipCount: 10
-	FlyAwayOnIdle:
 	-Selectable:
 	SelectionDecorations:
 		RenderSelectionBars: False
@@ -831,7 +827,6 @@ APCH:
 		IconPalette: chrometd
 		Description: Helicopter Gunship with a Chaingun.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks
 	Aircraft:
-		LandWhenIdle: false
 		AltitudeVelocity: 0c100
 		TurnSpeed: 4
 		Speed: 160
@@ -853,6 +848,7 @@ APCH:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	AmmoPool:
 		Ammo: 12
 		PipCount: 6
@@ -897,7 +893,6 @@ ORCA:
 		IconPalette: chrometd
 		Description: Helicopter Gunship with AG Missiles.\n  Strong vs Buildings, Tanks\n  Weak vs Infantry
 	Aircraft:
-		LandWhenIdle: false
 		AltitudeVelocity: 0c100
 		TurnSpeed: 5
 		TakeoffSounds: orcaup1.aud
@@ -922,6 +917,7 @@ ORCA:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	AmmoPool:
 		Ammo: 8
 		ReloadCount: 2
@@ -1015,8 +1011,8 @@ RAH66:
 		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	Aircraft:
-		LandWhenIdle: false
 		AltitudeVelocity: 0c100
 		TurnSpeed: 4
 		Speed: 141
@@ -1096,10 +1092,9 @@ KIROV:
 		Voice: Attack
 	AttackAircraft:
 		FacingTolerance: 20
+		AttackType: Hover
 	Aircraft:
 		CruiseAltitude: 2c0
-		LandWhenIdle: false
-		AbortOnResupply: false
 		InitialFacing: 192
 		TurnSpeed: 3
 		Speed: 50
@@ -1171,12 +1166,11 @@ ORCACA:
 		LandingSounds: orcadwn1.aud
 		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Gems,Tiberium,BlueTiberium
 		Repulsable: True
-		LandWhenIdle: false
 		IdleTurnSpeed: 1
 		Voice: Move
 	Carryall:
-		LoadingDelay: 10
-		UnloadingDelay: 15
+		BeforeLoadDelay: 10
+		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 		Voice: Action
 	Health:
@@ -1208,8 +1202,8 @@ ORCACA.reinforce:
 		Image: orcaca
 		PlayerPalette: playertd
 	Carryall:
-		LoadingDelay: 10
-		UnloadingDelay: 15
+		BeforeLoadDelay: 10
+		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 		Voice: Action
 		DropRange: 30c0
@@ -1222,7 +1216,6 @@ ORCACA.reinforce:
 		LandingSounds: orcadwn1.aud
 		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Gems,Tiberium,BlueTiberium
 		Repulsable: True
-		LandWhenIdle: false
 		IdleTurnSpeed: 1
 		Voice: Move
 	-Selectable:
@@ -1247,7 +1240,7 @@ HARR:
 	Tooltip:
 		Name: Harrier
 	Health:
-		HP: 13000
+		HP: 11000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -1262,6 +1255,7 @@ HARR:
 	AttackAircraft:
 		FacingTolerance: 20
 		Voice: Attack
+		AttackType: Strafe
 	Aircraft:
 		CruiseAltitude: 1c768
 		AltitudeVelocity: 0c100
@@ -1272,7 +1266,7 @@ HARR:
 		LandingSounds: mland1.aud, mland2.aud
 		IdealSeparation: 1c682
 		Voice: Move
-		LandWhenIdle: false
+		CanSlide: False
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire

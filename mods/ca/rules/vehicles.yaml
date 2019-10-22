@@ -71,7 +71,7 @@ V2RL:
 		Type: Heavy
 	Mobile:
 		Locomotor: Amphibious
-		Speed: 128
+		Speed: 118
 	GrantConditionOnTerrain:
 		TerrainTypes: Water
 		Condition: onwater
@@ -339,6 +339,7 @@ ARTY.nod:
 
 HARV:
 	Inherits: ^Vehicle
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
@@ -358,7 +359,7 @@ HARV:
 		Resources: Tiberium, BlueTiberium, Ore, Gems
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 30
-		SearchFromOrderRadius: 11
+		SearchFromHarvesterRadius: 11
 		EmptyCondition: no-ore
 	Health:
 		HP: 60000
@@ -370,7 +371,6 @@ HARV:
 	RevealsShroud:
 		Range: 4c0
 	WithHarvestAnimation:
-		PrefixByFullness: empty-, half-, full-
 	WithDockingAnimation:
 	GpsDot:
 		String: Harvester
@@ -384,12 +384,25 @@ HARV:
 		Delay: 25
 		HealIfBelow: 50
 		DamageCooldown: 500
-	Explodes:
-		RequiresCondition: !no-ore
+	GrantConditionOnTerrain@Tiberium:
+		Condition: ontib
+		TerrainTypes: Tiberium
+	GrantConditionOnTerrain@Ore:
+		Condition: onore
+		TerrainTypes: Ore
+	Explodes@Ore:
+		RequiresCondition: !no-ore && onore
 		Weapon: OreExplosion
+	Explodes@Tib:
+		RequiresCondition: !no-ore && ontib
+		Weapon: TibExplosion
+	WithHarvesterSpriteBody:
+		ImageByFullness: harvempty, harvhalf, harv
+	-WithFacingSpriteBody:
 
 MCV:
 	Inherits: ^Vehicle
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 202
@@ -449,7 +462,7 @@ JEEP:
 	Mobile:
 		TurnSpeed: 10
 		Speed: 170
-		RequiresCondition: !being-captured
+		PauseOnCondition: !(!being-captured)
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -491,7 +504,7 @@ APC:
 		Type: Heavy
 	Mobile:
 		Speed: 122
-		RequiresCondition: !notmobile && !being-captured
+		PauseOnCondition: !(!notmobile && !being-captured)
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -514,6 +527,7 @@ APC:
 
 MNLY:
 	Inherits: ^Tank
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 201
@@ -557,6 +571,7 @@ MNLY:
 
 TRUK:
 	Inherits: ^Vehicle
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 11
@@ -654,6 +669,7 @@ MRJ:
 	JamsMissiles:
 		Range: 5c0
 		DeflectionStances: Neutral, Enemy
+		RequiresCondition: !emppowerdown
 	RenderJammerCircle:
 
 TTNK:
@@ -817,7 +833,7 @@ QTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		RequiresCondition: !deployed && !being-captured
+		PauseOnCondition: !(!deployed && !being-captured)
 		Speed: 56
 	Chronoshiftable:
 		RequiresCondition: !deployed && !being-captured
@@ -839,6 +855,7 @@ QTNK:
 		
 AMCV:
 	Inherits: ^VehicleTD
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 202
@@ -996,7 +1013,7 @@ APC2:
 		Type: Heavy
 	Mobile:
 		Speed: 122
-		RequiresCondition: !emppowerdown && !being-captured && !notmobile
+		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -1203,7 +1220,7 @@ LTNK:
 		Type: Heavy
 	Mobile:
 		Locomotor: Amphibious
-		Speed: 111
+		Speed: 110
 	GrantConditionOnTerrain:
 		TerrainTypes: Water
 		Condition: onwater
@@ -1536,6 +1553,7 @@ FTNK:
 
 HARV2:
 	Inherits: ^VehicleTD
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	RenderSprites:
 		PlayerPalette: playertd
 	Valued:
@@ -1557,7 +1575,7 @@ HARV2:
 		Resources: Tiberium, BlueTiberium, Ore, Gems
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 30
-		SearchFromOrderRadius: 15
+		SearchFromHarvesterRadius: 15
 		EmptyCondition: no-ore
 	Mobile:
 		Speed: 85
@@ -1579,9 +1597,18 @@ HARV2:
 		Delay: 25
 		HealIfBelow: 50
 		DamageCooldown: 500
-	Explodes:
-		RequiresCondition: !no-ore
+	GrantConditionOnTerrain@Tiberium:
+		Condition: ontib
+		TerrainTypes: Tiberium
+	GrantConditionOnTerrain@Ore:
+		Condition: onore
+		TerrainTypes: Ore
+	Explodes@Ore:
+		RequiresCondition: !no-ore && onore
 		Weapon: OreExplosion
+	Explodes@Tib:
+		RequiresCondition: !no-ore && ontib
+		Weapon: TibExplosion
 	SelectionDecorations:
 
 BTR:
@@ -1605,7 +1632,7 @@ BTR:
 		Type: Heavy
 	Mobile:
 		Speed: 120
-		RequiresCondition: !emppowerdown && !being-captured && !notmobile
+		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -1616,12 +1643,12 @@ BTR:
 		Offset: 20,0,150
 	Armament@E3:
 		Weapon: bikerockets
-		LocalOffset: 192,0,376
+		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	Armament@E3AA:
 		Name: secondary
 		Weapon: bikerocketsAA
-		LocalOffset: 192,0,376
+		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	AttackTurreted:
 		PauseOnCondition: emppowerdown
@@ -1656,8 +1683,8 @@ IFV:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 128
-		RequiresCondition: !emppowerdown && !being-captured && !notmobile
+		Speed: 118
+		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -1812,7 +1839,6 @@ TITAN:
 	Mobile:
 		Speed: 50
 		Voice: Move
-		AlwaysConsiderTurnAsMove: true
 	Passenger:
 		CargoType: Vehicle
 		PipType: Red
@@ -2016,7 +2042,7 @@ HMLRS:
 		TurnSpeed: 10
 		Offset: -200,0,0
 	Hovers:
-		OffsetModifier: 35
+		BobDistance: -35
 	WithShadow:
 		Offset: 43, 128, 0
 		ZOffset: -129
@@ -2274,6 +2300,10 @@ MSAR:
 		Cost: 1100
 	Tooltip:
 		Name: Mobile Sensor Array
+		RequiresCondition: !deployed
+	Tooltip@DEPLOYED:
+		Name: Mobile Sensor Array (deployed)
+		RequiresCondition: deployed
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -2289,13 +2319,17 @@ MSAR:
 		Type: Heavy
 	Mobile:
 		Speed: 85
-		RequiresCondition: !emppowerdown && undeployed && !being-captured
+		PauseOnCondition: emppowerdown || deployed || being-captured
 	RevealsShroud:
 		RequiresCondition: undeployed
 		Range: 6c0
 	RevealsShroud@DEPLOYED:
 		RequiresCondition: !undeployed
-		Range: 12c0
+		Range: 10c0
+	Repairable:
+		RequireForceMoveCondition: !undeployed
+	Passenger:
+		RequireForceMoveCondition: !undeployed
 	GrantCondition@PREVIEWWORKAROUND:
 		Condition: real-actor
 	WithMakeAnimation:
@@ -2310,26 +2344,22 @@ MSAR:
 		UndeployedCondition: undeployed
 		Facing: 165
 		AllowedTerrainTypes: Clear, Road, Rough
-		DeploySound: placbldg.aud
-		UndeploySound: clicky1.aud
-	WithRangeCircle@JAMMER:
-		Type: jammer
-		Range: 6c0
-		Color: 0000FF80
-	DetectCloaked@Undeployed:
-		Range: 6c0
-		CloakTypes: Cloak
-		RequiresCondition: undeployed
+		DeploySounds: placbldg.aud
+		UndeploySounds: clicky1.aud
+		UndeployOnMove: true
+		UndeployOnPickup: true
 	DetectCloaked@Deployed:
-		Range: 12c0
+		Range: 10c0
 		CloakTypes: Cloak
-		RequiresCondition: deployed
+		RequiresCondition: deployed && !emppowerdown
 	JamsMissiles:
 		Range: 6c0
 		DeflectionStances: Neutral, Enemy
+		RequiresCondition: deployed && !emppowerdown
+	RenderJammerCircle:
+	RenderDetectionCircle:
+		TrailCount: 3
 	ProvidesRadar:
 		RequiresCondition: deployed
-	Carryable:
-		RequiresCondition: undeployed
 	Selectable:
 		DecorationBounds: 30,30

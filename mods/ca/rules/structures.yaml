@@ -57,6 +57,8 @@ MSLO:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		TrailImage: smokey
+		TrailSequences: idle
 	SupportPowerChargeBar:
 	Power:
 		Amount: -150
@@ -663,7 +665,7 @@ DOME:
 		RequiresCondition: disabled
 	RevealsShroud@GAPGEN:
 		Range: 6c0
-		RequiresCondition: !disabled 
+		RequiresCondition: !disabled
 	WithBuildingBib:
 	ProvidesRadar:
 		RequiresCondition: !jammed && !disabled
@@ -1127,6 +1129,10 @@ WEAP:
 		ReferencePoint: Top
 		ZOffset: 256
 		RequiresCondition: primary
+	-ActorPreviewPlaceBuildingPreview:
+	SequencePlaceBuildingPreview:
+		Sequence: place
+		SequencePalette: placebuilding
 		
 WEAP.AI:
 	Inherits: WEAP
@@ -1141,9 +1147,10 @@ WEAP.AI:
 		Cost: 1000
 	Tooltip:
 		Name: Brutal War Factory
-	-PrimaryBuilding:fact
+	-PrimaryBuilding: fact
 	ProductionQueue:
 		Type: Vehicle
+		DisplayOrder: 3
 		Group: Vehicle
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -1282,7 +1289,7 @@ PROC:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 60 
+		BuildPaletteOrder: 60
 		Prerequisites: anypower, ~structures.ra, ~techlevel.infonly
 		Description: Refines Ore and Gems\ninto credits.
 	Valued:
@@ -1365,6 +1372,10 @@ PROC:
 		Type: Rectangle
 			TopLeft: -1536, 598
 			BottomRight: -512, 1280
+	-ActorPreviewPlaceBuildingPreview:
+	SequencePlaceBuildingPreview:
+		Sequence: idle
+		SequencePalette: placebuilding
 
 SILO:
 	Inherits: ^Building
@@ -1441,7 +1452,6 @@ HPAD:
 		RequiresCondition: !being-captured
 		SpawnOffset: 0,-256,0
 		ExitCell: 0,0
-		MoveIntoWorld: false
 		Facing: 224
 	RallyPoint:
 	Production:
@@ -1539,7 +1549,6 @@ AFLD:
 		RequiresCondition: !being-captured
 		ExitCell: 1,1
 		Facing: 192
-		MoveIntoWorld: false
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
@@ -1614,6 +1623,9 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: True
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Russianparatroopers:
 		OrderName: RussianParatroopers
 		Prerequisites: aircraft.russia
@@ -1634,6 +1646,9 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: True
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	AirstrikePower@UkraineParabombs:
 		OrderName: UkraineParabombs
 		Prerequisites: aircraft.ukraine, techlevel.superw
@@ -1653,6 +1668,9 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clockTD
 		CircleSequence: circles
+		UseDirectionalTarget: False
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	AirstrikePower@Russianparabombs:
 		OrderName: RussiaParabombs
 		Prerequisites: aircraft.russia, techlevel.superw
@@ -1672,6 +1690,9 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: False
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	AirstrikePower@Iraqiparabombs:
 		OrderName: IraqParabombs
 		Prerequisites: aircraft.iraq, techlevel.superw
@@ -1691,6 +1712,9 @@ AFLD:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: False
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	ProductionBar:
 		ProductionType: Aircraft
 	SupportPowerChargeBar:
@@ -1980,6 +2004,7 @@ BARR.AI:
 	-WithDecoration@primary:
 	ProductionQueue:
 		Type: Infantry
+		DisplayOrder: 2
 		Group: Infantry
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -2165,6 +2190,7 @@ TENT.AI:
 	-WithDecoration@primary:
 	ProductionQueue:
 		Type: Infantry
+		DisplayOrder: 2
 		Group: Infantry
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -2562,6 +2588,7 @@ PYLE.AI:
 	-WithDecoration@primary:
 	ProductionQueue:
 		Type: Infantry
+		DisplayOrder: 2
 		Group: Infantry
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -2677,6 +2704,7 @@ HAND.AI:
 	-WithDecoration@primary:
 	ProductionQueue:
 		Type: Infantry
+		DisplayOrder: 2
 		Group: Infantry
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -2763,7 +2791,7 @@ AWEP:
 		Prerequisite: vehicles.talon
 	ProvidesPrerequisite@zocom:
 		Factions: zocom
-		Prerequisite: vehicles.zocom		
+		Prerequisite: vehicles.zocom
 	ProvidesPrerequisite@nod:
 		Factions: nod, blackh, marked
 		Prerequisite: vehicles.nod
@@ -2772,7 +2800,7 @@ AWEP:
 		Prerequisite: vehicles.blackh
 	ProvidesPrerequisite@marked:
 		Factions: marked
-		Prerequisite: vehicles.marked	
+		Prerequisite: vehicles.marked
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -2814,7 +2842,7 @@ AWEP:
 		Prerequisite: vehicles.talon
 	ProvidesPrerequisite@zocomstructure:
 		RequiresPrerequisites: structures.zocom
-		Prerequisite: vehicles.zocom		
+		Prerequisite: vehicles.zocom
 	ProvidesPrerequisite@nodvanillastructure:
 		RequiresPrerequisites: structures.nodvanilla
 		Prerequisite: vehicles.nodvanilla
@@ -2865,6 +2893,10 @@ AWEP:
 	InfiltrateForSupportPower@veh:
 		Types: SabInfiltrate
 		Proxy: veh.gdi.stolen
+	-ActorPreviewPlaceBuildingPreview:
+	SequencePlaceBuildingPreview:
+		Sequence: place
+		SequencePalette: placebuildingtd
 		
 AWEP.AI:
 	Inherits: AWEP
@@ -2882,6 +2914,7 @@ AWEP.AI:
 	-PrimaryBuilding:
 	ProductionQueue:
 		Type: Vehicle
+		DisplayOrder: 3
 		Group: Vehicle
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -2979,7 +3012,7 @@ ASTRIP:
 		Prerequisite: vehicles.talon
 	ProvidesPrerequisite@zocom:
 		Factions: zocom
-		Prerequisite: vehicles.zocom		
+		Prerequisite: vehicles.zocom
 	ProvidesPrerequisite@nod:
 		Factions: nod, blackh, marked
 		Prerequisite: vehicles.nod
@@ -2988,7 +3021,7 @@ ASTRIP:
 		Prerequisite: vehicles.blackh
 	ProvidesPrerequisite@marked:
 		Factions: marked
-		Prerequisite: vehicles.marked	
+		Prerequisite: vehicles.marked
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -3027,7 +3060,7 @@ ASTRIP:
 		Prerequisite: vehicles.talon
 	ProvidesPrerequisite@zocomstructure:
 		RequiresPrerequisites: structures.zocom
-		Prerequisite: vehicles.zocom		
+		Prerequisite: vehicles.zocom
 	ProvidesPrerequisite@nodvanillastructure:
 		RequiresPrerequisites: structures.nodvanilla
 		Prerequisite: vehicles.nodvanilla
@@ -3061,6 +3094,9 @@ ASTRIP:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: True
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Blackhparatroopers:
 		OrderName: BlackhParatroopers
 		Prerequisites: vehicles.nod
@@ -3082,6 +3118,9 @@ ASTRIP:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: True
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	WithDeliveryAnimation:
 	PrimaryBuilding:
 		PrimaryCondition: primary
@@ -3130,6 +3169,7 @@ ASTRIP.AI:
 		PauseOnCondition: forceshield || invulnerability
 	ProductionQueue:
 		Type: Vehicle
+		DisplayOrder: 3
 		Group: Vehicle
 		LowPowerModifier: 300
 		BuildDurationModifier: 80
@@ -3392,6 +3432,10 @@ NSAM:
 		Amount: -40
 	BodyOrientation:
 		UseClassicFacingFudge: True
+	-ActorPreviewPlaceBuildingPreview:
+	SequencePlaceBuildingPreview:
+		Sequence: place
+		SequencePalette: placebuildingtd
 
 GTWR:
 	Inherits: ^DefenseTD
@@ -3631,6 +3675,9 @@ HQ:
 		ArrowSequence: arrow
 		ClockSequence: clockTD
 		CircleSequence: circles
+		UseDirectionalTarget: False
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@radar:
@@ -3823,7 +3870,6 @@ HPAD2:
 	Exit@1:
 		SpawnOffset: 0,-256,0
 		ExitCell: 0,0
-		MoveIntoWorld: false
 		Facing: 224
 	RallyPoint:
 	Production:
@@ -4061,7 +4107,6 @@ AFLD.gdi:
 		RequiresCondition: !being-captured
 		ExitCell: 1,1
 		Facing: 192
-		MoveIntoWorld: false
 	RallyPoint:
 	Production:
 		Produces: Aircraft, Plane
@@ -4091,6 +4136,9 @@ AFLD.gdi:
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
+		UseDirectionalTarget: True
+		TargetPlaceholderCursorAnimation: paratarget
+		DirectionArrowAnimation: paradirection
 	ProductionBar:
 		ProductionType: Aircraft
 	SupportPowerChargeBar:
@@ -4230,6 +4278,8 @@ TMPL:
 		ClockSequence: clock
 		CircleSequence: circles
 		PauseOnCondition: disabled || emppowerdown
+		TrailImage: smokey
+		TrailSequences: idle
 	WithBuildingBib:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower

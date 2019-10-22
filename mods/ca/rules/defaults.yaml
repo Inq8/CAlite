@@ -212,7 +212,7 @@
 		InvalidTargets: NoAutoTarget, WaterStructure
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Water, Underwater, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Structure, Defense, Mine
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetGroundAssaultMove:
@@ -222,7 +222,7 @@
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything || assault-move
 	AttackMove:
-		AssaultMoveScanCondition: assault-move
+		AssaultMoveCondition: assault-move
 
 ^AutoTargetAir:
 	AutoTarget:
@@ -249,7 +249,7 @@
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything || assault-move
 	AttackMove:
-		AssaultMoveScanCondition: assault-move
+		AssaultMoveCondition: assault-move
 
 ^GlobalBounty:
 	GrantConditionOnPrerequisite@GLOBALBOUNTY:
@@ -257,6 +257,14 @@
 		Prerequisites: global-bounty
 	GivesBounty:
 		RequiresCondition: global-bounty
+		
+^FlatSelectionMode:
+	Selectable:
+		PriorityModifiers: Ctrl
+
+^LowPrioritySelectionMode:
+	Selectable:
+		PriorityModifiers: Ctrl, Alt
 
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
@@ -265,13 +273,14 @@
 	Inherits@4: ^Cloakable
 	Inherits@5: ^EmpDisable
 	Inherits@bounty: ^GlobalBounty
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
 	DrawLineToTarget:
 	UpdatesPlayerStatistics:
 	Mobile:
-		RequiresCondition: !being-captured && !emppowerdown
+		PauseOnCondition: being-captured || emppowerdown
 		Locomotor: wheeled
 		TurnSpeed: 5
 	SelectionDecorations:
@@ -288,7 +297,7 @@
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
 	Repairable:
-		RepairBuildings: fix, rep
+		RepairActors: fix, rep
 	Chronoshiftable:
 	Passenger:
 		CargoType: Vehicle
@@ -369,6 +378,7 @@
 	Inherits@3: ^InfantryExperienceHospitalOverrides
 	Inherits@4: ^SpriteActor
 	Inherits@bounty: ^GlobalBounty
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	RenderSprites:
 		PlayerPalette: playertd
 	Huntable:
@@ -584,6 +594,7 @@
 	Inherits@5: ^EmpDisable
 	Inherits@6: ^Cloakable
 	Inherits@bounty: ^GlobalBounty
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -591,7 +602,7 @@
 	UpdatesPlayerStatistics:
 	Mobile:
 		Locomotor: naval
-		RequiresCondition: !emppowerdown
+		PauseOnCondition: emppowerdown
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
 	Selectable:
@@ -612,7 +623,7 @@
 		Types: Ship
 	Chronoshiftable:
 	RepairableNear:
-		Buildings: syrd, spen, syrd.gdi, spen.nod
+		RepairActors: syrd, spen, syrd.gdi, spen.nod
 	GpsDot:
 		String: Ship
 	WithDamageOverlay:
@@ -646,6 +657,7 @@
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^SpriteActor
 	Inherits@bounty: ^GlobalBounty
+	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -733,9 +745,9 @@
 		UncloakSound: appear1.aud
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
 	Repairable:
-		RepairBuildings: fix, rep
+		RepairActors: fix, rep
 	KillsSelf:
-		RequiresCondition: empdisable
+		RequiresCondition: empdisable && airborne
 		
 ^PlaneTD:
 	Inherits@1: ^Plane
@@ -757,6 +769,9 @@
 		TakeOffOnResupply: true
 		VTOL: true
 		InitialFacing: 224
+		CanSlide: True
+		AttackType: Hover
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Gems,Tiberium,BlueTiberium
 	GpsDot:
 		String: Helicopter
 	Hovers@CRUISING:
@@ -792,8 +807,11 @@
 		RequiresBaseProvider: True
 		BuildSounds: placbldg.aud, build5.aud
 		UndeploySounds: cashturn.aud
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuilding
 	RequiresBuildableArea:
 		AreaTypes: building
+		Adjacent: 7
 	SoundOnDamageTransition:
 		DamagedSounds: kaboom1.aud
 		DestroyedSounds: kaboom22.aud
@@ -881,6 +899,8 @@
 		Probability: 10
 	SpawnActorsOnSell:
 		ActorTypes: n1,n1,n1,tecn,tecn2
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingtd
 
 ^ScienceBuilding:
 	Inherits: ^Building
@@ -904,6 +924,8 @@
 	SpawnActorOnDeath@2:
 		Actor: tecn
 		Probability: 10
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingtd
 
 ^Defense:
 	Inherits: ^Building
@@ -949,7 +971,9 @@
 ^DefenseTD:
 	Inherits@1: ^Defense
 	RenderSprites:
-		PlayerPalette: playertd		
+		PlayerPalette: playertd
+	ActorPreviewPlaceBuildingPreview:
+		OverridePalette: placebuildingtd
 
 ^Wall:
 	Inherits@1: ^ExistsInWorld
@@ -965,6 +989,8 @@
 		BuildSounds: placbldg.aud
 		TerrainTypes: Clear,Road
 		UndeploySounds: cashturn.aud
+	FootprintPlaceBuildingPreview:
+		LineBuildSegmentPalette: placelinesegment
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 7
@@ -991,6 +1017,8 @@
 	FrozenUnderFogUpdatedByGps:
 	Health:
 		HP: 10000
+	AppearsOnMapPreview:
+		Terrain: Wall
 	MapEditorData:
 		Categories: Wall
 
@@ -1136,6 +1164,8 @@
 	AppearsOnRadar:
 	RadarColorFromTerrain:
 		Terrain: Tree
+	AppearsOnMapPreview:
+		Terrain: Tree
 	Health:
 		HP: 50000
 	Armor:
@@ -1172,6 +1202,8 @@
 		Palette: terrain
 	AppearsOnRadar:
 	RadarColorFromTerrain:
+		Terrain: Tree
+	AppearsOnMapPreview:
 		Terrain: Tree
 	Building:
 		Footprint: x
@@ -1273,6 +1305,7 @@
 	Aircraft:
 		CanHover: True
 		VTOL: true
+		CanSlide: True
 	FallsToEarth:
 		Explosion: UnitExplodeHeli
 	BodyOrientation:
@@ -1348,6 +1381,8 @@
 		Categories: Decoration
 	RequiresSpecificOwners:
 		ValidOwnerNames: Neutral
+	AppearsOnMapPreview:
+		Terrain: Tree
 
 ^DesertCivBuilding:
 	Inherits: ^CivBuilding
@@ -1367,7 +1402,7 @@
 		ShowOwnerRow: false
 	Crate:
 		Lifetime: 180
-		TerrainTypes: Clear, Rough, Road, Ore, Beach, Tiberium, BlueTiberium
+		TerrainTypes: Clear, Rough, Road, Ore, Beach, Tiberium, BlueTiberium, Water
 	RenderSprites:
 		Palette: effect
 		Image: scrate
@@ -1416,7 +1451,7 @@
 	Tooltip:
 		Name: Mine
 	Targetable:
-		TargetTypes: Ground, Defense
+		TargetTypes: Ground, Mine
 	Immobile:
 		OccupiesSpace: true
 	HitShape:
@@ -1558,7 +1593,7 @@
 		PlayerPalette: playertd
 	Huntable:
 	Health:
-		HP: 11000
+		HP: 13000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -1598,7 +1633,7 @@
 		Voice: Move
 	Guardable:
 	DamagedByTerrain:
-		Damage: -3
+		Damage: -300
 		DamageInterval: 50
 		DamageTypes: ToxinDeath
 		Terrain: Tiberium, BlueTiberium

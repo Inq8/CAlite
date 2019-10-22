@@ -942,7 +942,7 @@ HARRh.Husk:
 		Type: CenterPosition
 	RenderSprites:
 		Image: harr
-        
+		
 ORCA.drone.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:

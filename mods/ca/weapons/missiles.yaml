@@ -45,9 +45,9 @@
 
 Maverick:
 	Inherits: ^AntiGroundMissile
-	ReloadDelay: 30
+	ReloadDelay: 50
 	Range: 9c0
-	MinRange: 3c0
+	MinRange: 2c0
 	Report: missile7.aud
 	Burst: 2
 	BurstDelays: 7
@@ -458,7 +458,7 @@ SCUDV3:
 	Warhead@1Dam: SpreadDamage
 		Spread: 512
 		Damage: 3800
-		DamageTypes: Prone50Percent, TriggerProne, ToxinDeath
+		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
 		Versus:
 			None: 100
 			Wood: 75
@@ -804,8 +804,8 @@ Rah66AG:
 		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure, Bridge
-
 		
+
 stnkRockets:
 	ReloadDelay: 50
 	Range: 5c0

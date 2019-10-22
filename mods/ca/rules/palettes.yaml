@@ -1,5 +1,5 @@
 ^Palettes:
-	PaletteFromFile@navy-barren
+	PaletteFromFile@navy-barren:
 		Name: navy
 		Tileset: BARREN
 		Filename: barrennavy.pal
@@ -24,12 +24,12 @@
 		Tileset: DESERT
 		Filename: temperat.pal
 		ShadowIndex: 4
-	PaletteFromFile@navy-winter
+	PaletteFromFile@navy-winter:
 		Name: navy
 		Tileset: WINTER
 		Filename: winter.pal
 		ShadowIndex: 4
-	PaletteFromFile@navy-jungle
+	PaletteFromFile@navy-jungle:
 		Name: navy
 		Tileset: JUNGLE
 		Filename: temperat.pal
@@ -54,17 +54,17 @@
 		Tileset: DESERT
 		Filename: desert.pal
 		ShadowIndex: 3, 4
-	PaletteFromFile@terrain-winter
+	PaletteFromFile@terrain-winter:
 		Name: terrain
 		Tileset: WINTER
 		Filename: winter.pal
 		ShadowIndex: 3, 4
-	PaletteFromFile@terrain-jungle
+	PaletteFromFile@terrain-jungle:
 		Name: terrain
 		Tileset: JUNGLE
 		Filename: temperat.pal
 		ShadowIndex: 3, 4
-	PaletteFromFile@terrain-barren
+	PaletteFromFile@terrain-barren:
 		Name: terrain
 		Tileset: BARREN
 		Filename: barren.pal
@@ -147,11 +147,14 @@
 	PaletteFromFile@tseffect:
 		Name: tseffect
 		Filename: animts.pal
-		ShadowIndex: 4
 	PaletteFromFile@ra2effect:
 		Name: ra2effect
 		Filename: animra2.pal
 		ShadowIndex: 4
+	PaletteFromPaletteWithAlpha@effect-nolite-alpha75:
+		Name: tseffect-ignore-lighting-alpha75
+		Alpha: 0.75
+		BasePalette: tseffect
 	PaletteFromRGBA@shadow:
 		Name: shadow
 		R: 0
@@ -206,12 +209,6 @@
 		G: 0
 		B: 0
 		A: 128
-	PaletteFromRGBA@dominated:
-		Name: dominated
-		R: 200
-		G: 0
-		B: 200
-		A: 188
 	ShroudPalette@shroud:
 		Name: shroud
 	ShroudPalette@fog:
@@ -280,14 +277,24 @@
 		Palettes: terrain
 		Tilesets: DESERT
 		RotationBase: 32
+	RotationPaletteEffect@desertwater-actor:
+		Palettes: desert
+		RotationBase: 32
 	LightPaletteRotator:
-		ExcludePalettes: terrain, effect
+		ExcludePalettes: terrain, effect, desert
 	ChronoshiftPaletteEffect:
 	FlashPaletteEffect@NUKE:
 		Type: Nuke
 		ExcludePalettes: cursor, chrome, chrometd, colorpicker, fog, shroud
-	FlashPaletteEffect@CHAOS:
-		ExcludePalettes: cursor, chrome, chrometd, colorpicker, fog, shroud
-		Type: Chaos
-		Color: FF0000
-		Length: 10
+	PaletteFromPaletteWithAlpha@placelinesegment:
+		Name: placelinesegment
+		BasePalette: terrain
+		Alpha: 0.65
+	PaletteFromPlayerPaletteWithAlpha@placebuilding:
+		BaseName: placebuilding
+		BasePalette: player
+		Alpha: 0.65
+	PaletteFromPlayerPaletteWithAlpha@placebuildingTD:
+		BaseName: placebuildingtd
+		BasePalette: playertd
+		Alpha: 0.65

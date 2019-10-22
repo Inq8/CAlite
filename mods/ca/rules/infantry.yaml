@@ -39,7 +39,7 @@ DOG:
 	Mobile:
 		Speed: 99
 		Voice: Move
-		RequiresCondition: !attack-cooldown && !eating
+		PauseOnCondition: !(!attack-cooldown && !eating)
 	Guard:
 		Voice: Move
 	Passenger:
@@ -241,6 +241,7 @@ E4:
 
 E6:
 	Inherits: ^Soldier
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -371,6 +372,7 @@ E7:
 
 MEDI:
 	Inherits: ^Soldier
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -423,6 +425,7 @@ MEDI.gdi:
 
 MECH:
 	Inherits: ^Soldier
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -907,6 +910,7 @@ RMBO:
 
 N6:
 	Inherits: ^Soldier
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
@@ -1035,7 +1039,7 @@ BORIS:
 		Voice: Move
 	AttackFrontal:
 		Voice: Attack
-	Armament@PRIMARY
+	Armament@PRIMARY:
 		Name: secondary
 		Weapon: akm
 	Demolition:

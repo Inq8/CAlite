@@ -1,6 +1,6 @@
 Metadata:
 	Title: Combined Arms
-	Version: release-20190314
+	Version: release-20191021
 	Website: https://www.moddb.com/mods/command-conquer-combined-arms
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 
@@ -48,7 +48,7 @@ Packages:
 
 MapFolders:
 	ca|maps: System
-	~^maps/ca/release-20190314: User
+	~^maps/ca/release-20191021: User
 
 Rules:
 	ca|rules/misc.yaml
@@ -107,17 +107,17 @@ ChromeLayout:
 	common|chrome/ingame-infostats.yaml
 	common|chrome/ingame-menu.yaml
 	ca|chrome/ingame-observer.yaml
-	common|chrome/ingame-observerstats.yaml
 	ca|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
 	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-debuginfo.yaml
 	common|chrome/ingame-infochat.yaml
-	ca|chrome/mainmenu.yaml
+	common|chrome/mainmenu.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
 	common|chrome/lobby-mappreview.yaml
-	ca|chrome/lobby-players.yaml
+	common|chrome/lobby-players.yaml
 	common|chrome/lobby-options.yaml
 	common|chrome/lobby-music.yaml
 	common|chrome/lobby-servers.yaml
@@ -138,6 +138,8 @@ ChromeLayout:
 	common|chrome/confirmation-dialogs.yaml
 	common|chrome/editor.yaml
 	common|chrome/playerprofile.yaml
+	common|chrome/gamesave-browser.yaml
+	ca|chrome/gamesave-loading.yaml
 
 Weapons:
 	ca|weapons/explosions.yaml
@@ -185,27 +187,35 @@ Fonts:
 	Tiny:
 		Font: common|FreeSans.ttf
 		Size: 10
+		Ascender: 8
 	TinyBold:
 		Font: common|FreeSansBold.ttf
 		Size: 10
+		Ascender: 8
 	Small:
 		Font: common|FreeSans.ttf
 		Size: 12
+		Ascender: 9
 	Regular:
 		Font: common|FreeSans.ttf
 		Size: 14
+		Ascender: 11
 	Bold:
 		Font: common|FreeSansBold.ttf
 		Size: 14
+		Ascender: 11
 	MediumBold:
 		Font: common|FreeSansBold.ttf
 		Size: 18
+		Ascender: 14
 	BigBold:
 		Font: common|FreeSansBold.ttf
 		Size: 24
+		Ascender: 18
 	Title:
 		Font: ca|ZoodRangmah.ttf
 		Size: 48
+		Ascender: 26
 
 Missions:
 	ca|missions.yaml
