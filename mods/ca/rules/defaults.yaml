@@ -770,7 +770,6 @@
 		VTOL: true
 		InitialFacing: 224
 		CanSlide: True
-		AttackType: Hover
 		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Gems,Tiberium,BlueTiberium
 	GpsDot:
 		String: Helicopter

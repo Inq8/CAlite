@@ -1147,7 +1147,6 @@ WEAP.AI:
 		Cost: 1000
 	Tooltip:
 		Name: Brutal War Factory
-	-PrimaryBuilding: fact
 	ProductionQueue:
 		Type: Vehicle
 		DisplayOrder: 3
@@ -1160,6 +1159,7 @@ WEAP.AI:
 	-WithDecoration@primary:
 	ProvidesPrerequisite@factname:
 		Prerequisite: weap
+	-PrimaryBuilding:
 
 FACT:
 	Inherits: ^Building
@@ -1624,7 +1624,6 @@ AFLD:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: True
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Russianparatroopers:
 		OrderName: RussianParatroopers
@@ -1647,7 +1646,6 @@ AFLD:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: True
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	AirstrikePower@UkraineParabombs:
 		OrderName: UkraineParabombs
@@ -1669,7 +1667,6 @@ AFLD:
 		ClockSequence: clockTD
 		CircleSequence: circles
 		UseDirectionalTarget: False
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	AirstrikePower@Russianparabombs:
 		OrderName: RussiaParabombs
@@ -1691,7 +1688,6 @@ AFLD:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: False
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	AirstrikePower@Iraqiparabombs:
 		OrderName: IraqParabombs
@@ -1713,7 +1709,6 @@ AFLD:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: False
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	ProductionBar:
 		ProductionType: Aircraft
@@ -3095,7 +3090,6 @@ ASTRIP:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: True
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Blackhparatroopers:
 		OrderName: BlackhParatroopers
@@ -3119,7 +3113,6 @@ ASTRIP:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: True
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	WithDeliveryAnimation:
 	PrimaryBuilding:
@@ -3676,7 +3669,6 @@ HQ:
 		ClockSequence: clockTD
 		CircleSequence: circles
 		UseDirectionalTarget: False
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	Power:
 		Amount: -40
@@ -4137,7 +4129,6 @@ AFLD.gdi:
 		ClockSequence: clock
 		CircleSequence: circles
 		UseDirectionalTarget: True
-		TargetPlaceholderCursorAnimation: paratarget
 		DirectionArrowAnimation: paradirection
 	ProductionBar:
 		ProductionType: Aircraft
