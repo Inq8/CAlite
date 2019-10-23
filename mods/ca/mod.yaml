@@ -1,6 +1,6 @@
 Metadata:
 	Title: Combined Arms
-	Version: release-20191021
+	Version: playtest-20191021
 	Website: https://www.moddb.com/mods/command-conquer-combined-arms
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 
@@ -48,7 +48,7 @@ Packages:
 
 MapFolders:
 	ca|maps: System
-	~^maps/ca/release-20191021: User
+	~^maps/ca/playtest-20191021: User
 
 Rules:
 	ca|rules/misc.yaml
