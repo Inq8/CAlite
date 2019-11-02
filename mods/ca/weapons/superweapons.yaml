@@ -14,8 +14,9 @@ ParaBomb:
 		Versus:
 			None: 30
 			Wood: 30
-			Light: 75
-			Concrete: 25
+			Light: 65
+			Heavy: 80
+			Concrete: 50
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Crater
@@ -37,11 +38,11 @@ TeslaParaBomb:
 		Damage: 30000
 		InvalidTargets: Air
 		Versus:
-			None: 30
-			Wood: 75
-			Light: 65
-			Heavy: 30
-			Concrete: 40
+			None: 70
+			Wood: 25
+			Light: 75
+			Heavy: 100
+			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: tsla_bomb
@@ -55,16 +56,16 @@ ChemParaBomb:
 		Spread: 1c0
 		Damage: 30000
 		Versus:
-			None: 70
-			Wood: 50
-			Light: 65
-			Heavy: 50
+			None: 100
+			Wood: 70
+			Light: 100
+			Heavy: 30
 			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall
-		Size: 1
+		Size: 2
 	Warhead@3Eff: CreateEffect
 		Explosions: large_chem
 		ExplosionPalette: temptd
@@ -90,8 +91,9 @@ InfernoBomb:
 		Damage: 30000
 		Versus:
 			None: 80
-			Wood: 50
-			Light: 75
+			Wood: 60
+			Light: 85
+			Heavy: 70
 			Concrete: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
@@ -100,7 +102,7 @@ InfernoBomb:
 		Size: 2
 	Warhead@3Eff: CreateEffect
 		Explosions: b2bexp, b2bexp2
-		ExplosionPalette: tseffect
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
 		ImpactSounds: expnew06.aud
 		ValidTargets: Ground, Ship, Trees
 	Warhead@4Dam_areanuke1: SpreadDamage
@@ -121,6 +123,12 @@ InfernoBomb:
 		Delay: 10
 		ValidTargets: Trees
 		DamageTypes: Incendiary
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 5
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+
 
 Atomic:
 	ValidTargets: Ground, Trees, Water, Underwater, Air
@@ -239,6 +247,12 @@ Atomic:
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
 		Size: 5
 		Delay: 20
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 7
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+
 		
 IonCannon:
 	ValidTargets: Ground, Water, Air
@@ -279,7 +293,7 @@ Empicbm:
 			Heavy: 20
 			Concrete: 20
 	Warhead@2Eff: CreateEffect
-		ExplosionPalette: tseffect
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
 		Explosions: pulse_explosion
 		ImpactSounds: empexpl.aud
 	Warhead@emp: GrantExternalCondition
@@ -342,6 +356,7 @@ IronCurtain:
 			Heavy: 0
 			Concrete: 0
 	Warhead@4Eff: CreateEffect
+		ExplosionPalette: effect-ignore-lighting-alpha85
 		Explosions: ironcurtain_effect
 	Warhead@emp: GrantExternalCondition
 		Range: 1c512
@@ -366,6 +381,7 @@ ForceShield:
 			Heavy: 0
 			Concrete: 0
 	Warhead@4Eff: CreateEffect
+		ExplosionPalette: effect-ignore-lighting-alpha85
 		Explosions: forceshield_effect
 	Warhead@fs: GrantExternalCondition
 		Range: 3c0

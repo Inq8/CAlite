@@ -1192,8 +1192,7 @@ ifv:
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
-	turret5:
-		Start: 32
+	turret5: reptur
 		Facings: 32
 		UseClassicFacingFudge: True
 	open:
@@ -1224,24 +1223,6 @@ ifv.destroyed:
 		Start: 32
 		Facings: 32
 		UseClassicFacingFudge: True
-
-gcan:
-	idle:
-		Facings: 32
-		UseClassicFacingFudge: True
-	emp-overlay: emp_fx01
-		Length: *
-		BlendMode: Additive
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-	chrono-overlay: chronofade
-		Length: *
-		BlendMode: Additive
-		Offset: 0, 0
-		UseTilesetCode: false
-		ZOffset: 512
-	icon: gcanicon
 	
 titan:
 	stand: titanlegs
@@ -1481,3 +1462,34 @@ msar:
 		UseTilesetCode: false
 		ZOffset: 512
 	icon: msaricnh
+	
+ptnk:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	turret: ptnkt
+		Facings: 32
+		UseClassicFacingFudge: True
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: ptnkicon
+
+ptnk.destroyed:
+	idle: ptnk
+		Facings: 32
+		UseClassicFacingFudge: True
+		ZOffset: -512
+	turret: ptnkt
+		Facings: 32
+		UseClassicFacingFudge: True
+		ZOffset: -512

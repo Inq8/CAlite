@@ -93,12 +93,14 @@ HellfireAG.Orca:
 	
 HellfireAG.Harrier:
 	Inherits: HellfireAG
+	Range: 9c0
+	MinRange: 2c0
 	Report: migmis.aud, migmis2.aud
 	Burst: 2
-	BurstDelays: 14
+	BurstDelays: 10
 	Projectile: Missile
 		RangeLimit: 9c512
-		Image: MISSILE
+		ContrailLength: 10
 		Inaccuracy: 512
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
@@ -405,6 +407,11 @@ HonestJohnSub:
 	Warhead@3Eff: CreateEffect
 		Explosions: large_napalm
 		ImpactSounds: firebl3.aud
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 
 SubMissileAA:
 	Inherits: ^SubMissileDefault
@@ -503,6 +510,11 @@ HonestJohn:
 	Warhead@3Eff: CreateEffect
 		Explosions: large_napalm
 		ImpactSounds: firebl3.aud
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 5
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 		
 BikeRockets:
 	Inherits: Dragon
@@ -515,6 +527,19 @@ BikeRocketsAA:
 	Inherits: RedEye
 	ReloadDelay: 50
 	Report: bazook1.aud
+	ValidTargets: Air
+	Burst: 2
+	BurstDelays: 5
+	
+IFVRockets:
+	Inherits: Dragon
+	ReloadDelay: 50
+	Burst: 2
+	BurstDelays: 5
+
+IFVRocketsAA:
+	Inherits: RedEye
+	ReloadDelay: 50
 	ValidTargets: Air
 	Burst: 2
 	BurstDelays: 5
@@ -709,8 +734,8 @@ BoatMissile:
 		ValidTargets: Ground, Water
 		Versus:
 			None: 90
-			Wood: 60
-			Light: 60
+			Wood: 55
+			Light: 55
 			Heavy: 45
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
@@ -726,42 +751,15 @@ BoatMissile:
 		InvalidTargets: Ship, Structure, Bridge
 
 BoatMissileAA:
+	Inherits: StingerAA
 	ReloadDelay: 70
-	Range: 8c0
-	Burst: 2
-	BurstDelays: 7
 	ValidTargets: Air
 	Report: rocket2.aud
 	Projectile: Missile
-		Arm: 3
 		Blockable: false
 		TrailImage: smokey
-		Image: DRAGON
-		HorizontalRateOfTurn: 20
-		RangeLimit: 10c0
-		Speed: 220
-		CloseEnough: 149
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 5500
-		ValidTargets: Air
-		Versus:
-			None: 90
-			Wood: 60
-			Light: 10
-			Heavy: 50
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
 	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion_air
 		ImpactSounds: xplos.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		Explosions: med_splash
-		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
 		
 Rah66AG:
 	ReloadDelay: 10
@@ -888,31 +886,3 @@ stnkRocketsAA:
 SubAA:
 	Inherits: HellfireAA
 	MinRange: 0c256
-	
-BTRSAM:
-	Inherits: Nike
-	ReloadDelay: 50
-	Burst: 2
-	BurstDelays: 12
-	Projectile: Missile
-		Inaccuracy: 0
-		HorizontalRateOfTurn: 25
-		Speed: 328
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: Air
-		Versus:
-			Light: 60
-			
-TitanSam:
-	Inherits: Nike
-	ReloadDelay: 50
-	Projectile: Missile
-		Inaccuracy: 0
-		HorizontalRateOfTurn: 25
-		Speed: 328
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: Air
-		Versus:
-			Light: 60

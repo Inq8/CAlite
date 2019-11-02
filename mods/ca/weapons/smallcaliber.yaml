@@ -67,7 +67,7 @@ Gatt.0:
 	Projectile: Bullet
 		Speed: 3c340
 	Warhead@1Dam: SpreadDamage
-		Damage: 1000
+		Damage: 3000
 		Versus:
 			None: 30
 			Wood: 75
@@ -85,7 +85,7 @@ Gatt.1:
 	ReloadDelay: 5
 	Report: vgatlo2a.aud, vgatlo2b.aud, vgatlo2c.aud
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 5500
 		Versus:
 			None: 30
 			Wood: 75
@@ -97,7 +97,7 @@ Gatt.2:
 	Report: vgatlo5a.aud, vgatlo5b.aud
 	ReloadDelay: 5
 	Warhead@1Dam: SpreadDamage
-		Damage: 2200
+		Damage: 7500
 		Versus:
 			None: 30
 			Wood: 75
@@ -109,7 +109,7 @@ Gatt.3:
 	Report: vgatlo8a.aud, vgatlo8b.aud
 	ReloadDelay: 5
 	Warhead@1Dam: SpreadDamage
-		Damage: 2400
+		Damage: 8000
 		Versus:
 			None: 30
 			Wood: 75

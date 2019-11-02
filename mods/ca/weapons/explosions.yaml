@@ -43,6 +43,11 @@ CrateNapalm:
 	-Warhead@3EffWater:
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 
 CrateExplosion:
 	Inherits: ^Explosion
@@ -131,11 +136,21 @@ BuildingExplode:
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Crater
 		InvalidTargets: Wall, Trees
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 3
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 
 SmallBuildingExplode:
 	Inherits: BuildingExplode
 	Warhead@2Eff: CreateEffect
 		Explosions: building, building_napalm, large_explosion, self_destruct
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 1
+		Dimensions: 2,2
+		Footprint: xx xx
 
 CivPanicExplosion:
 	Warhead@1Dam: SpreadDamage # Used to panic civilians which are emitted from a killed CivBuilding
@@ -165,6 +180,11 @@ BarrelExplode:
 		SmudgeType: Scorch
 		Size: 2
 		Delay: 5
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 1
+		Dimensions: 2,2
+		Footprint: xx xx
 		
 KirovExplode:
 	Inherits: ^Explosion
@@ -193,6 +213,11 @@ KirovExplode:
 		SmudgeType: Scorch
 		Size: 2
 		Delay: 2
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 3
+		Dimensions: 2,2
+		Footprint: xx xx
 
 ATMine:
 	Warhead@1Dam: SpreadDamage
@@ -217,6 +242,11 @@ APMine:
 		ImpactSounds: mine1.aud
 	Warhead@Smu: LeaveSmudge
 		SmudgeType: Scorch
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 1
+		Dimensions: 2,2
+		Footprint: xx xx
 
 OreExplosion:
 	Warhead@1Dam: SpreadDamage
@@ -297,6 +327,11 @@ CrateNuke:
 		Delay: 5
 		ValidTargets: Trees
 		DamageTypes: Incendiary
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 5
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 
 MiniNuke:
 	ValidTargets: Ground, Trees, Water, Underwater, Air
@@ -380,6 +415,11 @@ MiniNuke:
 		InvalidTargets: Vehicle, Structure, Wall, Trees
 		Size: 4
 		Delay: 15
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 6
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
 		
 UnitExplodeVice:
 	Warhead@1Dam: SpreadDamage

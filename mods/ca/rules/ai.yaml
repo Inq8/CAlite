@@ -658,6 +658,7 @@ Player:
 			btr: 20
 			bggy: 30
 			arty: 20
+			ptnk: 20
 			howi: 20
 			v2rl: 40
 			msam: 40
@@ -665,7 +666,7 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
-			ifv: 70
+			ifv.ai: 70
 			2tnk: 45
 			tnkd: 45
 			rtnk: 45
@@ -766,6 +767,7 @@ Player:
 			btr: 20
 			bggy: 30
 			arty: 20
+			ptnk: 20
 			howi: 20
 			v2rl: 40
 			msam: 40
@@ -773,7 +775,7 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
-			ifv: 70
+			ifv.ai: 70
 			2tnk: 45
 			tnkd: 45
 			rtnk: 45
@@ -874,6 +876,7 @@ Player:
 			btr: 20
 			bggy: 30
 			arty: 20
+			ptnk: 20
 			howi: 20
 			v2rl: 40
 			msam: 40
@@ -881,7 +884,7 @@ Player:
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
-			ifv: 70
+			ifv.ai: 70
 			2tnk: 45
 			tnkd: 45
 			rtnk: 45

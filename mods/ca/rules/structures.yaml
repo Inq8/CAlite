@@ -3583,6 +3583,7 @@ OBLI:
 		Range: 5c0
 		RequiresCondition: !lowpower
 	-SpawnActorsOnSell:
+	ProvidesPrerequisite@buildingname:
 
 HQ:
 	Inherits: ^BuildingTD
@@ -4271,6 +4272,7 @@ TMPL:
 		PauseOnCondition: disabled || emppowerdown
 		TrailImage: smokey
 		TrailSequences: idle
+		DetonationAltitude: 0c512
 	WithBuildingBib:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
@@ -4333,7 +4335,7 @@ PRIS:
 		Prerequisites: atek, ~structures.allies, ~techlevel.high
 		Description: Experimental base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1000
+		Cost: 1150
 	Tooltip:
 		Name: Prism Tower
 	Building:
@@ -4341,8 +4343,6 @@ PRIS:
 		Bounds: 24,24
 		DecorationBounds: 24,40,0,-8
 	SelectionDecorations:
-	WithSpriteBody:
-		PauseOnCondition: disabled
 	Health:
 		HP: 40000
 	Armor:
@@ -4354,18 +4354,19 @@ PRIS:
 		Range: 6c0
 	WithBuildingBib:
 		HasMinibib: Yes
+	WithSpriteBody:
+		PauseOnCondition: disabled || emppowerdown
+	WithTeslaChargeAnimation:
 	Armament:
 		Weapon: PrisLaser
 		LocalOffset: 0,-85,956
 		PauseOnCondition: disabled || emppowerdown
-	AttackCharges:
+	AttackTesla:
+		RequiresCondition: !build-incomplete
 		PauseOnCondition: disabled || emppowerdown
-		ChargeLevel: 30
-		ChargingCondition: charging
-	AmbientSound:
-		RequiresCondition: charging
-		SoundFiles: bpripow.aud
-		Interval: 30, 40
+		ChargeAudio: bpripow.aud
+		MaxCharges: 1
+		ReloadDelay: 60
 	Power:
 		Amount: -75
 	DetectCloaked:
@@ -4613,7 +4614,7 @@ HTUR:
 	Armament:
 		Weapon: 203mm
 		MuzzleSequence: muzzle
-		LocalOffset: 1000,200,460, 1000,0,460, 1000,-200,460
+		LocalOffset: 1000,200,60, 1000,0,60, 1000,-200,60
 		PauseOnCondition: disabled || emppowerdown
 	WithMuzzleOverlay:
 	GrantConditionOnPowerState@LOWPOWER:
@@ -4640,6 +4641,10 @@ HTUR:
 	Explodes:
 		Weapon: BuildingExplode
 		EmptyWeapon: BuildingExplode
+	WithBuildingBib:
+		HasMinibib: Yes
+	Selectable:
+		Bounds: 48,48
 		
 GUN2:
 	Inherits: ^DefenseTD
@@ -4882,7 +4887,7 @@ CRAM:
 		RequiresCondition: gattling == 3
 	GrantConditionOnAttack:
 		Condition: gattling
-		RequiredShotsPerInstance: 1,7,14
+		RequiredShotsPerInstance: 1,6,12
 		MaximumInstances: 3
 		RevokeDelay: 40
 		RevokeOnNewTarget: False
@@ -4929,3 +4934,112 @@ INDP:
 		UseDeathTypeSuffix: false
 	InfiltrateForPowerOutage:
 		Types: SpyInfiltrate, PowerInfiltrate
+		
+LASP:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: ~structures.nod, nuk2, ~techlevel.medium
+		IconPalette: chrometd
+		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
+	Valued:
+		Cost: 200
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Laser Fence
+	SoundOnDamageTransition:
+		DamagedSounds: crmble2.aud
+		DestroyedSounds: kaboom30.aud
+	-WithSpriteBody:
+	WithSpriteBody@ONLINE:
+		RequiresCondition: !disabled
+	WithSpriteBody@OFFLINE:
+		Sequence: idle-offline
+		Name: body-offline
+		RequiresCondition: disabled
+	Health:
+		HP: 40000
+	Armor:
+		Type: Concrete
+	-Capturable:
+	-CaptureNotification:
+	-ProximityCaptor:
+	-CaptureManager:
+	-CapturableProgressBar:
+	-CapturableProgressBlink:
+	Sellable:
+		RequiresCondition: !build-incomplete && !being-demolished
+	Power:
+		Amount: -15
+	RevealsShroud:
+		Range: 4c0
+	LineBuild:
+		Range: 10
+		NodeTypes: laserfencenode
+		SegmentType: lasf
+		SegmentsRequireNode: true
+	LineBuildNode:
+		Types: laserfencenode
+	LineBuildSegmentExternalCondition:
+		RequiresCondition: !build-incomplete && !disabled
+		Condition: active-posts
+		
+LASF:
+	Inherits: ^Wall
+	Tooltip:
+		Name: Laser Fence
+	LineBuild:
+		NodeTypes: laserfence
+	LineBuildNode:
+		Types: laserfence
+	-Crushable:
+	-Sellable:
+	-RenderSprites:
+	RenderSprites:
+		Palette: effect-ignore-lighting-alpha85
+	Demolishable:
+		-Condition:
+	-Targetable:
+	-Building:
+	-SoundOnDamageTransition:
+	EnergyWall:
+		ActiveCondition: active-posts == 2
+		Weapon: LaserFence
+	GrantConditionOnLineBuildDirection@X:
+		Direction: X
+		Condition: laserfence-direction-x
+	GrantConditionOnLineBuildDirection@Y:
+		Direction: Y
+		Condition: laserfence-direction-y
+	-WithWallSpriteBody:
+	ExternalCondition@ACTIVE:
+		Condition: active-posts
+	WithWallSpriteBody@XENABLED:
+		RequiresCondition: laserfence-direction-x && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-x
+		Name: x-enabled
+	WithWallSpriteBody@YENABLED:
+		RequiresCondition: laserfence-direction-y && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-y
+		Name: y-enabled
+	WithSpriteBody@XDISABLED:
+		RequiresCondition: laserfence-direction-x && active-posts < 2
+		Sequence: disabled-x
+		Name: x-disabled
+	WithSpriteBody@YDISABLED:
+		RequiresCondition: laserfence-direction-y && active-posts < 2
+		Sequence: disabled-y
+		Name: y-disabled
+	BlocksProjectiles:
+		RequiresCondition: active-posts == 2
+	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
+		Modifier: 0
+	Interactable:
+		Bounds: 48, 24
+		
+

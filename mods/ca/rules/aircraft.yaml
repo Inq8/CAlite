@@ -154,7 +154,7 @@ MIG:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 7500
+		HP: 15000
 	RevealsShroud:
 		Range: 13c0
 		Type: GroundPosition
@@ -216,7 +216,7 @@ FROG:
 	Tooltip:
 		Name: Frogfoot Attack Plane
 	Health:
-		HP: 8000
+		HP: 16000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -229,7 +229,7 @@ FROG:
 		LocalOffset: 256,-213,0
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		AttackTurnDelay: 70
+		AttackTurnDelay: 50
 		FacingTolerance: 20
 	Aircraft:
 		CruiseAltitude: 2560
@@ -279,7 +279,7 @@ YAK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5500
+		HP: 11000
 	RevealsShroud:
 		Range: 11c0
 		Type: GroundPosition
@@ -344,7 +344,7 @@ TRAN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 14000
+		HP: 28000
 	RevealsShroud:
 		Range: 8c0
 		Type: GroundPosition
@@ -446,7 +446,7 @@ HELI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 10000
+		HP: 20000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -512,7 +512,7 @@ HIND:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 12000
+		HP: 24000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -597,7 +597,7 @@ U2:
 	Interactable:
 	-MapEditorData:
 	
-a10:
+A10:
 	Inherits: ^PlaneTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -615,7 +615,7 @@ a10:
 	Tooltip:
 		Name: Warthog
 	Health:
-		HP: 8000
+		HP: 16000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -626,10 +626,9 @@ a10:
 	Armament:
 		Weapon: NapalmTD
 		LocalOffset: 2,-256,-43, 2,256,-43
-		FireDelay: 3
 		PauseOnCondition: !ammo
 	AttackAircraft:
-		AttackTurnDelay: 70
+		AttackTurnDelay: 50
 		FacingTolerance: 20
 	Aircraft:
 		CruiseAltitude: 2560
@@ -643,7 +642,7 @@ a10:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
 	AmmoPool:
-		Ammo: 4
+		Ammo: 6
 		AmmoCondition: ammo
 	Selectable:
 		Bounds: 36,28,0,2
@@ -833,7 +832,7 @@ APCH:
 		TakeoffSounds: htoff1.aud
 		LandingSounds: hland1.aud
 	Health:
-		HP: 10000
+		HP: 20000
 	RevealsShroud:
 		Range: 10c0
 		Type: GroundPosition
@@ -899,7 +898,7 @@ ORCA:
 		LandingSounds: orcadwn1.aud
 		Speed: 169
 	Health:
-		HP: 9500
+		HP: 19000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -943,7 +942,7 @@ UAV:
 	RenderSprites:
 		PlayerPalette: playertd
 	Health:
-		HP: 200000
+		HP: 30000
 	Tooltip:
 		Name: Recon Drone
 	Armor:
@@ -993,7 +992,7 @@ RAH66:
 	Tooltip:
 		Name: Comanche
 	Health:
-		HP: 11000
+		HP: 20000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -1098,10 +1097,9 @@ KIROV:
 		InitialFacing: 192
 		TurnSpeed: 3
 		Speed: 50
-		TakeoffSounds: htoff1.aud
-		LandingSounds: hland1.aud
 		Voice: Move
 		AltitudeVelocity: 0c50
+		CanForceLand: False
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: AttackAnything
@@ -1160,6 +1158,7 @@ ORCACA:
 		Description: Fast VTOL Vehicle Transporter.\n  Unarmed
 	Aircraft:
 		AltitudeVelocity: 0c100
+		IdealSeparation: 0c768
 		TurnSpeed: 4
 		Speed: 160
 		TakeoffSounds: orcaup1.aud
@@ -1173,6 +1172,7 @@ ORCACA:
 		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 		Voice: Action
+		AllowDropOff: True
 	Health:
 		HP: 30000
 	Armor:
@@ -1194,6 +1194,8 @@ ORCACA:
 		DecorationBounds: 30,24
 	Voiced:
 		VoiceSet: CarryAllVoice
+	WithMoveAnimation:
+		MoveSequence: move
 		
 ORCACA.reinforce:
 	Inherits: ORCACA
@@ -1240,7 +1242,7 @@ HARR:
 	Tooltip:
 		Name: Harrier
 	Health:
-		HP: 11000
+		HP: 22000
 	RevealsShroud:
 		Range: 12c0
 		Type: GroundPosition
@@ -1257,16 +1259,18 @@ HARR:
 		Voice: Attack
 		AttackType: Strafe
 	Aircraft:
-		CruiseAltitude: 1c768
-		AltitudeVelocity: 0c100
+		CruiseAltitude: 2560
+		TurnSpeed: 4
+		Speed: 210
+		RepulsionSpeed: 40
+		MaximumPitch: 56
 		CanHover: True
-		TurnSpeed: 5
-		Speed: 195
 		TakeoffSounds: mtoff1.aud, mtoff2.aud
 		LandingSounds: mland1.aud, mland2.aud
 		IdealSeparation: 1c682
 		Voice: Move
 		CanSlide: False
+		AltitudeVelocity: 0c200
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire

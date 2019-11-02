@@ -348,7 +348,7 @@ PT:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 7
-		Speed: 128
+		Speed: 118
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False

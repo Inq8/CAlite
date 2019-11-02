@@ -120,10 +120,6 @@ explosion:
 	chem_miss: twlt070
 		Tick: 70
 		ZOffset: 2046
-	chemexplode: demtexp
-		BlendMode: Additive
-		Tick: 70
-		ZOffset: 512
 	ionexp: ionexp
 		Tick: 110
 	b2bexp: b2bexp
@@ -561,26 +557,20 @@ smokland:
 		ZOffset: 1023
 
 fire:
+	Defaults:
+		Length: *
+		Offset: 0,-3
+		Tick: 105	
+		ZOffset: 511
 	1: fire1
-		Length: *
-		Offset: 0,-3
-		ZOffset: 1023
 	2: fire2
-		Length: *
-		Offset: 0,-3
-		ZOffset: 1023
 	3: fire3
-		Length: *
-		Offset: 0,-3
-		ZOffset: 1023
 	4: fire4
-		Length: *
-		Offset: 0,-3
-		ZOffset: 1023
 	5: fire5
-		Length: *
-		Offset: 0,-3
-		ZOffset: 1021
+	6: fire1
+		FlipX: true
+	7: fire3
+		FlipX: true
 		
 rank:
 	rank-veteran-1:
@@ -948,34 +938,16 @@ laserfire:
 	idle: veh-hit3
 		Length: *
 		ZOffset: 511
+		
+plaserfire:
+	idle: frag1
+		Offset: -2,0
+		Length: *
+		ZOffset: 511
 
 atkssmmis:
 	idle:
 		Facings: 32
-
-smokeyn:
-	idle:
-		Length: *
-		ZOffset: 1023
-		BlendMode: Alpha
-
-smokeyn2:
-	idle:
-		Length: *
-		ZOffset: 1023
-		BlendMode: Alpha
-
-smokeyn3:
-	idle:
-		Length: *
-		ZOffset: 1023
-		BlendMode: Alpha
-		
-smokey2ts:
-	idle:
-		BlendMode: Alpha
-		Length: *
-		ZOffset: 1023
 
 fire1:
 	idle:

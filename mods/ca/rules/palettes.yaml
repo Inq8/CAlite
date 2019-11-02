@@ -151,10 +151,14 @@
 		Name: ra2effect
 		Filename: animra2.pal
 		ShadowIndex: 4
-	PaletteFromPaletteWithAlpha@effect-nolite-alpha75:
+	PaletteFromPaletteWithAlpha@TSeffect-nolite-alpha75:
 		Name: tseffect-ignore-lighting-alpha75
 		Alpha: 0.75
 		BasePalette: tseffect
+	PaletteFromPaletteWithAlpha@effect-nolite-alpha85:
+		Name: effect-ignore-lighting-alpha85
+		Alpha: 0.85
+		BasePalette: effect
 	PaletteFromRGBA@shadow:
 		Name: shadow
 		R: 0

@@ -56,7 +56,7 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
-		Prerequisites: ~vehicles.allies, ~!vehicles.germany, ~techlevel.low
+		Prerequisites: weap, ~vehicles.allies, ~!vehicles.germany, ~techlevel.low
 		Description: Fast tank, good for scouting.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
 		Cost: 700
@@ -118,7 +118,7 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: ~vehicles.allies, ~techlevel.medium
+		Prerequisites: weap, ~vehicles.allies, ~techlevel.medium
 		Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 850
@@ -167,7 +167,7 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 120
-		Prerequisites: ~vehicles.soviet, ~techlevel.medium
+		Prerequisites: weap, ~vehicles.soviet, ~techlevel.medium
 		Description: Soviet Main Battle Tank, with dual cannons\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1150
@@ -275,7 +275,7 @@ V2RL:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 	Carryable:
-		LocalOffset: 0,0,100
+		LocalOffset: 0,0,500
 
 ARTY:
 	Inherits: ^Tank
@@ -284,10 +284,10 @@ ARTY:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
-		Prerequisites: dome, ~vehicles.allies, ~techlevel.medium
+		Prerequisites: weap, ~vehicles.allies, ~techlevel.medium
 		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 750
 	Tooltip:
 		Name: Artillery
 	UpdatesPlayerStatistics:
@@ -447,7 +447,7 @@ JEEP:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 15
-		Prerequisites: ~vehicles.allies, ~techlevel.low
+		Prerequisites: weap, ~vehicles.allies, ~techlevel.low
 		Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 400
@@ -490,7 +490,7 @@ APC:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 40
-		Prerequisites: ~!vehicles.soviet, ~!vehicles.germany, ~techlevel.low
+		Prerequisites: tent, ~weap, ~!vehicles.soviet, ~!vehicles.germany, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 850
@@ -599,6 +599,7 @@ TRUK:
 
 MGG:
 	Inherits: ^Vehicle
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 150
@@ -617,10 +618,13 @@ MGG:
 		Type: Heavy
 	Mobile:
 		Speed: 85
+	Carryable:
+		CarriedCondition: pickedup
 	WithIdleOverlay@SPINNER:
 		Offset: -299,0,171
 		Sequence: spinner
 		PauseOnCondition: emppowerdown
+		RequiresCondition: !pickedup
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -903,7 +907,7 @@ HMMV:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 15
 		IconPalette: chrometd
-		Prerequisites: ~vehicles.gdi, ~techlevel.low
+		Prerequisites: awep, ~vehicles.gdi, ~techlevel.low
 		Description: Fast scout & anti-infantry vehicle.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 425
@@ -952,7 +956,7 @@ BGGY:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 15
 		IconPalette: chrometd
-		Prerequisites: ~vehicles.nod, ~techlevel.low
+		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
 		Description: Fast scout and anti-infantry vehicle.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Tanks
 	Valued:
 		Cost: 375
@@ -1066,7 +1070,7 @@ MTNK:
 	Buildable:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 120
-		Prerequisites: ~vehicles.gdi, ~techlevel.medium
+		Prerequisites: awep, ~vehicles.gdi, ~techlevel.medium
 		IconPalette: chrometd
 		Description: GDI Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -1194,7 +1198,7 @@ HTNK:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 	Carryable:
-		LocalOffset: 0,0,100
+		LocalOffset: 0,0,500
 
 LTNK:
 	Inherits: ^TankTD
@@ -1206,7 +1210,7 @@ LTNK:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 40
 		IconPalette: chrometd
-		Prerequisites: ~vehicles.nod, ~techlevel.low
+		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
 		Description: Fast, light tank.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
 	Valued:
 		Cost: 800
@@ -1477,7 +1481,7 @@ BIKE:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: ~vehicles.nod, ~techlevel.low
+		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Fast scout vehicle, armed with\nrockets.\nCan attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
@@ -1524,7 +1528,7 @@ FTNK:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~vehicles.nod, ~techlevel.low
+		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Heavily armored flame-throwing vehicle.\n  Strong vs Infantry, Buildings and Vehicles\n  Weak vs Tanks
@@ -1642,12 +1646,12 @@ BTR:
 		TurnSpeed: 10
 		Offset: 20,0,150
 	Armament@E3:
-		Weapon: bikerockets
+		Weapon: IFVrockets
 		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	Armament@E3AA:
 		Name: secondary
-		Weapon: bikerocketsAA
+		Weapon: IFVrocketsAA
 		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	AttackTurreted:
@@ -1684,7 +1688,7 @@ IFV:
 		Type: Heavy
 	Mobile:
 		Speed: 118
-		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
+		PauseOnCondition: emppowerdown || being-captured || notmobile
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -1701,7 +1705,7 @@ IFV:
 		RequiresCondition: spyturr
 	Turreted:
 		TurnSpeed: 10
-		Offset: 20,0,50
+		Offset: 20,0,60
 	Armament@DEFAULT:
 		Weapon: 25mm
 		Recoil: 85
@@ -1709,21 +1713,27 @@ IFV:
 		LocalOffset: 768,0,90
 		MuzzleSequence: muzzle2
 		PauseOnCondition: emppowerdown
-		RequiresCondition: !gunturr && !samturr && !commturr && !flamturr && !chemturr && !spyturr && !testurr
+		RequiresCondition: !gunturr && !samturr && !commturr && !flamturr && !chemturr && !spyturr && !testurr && !engturr && !acolturr
 	Armament@E1:
 		Weapon: M60mg
 		MuzzleSequence: muzzle
 		LocalOffset: 150,0,100
 		PauseOnCondition: emppowerdown
 		RequiresCondition: gunturr
+	Armament@E2:
+		Weapon: 25mmFRAG
+		MuzzleSequence: muzzle
+		LocalOffset: 150,0,100
+		PauseOnCondition: emppowerdown
+		RequiresCondition: fragturr
 	Armament@E3:
-		Weapon: BikeRockets
+		Weapon: IFVRockets
 		LocalOffset: 192,0,376
 		PauseOnCondition: emppowerdown
 		RequiresCondition: samturr
 	Armament@E3AA:
 		Name: secondary
-		Weapon: BikeRocketsAA
+		Weapon: IFVRocketsAA
 		LocalOffset: 192,0,376
 		PauseOnCondition: emppowerdown
 		RequiresCondition: samturr
@@ -1754,11 +1764,21 @@ IFV:
 		LocalOffset: 0,0,213
 		PauseOnCondition: emppowerdown
 		RequiresCondition: testurr
+	Armament@Repair:
+		Weapon: Repair
+		LocalOffset: 0,0,213
+		PauseOnCondition: emppowerdown
+		RequiresCondition: engturr
+	Armament@Acol:
+		Weapon: LaserTur
+		LocalOffset: 0,0,213
+		PauseOnCondition: emppowerdown
+		RequiresCondition: acolturr
 	WithIdleOverlay@SPINNER:
 		Sequence: spinner
 		PauseOnCondition: emppowerdown
 		RequiresCondition: spyturr
-		Offset: 0,0,40
+		Offset: 0,0,200
 	AttackTurreted:
 		PauseOnCondition: emppowerdown
 		RequiresCondition: !spyturr
@@ -1771,10 +1791,13 @@ IFV:
 		Sequence: turret3
 	WithSpriteTurret@default:
 		Sequence: turret2
-		RequiresCondition: !gunturr && !commturr && !samturr && !spyturr && !testurr && !medturr
+		RequiresCondition: !gunturr && !commturr && !samturr && !spyturr && !testurr && !medturr && !engturr && !acolturr
 	WithSpriteTurret@tes:
 		Sequence: turret4
-		RequiresCondition: testurr
+		RequiresCondition: testurr || acolturr
+	WithSpriteTurret@rep:
+		Sequence: turret5
+		RequiresCondition: engturr
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -1782,12 +1805,18 @@ IFV:
 		LoadingCondition: notmobile
 		PassengerConditions:
 			e1: gunturr
+			e2: fragturr
 			e3: samturr
 			e4: flamturr
 			n1: gunturr
+			n2: fragturr
 			n3: samturr
 			n4: flamturr
 			n5: chemturr
+			e6: engturr
+			n6: engturr
+			mech: engturr
+			mech.nod: engturr
 			mort: chemturr
 			shok: testurr
 			rmbo: commturr
@@ -1801,6 +1830,7 @@ IFV:
 			shok.nod: testurr
 			medi: medturr
 			medi.gdi: medturr
+			acol: acolturr
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	WithIdleOverlay@MEDIC:
@@ -1813,6 +1843,78 @@ IFV:
 		EnableSound: heal2.aud
 		Condition: hospitalheal
 		Range: 3c0
+		
+IFV.AI:
+	Inherits: ^Tank
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Vehicle, Vehicle.Factory
+		BuildPaletteOrder: 40
+		Prerequisites: ~tent, ~vehicles.germany, ~botplayer, ~techlevel.low
+		Description: Adaptable infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft\n Special Ability: Transform
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Infantry Fighting Vehicle
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 118
+		PauseOnCondition: emppowerdown || being-captured
+	RevealsShroud:
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 10
+		Offset: 20,0,60
+	Armament@DEFAULT:
+		Weapon: 25mm
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 768,0,90
+		MuzzleSequence: muzzle2
+		PauseOnCondition: emppowerdown
+		RequiresCondition: canturr
+	Armament@E1:
+		Weapon: M60mg
+		MuzzleSequence: muzzle
+		LocalOffset: 150,0,100
+		PauseOnCondition: emppowerdown
+		RequiresCondition: gunturr
+	Armament@E3:
+		Weapon: IFVRockets
+		LocalOffset: 192,0,376
+		PauseOnCondition: emppowerdown
+		RequiresCondition: samturr
+	Armament@E3AA:
+		Name: secondary
+		Weapon: IFVRocketsAA
+		LocalOffset: 192,0,376
+		PauseOnCondition: emppowerdown
+		RequiresCondition: samturr
+	AttackTurreted:
+		PauseOnCondition: emppowerdown
+	WithMuzzleOverlay:
+	WithSpriteTurret@gun:
+		RequiresCondition: gunturr
+		Sequence: turret
+	WithSpriteTurret@samturr:
+		RequiresCondition: samturr
+		Sequence: turret3
+	WithSpriteTurret@default:
+		Sequence: turret2
+		RequiresCondition: canturr
+	RenderSprites:
+		Image: ifv
+	GrantRandomCondition:
+		Conditions: gunturr, samturr, canturr
 		
 TITAN:
 	Inherits: ^TankTD
@@ -1880,7 +1982,7 @@ TITAN:
 		HealIfBelow: 50
 		DamageCooldown: 150
 	Carryable:
-		LocalOffset: 0,0,277
+		LocalOffset: 0,0,700
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 
@@ -1905,7 +2007,7 @@ TTRK:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 198
 		Prerequisites: tmpl, ~vehicles.nod, ~techlevel.high
-		Description: Toxin Truck, actively armed with\ a nerve gas bomb. Has very weak armor.
+		Description: Toxin Truck, actively armed with\n a nerve gas bomb. Has very weak armor.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1999,7 +2101,7 @@ DISR:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
 	Carryable:
-		LocalOffset: 0,0,200
+		LocalOffset: 0,0,500
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	
@@ -2139,12 +2241,12 @@ HOWI:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 110
+		BuildPaletteOrder: 70
 		IconPalette: chrometd
-		Prerequisites: hq, ~vehicles.blackh, ~techlevel.medium
+		Prerequisites: astrip, ~vehicles.blackh, ~techlevel.medium
 		Description: Fast Attack Artillery.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 800
+		Cost: 750
 	Tooltip:
 		Name: Howitzer
 	UpdatesPlayerStatistics:
@@ -2246,7 +2348,7 @@ TNKD:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 55
+		BuildPaletteOrder: 115
 		Prerequisites: ~vehicles.germany, dome, ~techlevel.medium
 		Description: German Tank Destroyer\n  Strong vs Armor\n  Weak vs Infantry, Aircraft
 	Valued:
@@ -2296,6 +2398,7 @@ TNKD:
 
 MSAR:
 	Inherits: ^VehicleTD
+	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -2333,8 +2436,11 @@ MSAR:
 	GrantCondition@PREVIEWWORKAROUND:
 		Condition: real-actor
 	WithMakeAnimation:
+	Carryable:
+		CarriedCondition: pickedup
+		LocalOffset: 0,0,500
 	WithFacingSpriteBody:
-		RequiresCondition: undeployed
+		RequiresCondition: undeployed || pickedup
 		Name: bodymove
 	WithSpriteBody@deployed:
 		Sequence: idle-static
@@ -2346,7 +2452,7 @@ MSAR:
 		AllowedTerrainTypes: Clear, Road, Rough
 		DeploySounds: placbldg.aud
 		UndeploySounds: clicky1.aud
-		UndeployOnMove: true
+		UndeployOnMove: false
 		UndeployOnPickup: true
 	DetectCloaked@Deployed:
 		Range: 10c0
@@ -2363,3 +2469,54 @@ MSAR:
 		RequiresCondition: deployed
 	Selectable:
 		DecorationBounds: 30,30
+		
+PTNK:
+	Inherits: ^Tank
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 130
+		Prerequisites: atek, ~vehicles.allies, ~techlevel.medium
+		Description: A prototype mobile Prism tower.\n  Strong vs Vehicles, Infantry\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Prism Tank
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 22000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 85
+		Voice: Move
+	RevealsShroud:
+		Range: 6c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 5
+		Offset: 100,0,0
+	Armament:
+		Weapon: PrisTLaser
+		LocalOffset: 100,0,140
+		PauseOnCondition: emppowerdown
+	AttackTurreted:
+		TargetFrozenActors: True
+		OpportunityFire: False
+		PauseOnCondition: emppowerdown
+		Voice: Attack
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		Actor: PTNK.Husk
+	SelectionDecorations:
+	Voiced:
+		VoiceSet: PrismVoice
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 28,28

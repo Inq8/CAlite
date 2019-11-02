@@ -2309,23 +2309,23 @@ nodsilo:
 	icon: silo2icnh
 
 pris:
-	idle:
+	idle: prisnocharge
 		Length: 32
-		Tick: 200
+		Tick: 250
 		Offset: 0,-13
-	damaged-idle:
+	damaged-idle: prisnocharge
 		Start: 32
 		Length: 32
-		Tick: 200
+		Tick: 250
 		Offset: 0,-13
 	active:
-		Length: 32
-		Tick: 200
+		Length: 3
+		Tick: 250
 		Offset: 0,-13
 	damaged-active:
-		Start: 32
-		Length: 32
-		Tick: 200
+		Start: 19
+		Length: 3
+		Tick: 250
 		Offset: 0,-13
 	make: prismake
 		Length: 8
@@ -2390,7 +2390,7 @@ htur:
 		Offset: 0,0
 	bib: mbSAM
 		Length: *
-		Offset: 0,1
+		Offset: 0,5
 		UseTilesetExtension: true
 		TilesetOverrides:
 			BARREN: TEMPERAT
@@ -2564,3 +2564,68 @@ indp:
 		ZOffset: 512
 	icon: powricon
 	fake-icon: fpwricon
+	
+lasp:
+	Defaults:
+		Offset: 0, 0, 0
+		UseTilesetCode: true
+	idle:
+		Start: 0
+		Length: 5
+		Tick: 250
+	idle-offline:
+		Start: 0
+		Length: 1
+	damaged-idle:
+		Start: 5
+		Length: 5
+		Tick: 250
+	damaged-idle-offline:
+		Start: 5
+		Length: 1
+	dead:
+		Start: 10
+		Tick: 400
+	make: laspmake
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: lasficnh
+		Offset: 0, 0
+		UseTilesetCode: false
+
+lasf:
+	Defaults:
+		UseTilesetCode: true
+	idle:
+		Length: 1
+	disabled-x:
+		Start: 4
+		Length: 1
+		ZRamp: 1
+	disabled-y:
+		Start: 9
+		Length: 1
+		ZRamp: 1
+	enabled-x:
+		Frames: 3,3,1,1,3,3,1,3,3,1,0,0,2,2,0,0
+		Length: 9
+	enabled-y:
+		Frames: 7,5,7,5,6,8,6,8,7,5,7,5,6,8,6,8
+		Length: 9
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive

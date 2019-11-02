@@ -355,6 +355,7 @@
 		Duration: 100
 		Radius: 2c512
 	Carryable:
+		LocalOffset: 0,0,200
 		
 ^VehicleTD:
 	Inherits@1: ^Vehicle
@@ -810,7 +811,7 @@
 		OverridePalette: placebuilding
 	RequiresBuildableArea:
 		AreaTypes: building
-		Adjacent: 7
+		Adjacent: 4
 	SoundOnDamageTransition:
 		DamagedSounds: kaboom1.aud
 		DestroyedSounds: kaboom22.aud

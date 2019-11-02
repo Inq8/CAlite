@@ -212,7 +212,7 @@ E4:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
-		Prerequisites: ~barr, ftur, ~techlevel.infonly
+		Prerequisites: ~barr, dome, ~techlevel.infonly
 		Description: Advanced anti-structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 200
@@ -783,7 +783,7 @@ N4:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
-		Prerequisites: ~hand, ~techlevel.infonly
+		Prerequisites: ~infantry.blackh, hand, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Advanced Anti-infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -824,15 +824,15 @@ N5:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 115
-		Prerequisites: ~infantry.nod, dome, ~techlevel.high
+		Prerequisites: ~infantry.marked, hand, ~techlevel.high
 		IconPalette: chrometd
 		Description: Advanced general-purpose infantry.\n  Strong vs all Ground units
 	Valued:
-		Cost: 350
+		Cost: 225
 	Tooltip:
 		Name: Chemical Warrior
 	Health:
-		HP: 9000
+		HP: 8000
 	WithDeathAnimation:
 		DeathSequencePalette: playertd
 	Armament:
@@ -845,7 +845,7 @@ N5:
 		ProneOffset: 160,0,-288
 	Mobile:
 		Locomotor: chem
-		Speed: 61
+		Speed: 56
 	AttackFrontal:
 	-Crushable:
 	WithInfantryBody:
@@ -1185,7 +1185,7 @@ ACOL:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 115
 		IconPalette: chrometd
-		Prerequisites: ~hand, hq, ~infantry.marked, ~techlevel.high
+		Prerequisites: ~hand, hq, obli, ~infantry.marked, ~techlevel.high
 		Description: Elite infantry with a portable Oblisk.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft\n Special Ability: Regains health on tiberium
 	Valued:
 		Cost: 350

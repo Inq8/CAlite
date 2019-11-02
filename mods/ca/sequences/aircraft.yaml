@@ -465,6 +465,9 @@ orcaca:
 	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
+	move:
+		Start: 32
+		Facings: 32
 	icon: orcacaicnh
 	emp-overlay: emp_fx01
 		Length: *

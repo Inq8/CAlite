@@ -422,3 +422,15 @@ MirageVoice:
 		Zapped: dedman6,nuyell3
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
 		Build: vmirsea, vmirseb, vmirsec, vmirsed, vmirsee, vmirsef
+		
+PrismVoice:
+	Voices:
+		Select: vprisea, vpriseb, vprisec, vprised, vprisee
+		Move: vprimoa, vprimob, vprimoc, vprimod, vprimoe
+		Attack: vpriata, vpriatb, vpriatc, vpriatd, vpriate
+		Action:  vprimoa, vprimob, vprimoc, vprimod, vprimoe
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
+		Burned: dedman10,yell1
+		Zapped: dedman6,nuyell3
+		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
+		Build: vprisea, vpriseb, vprisec, vprised, vprisee

@@ -1,12 +1,21 @@
 MapFormat: 11
+
 RequiresMod: ca
+
 Title: Keep Off The Grass
+
 Author: Westwood Studios
+
 Tileset: TEMPERAT
+
 MapSize: 128,128
+
 Bounds: 39,35,48,48
+
 Visibility: Lobby
+
 Categories: Conquest
+
 Players:
 	PlayerReference@Neutral:
 		Name: Neutral
@@ -28,6 +37,7 @@ Players:
 		Playable: True
 		Faction: Random
 		Enemies: Creeps
+
 Actors:
 	Actor0: brik
 		Location: 62,58
@@ -134,3 +144,6 @@ Actors:
 	Actor34: mpspawn
 		Location: 78,75
 		Owner: Neutral
+	Actor35: mine
+		Owner: Neutral
+		Location: 44,62

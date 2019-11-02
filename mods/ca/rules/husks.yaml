@@ -979,3 +979,16 @@ FROG.Husk:
 		Type: CenterPosition
 	RenderSprites:
 		Image: frog
+		
+PTNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Prism Tank)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: ptnk
+	InfiltrateForTransform:
+		IntoActor: ptnk
+	RenderSprites:
+		Image: ptnk.destroyed

@@ -43,6 +43,22 @@
 			Light: 116
 			Heavy: 48
 			Concrete: 32
+			
+25mmFRAG:
+	Inherits: ^Cannon
+	Report: tnkfire3.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Versus:
+			None: 82
+			Wood: 62
+			Light: 66
+			Heavy: 28
+			Concrete: 32
+	Warhead@3EffGround: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom12.aud, xplos.aud
+		ValidTargets: Ground, Ship, Trees
 		
 30mm:
 	Inherits: 25mm
@@ -140,7 +156,7 @@ TurretGunTD:
 ^Artillery:
 	Inherits: ^Cannon
 	ReloadDelay: 85
-	Range: 12c0
+	Range: 10c0
 	Projectile: Bullet
 		Speed: 204
 		Blockable: false
@@ -163,16 +179,18 @@ TurretGunTD:
 
 155mm:
 	Inherits: ^Artillery
-	MinRange: 4c0
+	MinRange: 2c0
 	Report: tank5.aud
 	TargetActorCenter: true
 	Projectile: Bullet
-		Speed: 190
+		Speed: 195
 		Inaccuracy: 1c138
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 55, 20, 5
 		Versus:
-			None: 60
+			None: 40
+			Light: 50
+			Heavy: 20
 
 155mmTD:
 	Inherits: 155mm
@@ -180,9 +198,9 @@ TurretGunTD:
 	
 155mmTDH:
 	Inherits: 155mmTD
-	MinRange: 3c0
+	MinRange: 1c0
 	Report: tnkfire2.aud
-	Range: 9c0
+	Range: 9c512
 
 8Inch:
 	Inherits: ^Artillery
@@ -246,6 +264,38 @@ Grenade:
 		ImpactSounds: kaboom25.aud
 	Warhead@4EffWater: CreateEffect
 		Explosions: small_splash
+		
+Mortar:
+	Inherits: ^Artillery
+	ReloadDelay: 90
+	Range: 6c512
+	MinRange: 1c0
+	Report: nade.aud
+	Projectile: Bullet
+		Speed: 166
+		Blockable: false
+		LaunchAngle: 92
+		Inaccuracy: 768
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Damage: 5500
+		Versus:
+			None: 60
+			Wood: 100
+			Light: 45
+			Heavy: 45
+			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Tank, Structure, Wall, Husk, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: small_chem
+		ExplosionPalette: temptd
+		ImpactSounds: firetrt1.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
 
 DepthCharge:
 	Inherits: ^Artillery
@@ -307,6 +357,39 @@ DepthCharge:
 		ValidTargets: Ground, Ship, Trees
 	Warhead@4EffWater: CreateEffect
 		Explosions: large_splash
+		ImpactSounds: splashl1.aud, splashl2.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Ship, Structure, Bridge
+		
+ClusterBomb:
+	Inherits: ^Artillery
+	-Report:
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: Bullet
+		Speed: 96
+		LaunchAngle: 0, 32
+		Inaccuracy: 1c0
+		BounceCount: 0
+		Image: BOMB
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 6000
+		Versus:
+			None: 80
+			Wood: 100
+			Light: 45
+			Heavy: 45
+			Concrete: 100
+	Warhead@Smu: LeaveSmudge
+		SmudgeType: Crater
+		InvalidTargets: Structure, Wall, Trees
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Ground, Air, Ship, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: med_splash
 		ImpactSounds: splashl1.aud, splashl2.aud
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure, Bridge

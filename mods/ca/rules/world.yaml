@@ -3,6 +3,7 @@
 	AlwaysVisible:
 	ActorMap:
 	ScreenMap:
+	Selection:
 	MusicPlaylist:
 		VictoryMusic: nod_win1
 		DefeatMusic: stopthem
@@ -237,7 +238,7 @@
 		Name: Marked
 		InternalName: marked
 		Side: Nod
-		Description: Marked of Kane:\n Special Unit: Acolyte
+		Description: Marked of Kane:\n Special Unit: Acolyte\n Special Unit: Chemical Warrior
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -320,8 +321,6 @@
 World:
 	Inherits: ^BaseWorld
 	ChatCommands:
-	TimeLimitManager:
-	Selection:
 	DevCommands:
 	DebugVisualizationCommands:
 	PlayerCommands:
@@ -448,6 +447,18 @@ World:
 	ObjectivesPanel:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
+	ScriptTriggers:
+	TimeLimitManager:
+		TimeLimitWarnings:
+			40: FourtyMinutesRemaining
+			30: ThirtyMinutesRemaining
+			20: TwentyMinutesRemaining
+			10: TenMinutesRemaining
+			5: WarningFiveMinutesRemaining
+			4: WarningFourMinutesRemaining
+			3: WarningThreeMinutesRemaining
+			2: WarningTwoMinutesRemaining
+			1: WarningOneMinuteRemaining
 
 EditorWorld:
 	Inherits: ^BaseWorld
