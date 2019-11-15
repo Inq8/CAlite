@@ -83,6 +83,21 @@ Player:
 					Attractiveness: -5
 					TargetMetric: None
 					CheckRadius: 8c0
+			gdihdropzone:
+				OrderName: hdropzone
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
 			paratroopers:
 				OrderName: SovietParatroopers
 				MinimumAttractiveness: 5
@@ -114,7 +129,22 @@ Player:
 					TargetMetric: None
 					CheckRadius: 8c0
 			nparatroopers:
-				OrderName: BlackhParatroopers
+				OrderName: MarkedParatroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			lparatroopers:
+				OrderName: LegionParatroopers
 				MinimumAttractiveness: 5
 				Consideration@1:
 					Against: Enemy
@@ -254,6 +284,7 @@ Player:
 		MaximumExcessPower: 160
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 4
+		PlaceDefenseTowardsEnemyChance: 75
 		ConstructionYardTypes: fact,afac
 		RefineryTypes: proc,proc2
 		PowerTypes: powr,apwr,nuke,nuk2
@@ -344,6 +375,7 @@ Player:
 		MaximumExcessPower: 200
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 4
+		PlaceDefenseTowardsEnemyChance: 75
 		ConstructionYardTypes: fact,afac
 		RefineryTypes: proc,proc2
 		PowerTypes: powr,apwr,nuke,nuk2
@@ -434,6 +466,7 @@ Player:
 		MaximumExcessPower: 250
 		ExcessPowerIncrement: 50
 		ExcessPowerIncreaseThreshold: 4
+		PlaceDefenseTowardsEnemyChance: 75
 		ConstructionYardTypes: fact,afac
 		RefineryTypes: proc,proc2
 		PowerTypes: powr,apwr,nuke,nuk2
@@ -524,6 +557,7 @@ Player:
 		MaximumExcessPower: 200
 		ExcessPowerIncrement: 40
 		ExcessPowerIncreaseThreshold: 4
+		PlaceDefenseTowardsEnemyChance: 75
 		ConstructionYardTypes: fact,afac
 		RefineryTypes: proc,proc2
 		PowerTypes: powr,apwr,nuke,nuk2
@@ -654,6 +688,7 @@ Player:
 			jeep: 30
 			apc2: 20
 			apc2.nod: 20
+			apc2.legion: 20
 			hmmv: 30
 			btr: 20
 			bggy: 30
@@ -663,6 +698,7 @@ Player:
 			v2rl: 40
 			msam: 40
 			msam.nod: 40
+			msam.legion: 20
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
@@ -675,11 +711,13 @@ Player:
 			ltnk: 40
 			mtnk: 70
 			mtnk.nod: 50
+			mtnk.legion: 50
 			bike: 30
 			htnk: 40
 			v3rl: 40
 			titan: 3
 			ctnk: 3
+			mwtnk: 3
 			ttnk: 25
 			stnk: 15
 			ftnk: 15
@@ -687,6 +725,8 @@ Player:
 			heli: 5
 			apch: 5
 			orca: 5
+			orcab: 3
+			scrin: 5
 			rah66: 3
 			mig: 3
 			harr: 3
@@ -763,6 +803,7 @@ Player:
 			jeep: 30
 			apc2: 20
 			apc2.nod: 20
+			apc2.legion: 20
 			hmmv: 30
 			btr: 20
 			bggy: 30
@@ -772,6 +813,7 @@ Player:
 			v2rl: 40
 			msam: 40
 			msam.nod: 40
+			msam.legion: 20
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
@@ -784,11 +826,13 @@ Player:
 			ltnk: 40
 			mtnk: 70
 			mtnk.nod: 50
+			mtnk.legion: 50
 			bike: 30
 			htnk: 40
 			v3rl: 40
 			titan: 3
 			ctnk: 3
+			mwtnk: 3
 			ttnk: 25
 			stnk: 15
 			ftnk: 15
@@ -796,6 +840,8 @@ Player:
 			heli: 5
 			apch: 5
 			orca: 5
+			orcab: 3
+			scrin: 5
 			rah66: 3
 			mig: 3
 			harr: 3
@@ -872,6 +918,7 @@ Player:
 			jeep: 30
 			apc2: 20
 			apc2.nod: 20
+			apc2.legion: 20
 			hmmv: 30
 			btr: 20
 			bggy: 30
@@ -881,6 +928,7 @@ Player:
 			v2rl: 40
 			msam: 40
 			msam.nod: 40
+			msam.legion: 20
 			mlrs: 20
 			hmlrs: 20
 			1tnk: 70
@@ -893,11 +941,13 @@ Player:
 			ltnk: 40
 			mtnk: 70
 			mtnk.nod: 50
+			mtnk.legion: 50
 			bike: 30
 			htnk: 40
 			v3rl: 40
 			titan: 3
 			ctnk: 3
+			mwtnk: 3
 			ttnk: 25
 			stnk: 15
 			ftnk: 15
@@ -905,6 +955,8 @@ Player:
 			heli: 5
 			apch: 5
 			orca: 5
+			orcab: 3
+			scrin: 5
 			rah66: 3
 			mig: 3
 			harr: 3
@@ -970,6 +1022,8 @@ Player:
 			heli: 5
 			apch: 5
 			orca: 5
+			orcab: 3
+			scrin: 5
 			rah66: 3
 			mig: 3
 			harr: 3

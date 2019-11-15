@@ -11,9 +11,11 @@ GenericVoice:
 		nod: .c01,.c03
 		blackh: .c01,.c03
 		marked: .c01,.c03
+		legion: .c01,.c03
 		gdi: .c01,.c03
 		talon: .c01,.c03
 		zocom: .c01,.c03
+		eagle: .c01,.c03
 	Voices:
 		Select: await1,ready,report1,yessir1
 		Action: ackno,affirm1,noprob,overout,ritaway,roger,ugotit
@@ -36,9 +38,11 @@ VehicleVoice:
 		nod: .c00,.c02
 		blackh: .c00,.c02
 		marked: .c00,.c02
+		legion: .c00,.c02
 		gdi: .c00,.c02
 		zocom: .c00,.c02
 		talon: .c00,.c02
+		eagle: .c00,.c02
 	Voices:
 		Select: vehic1,yessir1,report1,await1,unit1
 		Action: ackno,affirm1,movout1
@@ -238,18 +242,6 @@ ChronoVoice:
 		Zapped: dedman6,nuyell3
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
 		Build: ichrseb
-
-TitanVoice:
-	Voices:
-		Select: 32-i008
-		Move: 32-i000,32-i004
-		Attack: 32-i002,32-i006
-		Action: 32-i000,32-i004
-		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
-		Burned: dedman10,yell1
-		Zapped: dedman6,nuyell3
-		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
-		Build: 32-i000
 		
 TitanNodVoice:
 	Voices:
@@ -257,11 +249,6 @@ TitanNodVoice:
 		Move: 60-n106,60-n108,60-n110
 		Attack: 60-n112,60-n114,60-n116
 		Action: 60-n106,60-n108,60-n110
-		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
-		Burned: dedman10,yell1
-		Zapped: dedman6,nuyell3
-		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
-		Build: 60-n100
 		
 TTruckVoice:
 	Voices:
@@ -405,11 +392,6 @@ V3Voice:
 		Move: vv3lmob,vv3lmoc,vv3lmod,vv3lmoe
 		Attack: vv3lata,vv3latb,vv3latc,vv3latd,vv3late
 		Action:  vv3lmob,vv3lmoc,vv3lmod,vv3lmoe
-		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
-		Burned: dedman10,yell1
-		Zapped: dedman6,nuyell3
-		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
-		Build: vv3lsea,vv3lseb,vv3lsec,vv3lsed,vv3lsee
 		
 MirageVoice:
 	Voices:
@@ -417,11 +399,7 @@ MirageVoice:
 		Move: vmirmoa, vmirmob, vmirmoc, vmirmod, vmirmoe, vmirmof, vmirmog
 		Attack: vmirata, vmiratb, vmiratc, vmiratd, vmirate
 		Action:  vmirmoa, vmirmob, vmirmoc, vmirmod, vmirmoe, vmirmof, vmirmog
-		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
-		Burned: dedman10,yell1
-		Zapped: dedman6,nuyell3
-		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
-		Build: vmirsea, vmirseb, vmirsec, vmirsed, vmirsee, vmirsef
+
 		
 PrismVoice:
 	Voices:
@@ -429,8 +407,58 @@ PrismVoice:
 		Move: vprimoa, vprimob, vprimoc, vprimod, vprimoe
 		Attack: vpriata, vpriatb, vpriatc, vpriatd, vpriate
 		Action:  vprimoa, vprimob, vprimoc, vprimod, vprimoe
+		
+OrcaVoice:
+	Voices:
+		Select: 30-i000, 30-i002, 30-i004, 30-i006
+		Move: 30-i014, 30-i016, 30-i018, 30-i022
+		Attack: 30-i022, 30-i030, 30-i034, 30-i036
+		Action: 30-i014, 30-i016, 30-i018, 30-i022
+		
+ScrinVoice:
+	Voices:
+		Select: 32-i000
+		Move: 32-i002, 32-i004
+		Attack: 32-i006
+		Action: 32-i002, 32-i004
+		Die: 32-i008
+		
+CyborgVoice:
+	Voices:
+		Select: 22-i000, 22-i002, 22-i006
+		Move: 22-i008, 22-i010, 22-i014, 22-i016, 22-i020
+		Attack: 22-i008, 22-i010, 22-i012, 22-i018
+		Action: 22-i008, 22-i010, 22-i014, 22-i016, 22-i020
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell3,nuyell4,nuyell5
 		Burned: dedman10,yell1
 		Zapped: dedman6,nuyell3
 		Poisoned: vtoxb,vtoxc,vtoxd,vtoxe,vtoxf,vtoxh
-		Build: vprisea, vpriseb, vprisec, vprised, vprisee
+		
+OxannaVoice:
+	Voices:
+		Select: 11-i000, 11-i002, 11-i004, 11-i006
+		Move: 11-i008, 11-i010, 11-i012
+		Attack: 11-i014, 11-i016, 11-i018
+		Action: 11-i008, 11-i010, 11-i012
+		
+GhostVoice:
+	Voices:
+		Select: 14-i000, 14-i002, 14-i004
+		Move: 14-i008, 14-i010, 14-i012, 14-i014
+		Attack: 14-i008, 14-i010, 14-i014, 14-i016
+		Action: 14-i008, 14-i010, 14-i012, 14-i014
+		
+DisrVoice:
+	Voices:
+		Select: 25-i000, 25-i002, 25-i004, 25-i006
+		Move: 25-i012, 25-i014, 25-i016, 25-i018, 25-i022
+		Attack: 25-i014, 25-i022, 25-i024, 25-i026
+		Action: 25-i012, 25-i014, 25-i016, 25-i018, 25-i022
+		Unload: 25-i018
+		
+MWTnkVoice:
+	Voices:
+		Select: 42-i000, 42-i002, 42-i004
+		Move: 42-i006, 42-i008, 42-i010
+		Attack: 42-i012, 42-i010, 42-i006
+		Action: 42-i006, 42-i008, 42-i010

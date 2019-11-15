@@ -102,7 +102,7 @@ InfernoBomb:
 		Size: 2
 	Warhead@3Eff: CreateEffect
 		Explosions: b2bexp, b2bexp2
-		ExplosionPalette: tseffect-ignore-lighting-alpha75
+		ExplosionPalette: tseffect
 		ImpactSounds: expnew06.aud
 		ValidTargets: Ground, Ship, Trees
 	Warhead@4Dam_areanuke1: SpreadDamage
@@ -298,7 +298,7 @@ Empicbm:
 		ImpactSounds: empexpl.aud
 	Warhead@emp: GrantExternalCondition
 		Range: 5c0
-		Duration: 800
+		Duration: 900
 		Condition: empdisable
 		ValidTargets: Ground, Vehicle, Air
 	Warhead@2Smu_impact: LeaveSmudge

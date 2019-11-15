@@ -14,9 +14,9 @@
 		Crushes: mine, crate
 		SharesCell: true
 		TerrainSpeeds:
-			Clear: 90
-			Rough: 80
-			Road: 100
+			Clear: 100
+			Rough: 90
+			Road: 110
 			Bridge: 100
 			Ore: 80
 			Gems: 80
@@ -30,9 +30,9 @@
 		Crushes: mine, crate
 		SharesCell: true
 		TerrainSpeeds:
-			Clear: 90
-			Rough: 80
-			Road: 100
+			Clear: 100
+			Rough: 90
+			Road: 110
 			Bridge: 100
 			Ore: 80
 			Gems: 80
@@ -44,7 +44,7 @@
 		Crushes: mine, crate
 		TerrainSpeeds:
 			Clear: 80
-			Rough: 40
+			Rough: 60
 			Road: 100
 			Bridge: 100
 			Ore: 70
@@ -56,14 +56,14 @@
 		Name: heavywheeled
 		Crushes: wall, mine, crate, infantry
 		TerrainSpeeds:
-			Clear: 80
-			Rough: 40
-			Road: 100
+			Clear: 90
+			Rough: 80
+			Road: 110
 			Bridge: 100
-			Ore: 70
-			Gems: 70
-			Tiberium: 70
-			BlueTiberium: 70
+			Ore: 80
+			Gems: 80
+			Tiberium: 80
+			BlueTiberium: 80
 			Beach: 40
 	Locomotor@LIGHTTRACKED:
 		Name: lighttracked
@@ -225,20 +225,30 @@
 		Side: GDI
 		Description: ZOCOM:\n Special Unit: Disruptor
 	Faction@11:
+		Name: Eagle
+		InternalName: eagle
+		Side: GDI
+		Description: Eagle Corps:\n Special Unit: Orca Bomber\n Special Ability: Heavy Reinforcements
+	Faction@12:
 		Name: Nod
 		InternalName: nod
 		Side: Nod
 		Selectable: False
-	Faction@12:
-		Name: Black Hand
+	Faction@13:
+		Name: Black H.
 		InternalName: blackh
 		Side: Nod
-		Description: Black Hand:\n Special Unit: Howitzer\n Special Ability: Inferno Bomb
-	Faction@13:
+		Description: Black Hand:\n Special Unit: Comanche\n Special Unit: Howitzer\n Special Ability: Inferno Bomb
+	Faction@14:
 		Name: Marked
 		InternalName: marked
 		Side: Nod
-		Description: Marked of Kane:\n Special Unit: Acolyte\n Special Unit: Chemical Warrior
+		Description: Marked of Kane:\n Special Unit: Acolyte\n Special Unit: Chemical Warrior\n Special Ability: Elite Paradrop
+	Faction@15:
+		Name: Legion
+		InternalName: legion
+		Side: Nod
+		Description: Legion:\n Special Unit: Microwave Tank\n Special Ability: Stolen Technology\n Special Ability: Paradrop
 	Faction@random:
 		Name: Any
 		InternalName: Random
@@ -260,13 +270,13 @@
 	Faction@randomgdi:
 		Name: GDI
 		InternalName: RandomGDI
-		RandomFactionMembers: talon, zocom
+		RandomFactionMembers: talon, zocom, eagle
 		Side: Random
 		Description: Random GDI Faction\nA random GDI faction will be chosen when the game starts.
 	Faction@randomnod:
 		Name: Nod
 		InternalName: RandomNOD
-		RandomFactionMembers: blackh, marked
+		RandomFactionMembers: blackh, marked, legion
 		Side: Random
 		Description: Random Nod Faction\nA random Nod faction will be chosen when the game starts.
 	ResourceType@ore:
@@ -401,12 +411,12 @@ World:
 	MPStartUnits@mcvonly2:
 		Class: none
 		ClassName: MCV Only
-		Factions: gdi, talon, zocom, nod, blackh, marked
+		Factions: gdi, talon, zocom, eagle, nod, blackh, marked, legion
 		BaseActor: amcv
 	MPStartUnits@defaultgdia:
 		Class: light
 		ClassName: Light Support
-		Factions: gdi, talon, zocom
+		Factions: gdi, talon, zocom, eagle
 		BaseActor: amcv
 		SupportActors: n1,n1,n1,n3,n3
 		InnerSupportRadius: 3
@@ -414,7 +424,7 @@ World:
 	MPStartUnits@defaultnoda:
 		Class: light
 		ClassName: Light Support
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		BaseActor: amcv
 		SupportActors: n1,n1,n1,n3,n3
 		InnerSupportRadius: 3
@@ -422,7 +432,7 @@ World:
 	MPStartUnits@heavynoda:
 		Class: heavy
 		ClassName: Heavy Support
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		BaseActor: amcv
 		SupportActors: n1,n1,n1,n3,n3,mtnk.nod,mtnk.nod
 		InnerSupportRadius: 3
@@ -430,7 +440,7 @@ World:
 	MPStartUnits@heavygdia:
 		Class: heavy
 		ClassName: Heavy Support
-		Factions: gdi, talon, zocom
+		Factions: gdi, talon, zocom, eagle
 		BaseActor: amcv
 		SupportActors: n1,n1,n1,n3,n3,mtnk,mtnk
 		InnerSupportRadius: 3

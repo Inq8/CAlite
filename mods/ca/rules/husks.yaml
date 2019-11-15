@@ -1,7 +1,7 @@
 1TNK.Husk:
 	Inherits: ^Husk
 	Tooltip:
-		Name: Husk (Light Tank)
+		Name: Husk (Scout Tank)
 	ThrowsParticle@turret:
 		Anim: turret
 	TransformOnCapture:
@@ -943,22 +943,76 @@ HARRh.Husk:
 	RenderSprites:
 		Image: harr
 		
-ORCA.drone.Husk:
+SCRIN.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
-		Name: Orca
+		Name: Banshee
 	Aircraft:
 		TurnSpeed: 4
-		Speed: 186
+		Speed: 200
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	Contrail@1:
+		Offset: -300,-183,0
+	Contrail@2:
+		Offset: -300,183,0
+	RevealsShroud:
+		Range: 12c0
+		Type: CenterPosition
+	RenderSprites:
+		Image: scrin
+		PlayerPalette: playertd
+		
+SCRINh.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Banshee
+	Aircraft:
+		TurnSpeed: 4
+		Speed: 200
 	SmokeTrailWhenDamaged:
 		Offset: -427,0,0
 		MinDamage: Undamaged
 	RevealsShroud:
-		Range: 10c0
+		Range: 12c0
 		Type: CenterPosition
 	RenderSprites:
-		Image: orca
-		Scale: 0.6
+		Image: scrin
+		PlayerPalette: playertd
+		
+ORCAB.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Orca Bomber
+	Aircraft:
+		TurnSpeed: 4
+		Speed: 155
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		Range: 12c0
+		Type: CenterPosition
+	RenderSprites:
+		Image: orcab
+		PlayerPalette: playertd
+		
+ORCABh.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Orca Bomber
+	Aircraft:
+		TurnSpeed: 4
+		Speed: 155
+	SmokeTrailWhenDamaged:
+		Offset: -427,0,0
+		MinDamage: Undamaged
+	RevealsShroud:
+		Range: 12c0
+		Type: CenterPosition
+	RenderSprites:
+		Image: orcab
 		PlayerPalette: playertd
 		
 FROG.Husk:
@@ -992,3 +1046,31 @@ PTNK.Husk:
 		IntoActor: ptnk
 	RenderSprites:
 		Image: ptnk.destroyed
+		
+MWTNK.Husk:
+	Inherits: ^HuskTD
+	Tooltip:
+		Name: Husk (Microwave Tank)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: mwtnk
+	InfiltrateForTransform:
+		IntoActor: mwtnk
+	RenderSprites:
+		Image: mwtnk.destroyed
+		PlayerPalette: playertd
+		
+LTNK.Husk:
+	Inherits: ^HuskTD
+	Tooltip:
+		Name: Husk (Light Tank)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: ltnk
+	InfiltrateForTransform:
+		IntoActor: ltnk
+	RenderSprites:
+		Image: ltnk.destroyed
+		PlayerPalette: playertd

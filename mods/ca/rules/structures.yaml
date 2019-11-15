@@ -676,10 +676,10 @@ DOME:
 	ProvidesPrerequisite@radar:
 		Prerequisite: radar
 	ProvidesPrerequisite@nodrad:
-		Factions: nod, marked, blackh
+		Factions: nod, marked, blackh, legion
 		Prerequisite: radar.nod
 	ProvidesPrerequisite@gdirad:
-		Factions: gdi, zocom, talon
+		Factions: gdi, zocom, talon, eagle
 		Prerequisite: radar.gdi
 	ProvidesPrerequisite@buildingname:
 	ExternalCondition@JAMMED:
@@ -1041,14 +1041,17 @@ WEAP:
 		Produces: Vehicle
 		PauseOnCondition: forceshield
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
-	ProvidesPrerequisite@ra:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
-		Prerequisite: vehicles.ra
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: vehicles.allies
+	ProvidesPrerequisite@td:
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion
+		Prerequisite: vehicles.td
+	ProvidesPrerequisite@ra:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
+		Prerequisite: vehicles.ra
 	ProvidesPrerequisite@alliesvanilla:
 		Factions: allies
 		Prerequisite: vehicles.alliesvanilla
@@ -1076,6 +1079,30 @@ WEAP:
 	ProvidesPrerequisite@iraq:
 		Factions: iraq
 		Prerequisite: vehicles.iraq
+	ProvidesPrerequisite@gdi:
+		Factions: gdi, zocom, talon, eagle
+		Prerequisite: vehicles.gdi
+	ProvidesPrerequisite@talon:
+		Factions: talon
+		Prerequisite: vehicles.talon
+	ProvidesPrerequisite@zocom:
+		Factions: zocom
+		Prerequisite: vehicles.zocom
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: vehicles.eagle
+	ProvidesPrerequisite@nod:
+		Factions: nod, blackh, marked, legion
+		Prerequisite: vehicles.nod
+	ProvidesPrerequisite@blackh:
+		Factions: blackh
+		Prerequisite: vehicles.blackh
+	ProvidesPrerequisite@marked:
+		Factions: marked
+		Prerequisite: vehicles.marked
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: vehicles.legion
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -1106,6 +1133,30 @@ WEAP:
 	ProvidesPrerequisite@iraqistructure:
 		RequiresPrerequisites: structures.iraq
 		Prerequisite: vehicles.iraq
+	ProvidesPrerequisite@gdistructure:
+		RequiresPrerequisites: structures.gdi
+		Prerequisite: vehicles.gdi
+	ProvidesPrerequisite@gdivanillastructure:
+		RequiresPrerequisites: structures.gdivanilla
+		Prerequisite: vehicles.gdivanilla
+	ProvidesPrerequisite@talonstructure:
+		RequiresPrerequisites: structures.talon
+		Prerequisite: vehicles.talon
+	ProvidesPrerequisite@zocomstructure:
+		RequiresPrerequisites: structures.zocom
+		Prerequisite: vehicles.zocom
+	ProvidesPrerequisite@nodvanillastructure:
+		RequiresPrerequisites: structures.nodvanilla
+		Prerequisite: vehicles.nodvanilla
+	ProvidesPrerequisite@nodstructure:
+		RequiresPrerequisites: structures.nod
+		Prerequisite: vehicles.nod
+	ProvidesPrerequisite@blackhstructure:
+		RequiresPrerequisites: structures.blackh
+		Prerequisite: vehicles.blackh
+	ProvidesPrerequisite@markedstructure:
+		RequiresPrerequisites: structures.marked
+		Prerequisite: vehicles.marked
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
@@ -1146,7 +1197,7 @@ WEAP.AI:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Brutal War Factory
+		Name: AI War Factory
 	ProductionQueue:
 		Type: Vehicle
 		DisplayOrder: 3
@@ -1293,7 +1344,7 @@ PROC:
 		Prerequisites: anypower, ~structures.ra, ~techlevel.infonly
 		Description: Refines Ore and Gems\ninto credits.
 	Valued:
-		Cost: 1400
+		Cost: 2000
 	Tooltip:
 		Name: Ore Refinery
 	Building:
@@ -1426,7 +1477,7 @@ HPAD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 120
-		Prerequisites: dome, ~structures.ra, ~techlevel.medium
+		Prerequisites: dome, ~structures.ra, ~techlevel.infonly
 		Description: Produces and reloads\nhelicopters.
 	Valued:
 		Cost: 500
@@ -1524,7 +1575,7 @@ AFLD:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 130
-		Prerequisites: dome, ~structures.soviet, ~techlevel.medium
+		Prerequisites: dome, ~structures.soviet, ~techlevel.low
 		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
 	Valued:
 		Cost: 500
@@ -1605,7 +1656,7 @@ AFLD:
 		CircleSequence: circles
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
-		Prerequisites: aircraft.soviet, !aircraft.russia
+		Prerequisites: aircraft.soviet, !aircraft.russia, ~techlevel.low
 		Icon: paratroopers
 		ChargeInterval: 7500
 		Description: Paratroopers
@@ -1627,7 +1678,7 @@ AFLD:
 		DirectionArrowAnimation: paradirection
 	ParatroopersPower@Russianparatroopers:
 		OrderName: RussianParatroopers
-		Prerequisites: aircraft.russia
+		Prerequisites: aircraft.russia, , ~techlevel.high
 		Icon: paratroopers
 		ChargeInterval: 9000
 		Description: Paratroopers
@@ -1651,7 +1702,7 @@ AFLD:
 		OrderName: UkraineParabombs
 		Prerequisites: aircraft.ukraine, techlevel.superw
 		Icon: carpetbomb
-		ChargeInterval: 9000
+		ChargeInterval: 10500
 		Description: Carpet Bomb
 		LongDesc: A squad of Badgers drop\nbombs on your target.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1994,7 +2045,7 @@ BARR.AI:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Brutal Soviet Barracks
+		Name: AI Soviet Barracks
 	-PrimaryBuilding:
 	-WithDecoration@primary:
 	ProductionQueue:
@@ -2180,7 +2231,7 @@ TENT.AI:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Brutal Allied Barracks
+		Name: AI Allied Barracks
 	-PrimaryBuilding:
 	-WithDecoration@primary:
 	ProductionQueue:
@@ -2524,7 +2575,7 @@ PYLE:
 	ProvidesPrerequisite@barrackstd:
 		Prerequisite: barrackstd
 	ProvidesPrerequisite@gdi:
-		Factions: gdi, talon, zocom
+		Factions: gdi, talon, zocom, eagle
 		Prerequisite: infantry.gdi
 	ProvidesPrerequisite@gdivanilla:
 		Factions: gdi
@@ -2535,6 +2586,9 @@ PYLE:
 	ProvidesPrerequisite@zocom:
 		Factions: zocom
 		Prerequisite: infantry.zocom
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: infantry.eagle
 	ProvidesPrerequisite@gdistructure:
 		RequiresPrerequisites: structures.gdi
 		Prerequisite: infantry.gdi
@@ -2547,6 +2601,9 @@ PYLE:
 	ProvidesPrerequisite@zocomstructure:
 		RequiresPrerequisites: structures.zocom
 		Prerequisite: infantry.zocom
+	ProvidesPrerequisite@eaglestructure:
+		RequiresPrerequisites: structures.eagle
+		Prerequisite: infantry.eagle
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -2578,7 +2635,7 @@ PYLE.AI:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Brutal GDI Barracks
+		Name: AI GDI Barracks
 	-PrimaryBuilding:
 	-WithDecoration@primary:
 	ProductionQueue:
@@ -2642,7 +2699,7 @@ HAND:
 	ProvidesPrerequisite@barrackstd:
 		Prerequisite: barrackstd
 	ProvidesPrerequisite@nod:
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		Prerequisite: infantry.nod
 	ProvidesPrerequisite@nodvanilla:
 		Factions: nod
@@ -2653,6 +2710,9 @@ HAND:
 	ProvidesPrerequisite@marked:
 		Factions: marked
 		Prerequisite: infantry.marked
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: infantry.legion
 	ProvidesPrerequisite@nodstructure:
 		RequiresPrerequisites: structures.nod
 		Prerequisite: infantry.nod
@@ -2665,6 +2725,9 @@ HAND:
 	ProvidesPrerequisite@markedstructure:
 		RequiresPrerequisites: structures.marked
 		Prerequisite: infantry.marked
+	ProvidesPrerequisite@legionstructure:
+		RequiresPrerequisites: structures.legion
+		Prerequisite: infantry.legion
 	InfiltrateForSupportPower@inf:
 		Types: SabInfiltrate
 		Proxy: inf.nod.stolen
@@ -2694,7 +2757,7 @@ HAND.AI:
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Brutal Hand of Nod
+		Name: AI Hand of Nod
 	-PrimaryBuilding:
 	-WithDecoration@primary:
 	ProductionQueue:
@@ -2722,7 +2785,7 @@ AWEP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: proc2, ~structures.gdi, ~techlevel.low
+		Prerequisites: proc2, ~!structures.blackh, ~!structures.marked, ~techlevel.low
 		IconPalette: chrometd
 		Description: Produces vehicles.
 	Valued:
@@ -2743,14 +2806,17 @@ AWEP:
 	RevealsShroud@GAPGEN:
 		Range: 4c0
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: vehicles.allies
 	ProvidesPrerequisite@td:
-		Factions: gdi, talon, zocom, nod, marked, blackh
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion
 		Prerequisite: vehicles.td
+	ProvidesPrerequisite@ra:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
+		Prerequisite: vehicles.ra
 	ProvidesPrerequisite@alliesvanilla:
 		Factions: allies
 		Prerequisite: vehicles.alliesvanilla
@@ -2779,7 +2845,7 @@ AWEP:
 		Factions: iraq
 		Prerequisite: vehicles.iraq
 	ProvidesPrerequisite@gdi:
-		Factions: gdi, zocom, talon
+		Factions: gdi, zocom, talon, eagle
 		Prerequisite: vehicles.gdi
 	ProvidesPrerequisite@talon:
 		Factions: talon
@@ -2787,8 +2853,11 @@ AWEP:
 	ProvidesPrerequisite@zocom:
 		Factions: zocom
 		Prerequisite: vehicles.zocom
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: vehicles.eagle
 	ProvidesPrerequisite@nod:
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		Prerequisite: vehicles.nod
 	ProvidesPrerequisite@blackh:
 		Factions: blackh
@@ -2796,6 +2865,9 @@ AWEP:
 	ProvidesPrerequisite@marked:
 		Factions: marked
 		Prerequisite: vehicles.marked
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: vehicles.legion
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -2900,12 +2972,12 @@ AWEP.AI:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: pyle, ~structures.gdi, ~botplayer
+		Prerequisites: barracks, ~structures.awep, ~botplayer
 		Description: Produces vehicles.
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Brutal Weapons Factory
+		Name: AI Weapons Factory
 	-PrimaryBuilding:
 	ProductionQueue:
 		Type: Vehicle
@@ -2932,7 +3004,7 @@ ASTRIP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: proc2, ~structures.nod, ~techlevel.low
+		Prerequisites: proc2, ~structures.nod, ~!structures.legion, ~techlevel.low
 		IconPalette: chrometd
 		Description: Provides a dropzone\nfor vehicle reinforcements
 	Valued:
@@ -2964,14 +3036,17 @@ ASTRIP:
 		ActorType: c17.cargo
 		ReadyAudio: ReinforcementsArrived
 	ProvidesPrerequisite@any:
-		Factions: gdi, talon, zocom, nod, marked, blackh, allies, england, france, germany, soviet, russia, ukraine, iraq
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion, allies, england, france, germany, soviet, russia, ukraine, iraq
 		Prerequisite: vehicles.any
 	ProvidesPrerequisite@allies:
 		Factions: allies, england, france, germany
 		Prerequisite: vehicles.allies
 	ProvidesPrerequisite@td:
-		Factions: gdi, talon, zocom, nod, marked, blackh
+		Factions: gdi, talon, zocom, eagle, nod, marked, blackh, legion
 		Prerequisite: vehicles.td
+	ProvidesPrerequisite@ra:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq
+		Prerequisite: vehicles.ra
 	ProvidesPrerequisite@alliesvanilla:
 		Factions: allies
 		Prerequisite: vehicles.alliesvanilla
@@ -3008,8 +3083,11 @@ ASTRIP:
 	ProvidesPrerequisite@zocom:
 		Factions: zocom
 		Prerequisite: vehicles.zocom
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: vehicles.eagle
 	ProvidesPrerequisite@nod:
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		Prerequisite: vehicles.nod
 	ProvidesPrerequisite@blackh:
 		Factions: blackh
@@ -3017,6 +3095,9 @@ ASTRIP:
 	ProvidesPrerequisite@marked:
 		Factions: marked
 		Prerequisite: vehicles.marked
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: vehicles.legion
 	ProvidesPrerequisite@alliedstructure:
 		RequiresPrerequisites: structures.allies
 		Prerequisite: vehicles.allies
@@ -3056,6 +3137,9 @@ ASTRIP:
 	ProvidesPrerequisite@zocomstructure:
 		RequiresPrerequisites: structures.zocom
 		Prerequisite: vehicles.zocom
+	ProvidesPrerequisite@eaglestructure:
+		RequiresPrerequisites: structures.eagle
+		Prerequisite: vehicles.eagle
 	ProvidesPrerequisite@nodvanillastructure:
 		RequiresPrerequisites: structures.nodvanilla
 		Prerequisite: vehicles.nodvanilla
@@ -3065,8 +3149,11 @@ ASTRIP:
 	ProvidesPrerequisite@markedstructure:
 		RequiresPrerequisites: structures.marked
 		Prerequisite: vehicles.marked
+	ProvidesPrerequisite@legionstructure:
+		RequiresPrerequisites: structures.legion
+		Prerequisite: vehicles.legion
 	ProvidesPrerequisite@nodarty:
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		Prerequisite: vehicles.arty
 	ParatroopersPower@airdrop:
 		OrderName: nodairdrop
@@ -3091,17 +3178,17 @@ ASTRIP:
 		CircleSequence: circles
 		UseDirectionalTarget: True
 		DirectionArrowAnimation: paradirection
-	ParatroopersPower@Blackhparatroopers:
-		OrderName: BlackhParatroopers
-		Prerequisites: vehicles.nod
+	ParatroopersPower@Markedparatroopers:
+		OrderName: MarkedParatroopers
+		Prerequisites: vehicles.marked, hand
 		Icon: paratroopers
 		UnitType: c17
 		ChargeInterval: 7500
-		Description: Paratroopers
-		LongDesc: A Cargo Plane drops a squad of infantry\nanywhere on the map.
+		Description: Elite Paratroopers
+		LongDesc: A Cargo Plane drops an elite squad of infantry\nanywhere on the map.
 		SquadSize: 1
 		SquadOffset: 0,1792,0
-		DropItems: N1,N1,N4,N3,N3,N1,N1,N4
+		DropItems: N1R1,N1R1,N5R1,N3R1,N5R1,N1R1,N3R1,N5R1
 		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
 		AllowImpassableCells: false
@@ -3145,12 +3232,12 @@ ASTRIP.AI:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 80
-		Prerequisites: hand, ~structures.nod, ~botplayer
+		Prerequisites: hand, ~structures.nod, ~!structures.legion, ~botplayer
 		Description: Produces vehicles.
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Brutal Airstrip
+		Name: AI Airstrip
 	-PrimaryBuilding:
 	-WithDecoration@primary:
 	TransformOnCapture:
@@ -3188,6 +3275,7 @@ NUKE:
 			nod: nodnuke
 			blackh: nodnuke
 			marked: nodnuke
+			legion: nodnuke
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 10
@@ -3239,6 +3327,7 @@ NUK2:
 			nod: nodnuk2
 			blackh: nodnuk2
 			marked: nodnuk2
+			legion: nodnuk2
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 110
@@ -3285,6 +3374,7 @@ AFAC:
 			nod: nodfact
 			blackh: nodfact
 			marked: nodfact
+			legion: nodfact
 	Building:
 		Footprint: xxx xxx ===
 		Dimensions: 3,3
@@ -3341,14 +3431,35 @@ AFAC:
 		ShowTicks: False
 		RequiresCondition: normalbotplayer
 	ProvidesPrerequisite@cnc:
-		Factions: gdi, talon, zocom, nod, blackh, marked
+		Factions: gdi, talon, zocom, eagle, nod, blackh, marked, legion
 		Prerequisite: structures.td
 	ProvidesPrerequisite@gdi:
-		Factions: gdi, talon, zocom
+		Factions: gdi, talon, zocom, eagle
 		Prerequisite: structures.gdi
+	ProvidesPrerequisite@talon:
+		Factions: talon
+		Prerequisite: structures.talon
+	ProvidesPrerequisite@zocom:
+		Factions: zocom
+		Prerequisite: structures.zocom
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: structures.eagle	
 	ProvidesPrerequisite@nod:
-		Factions: nod, blackh, marked
+		Factions: nod, blackh, marked, legion
 		Prerequisite: structures.nod
+	ProvidesPrerequisite@blackh:
+		Factions: blackh
+		Prerequisite: structures.blackh
+	ProvidesPrerequisite@marked:
+		Factions: marked
+		Prerequisite: structures.marked
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: structures.legion	
+	ProvidesPrerequisite@AWEPFAC:
+		Factions: gdi, talon, zocom, eagle, legion
+		Prerequisite: structures.awep
 	ProvidesPrerequisite@ai:
 		Prerequisite: botplayer
 		RequiresCondition: normalbotplayer || brutalbotplayer
@@ -3599,6 +3710,7 @@ HQ:
 			nod: nodhq
 			blackh: nodhq
 			marked: nodhq
+			legion: nodhq
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -3671,18 +3783,44 @@ HQ:
 		CircleSequence: circles
 		UseDirectionalTarget: False
 		DirectionArrowAnimation: paradirection
+	ParatroopersPower@Legionparatroopers:
+		OrderName: LegionParatroopers
+		Prerequisites: structures.legion, hand
+		Icon: paratroopers
+		UnitType: c17
+		ChargeInterval: 7500
+		Description: Paratroopers
+		LongDesc: A Cargo Plane drops a squad of infantry\nanywhere on the map.
+		SquadSize: 1
+		SquadOffset: 0,1792,0
+		DropItems: N1,N1,N1,N3,N3,N1,N1,N1
+		ReinforcementsArrivedSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.paradrop
+		DisplayBeacon: true
+		BeaconPoster: pinficon
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@radar:
 		Prerequisite: radar
 	ProvidesPrerequisite@nodrad:
-		Factions: nod, marked, blackh
+		Factions: nod, marked, blackh, legion
 		Prerequisite: radar.nod
 	ProvidesPrerequisite@bhrad:
 		Factions: blackh
 		Prerequisite: radar.blackh
+	ProvidesPrerequisite@lrad:
+		Factions: legion
+		Prerequisite: radar.legion
 	ProvidesPrerequisite@gdirad:
-		Factions: gdi, zocom, talon
+		Factions: gdi, zocom, talon, eagle
 		Prerequisite: radar.gdi
 	ProvidesPrerequisite@buildingname:
 	ExternalCondition@JAMMED:
@@ -3843,7 +3981,7 @@ HPAD2:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 120
-		Prerequisites: radar, ~structures.td, ~techlevel.medium
+		Prerequisites: radar, ~structures.td, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Produces and reloads\nhelicopters.
 	Valued:
@@ -3876,14 +4014,17 @@ HPAD2:
 		PrimaryCondition: primary
 	Power:
 		Amount: -10
+	ProvidesPrerequisite@all:
+		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, eagle, nod, blackh, marked, legion
+		Prerequisite: aircraft.all
 	ProvidesPrerequisite@gdi:
-		Factions: gdi, zocom, talon
+		Factions: gdi, zocom, talon, eagle
 		Prerequisite: aircraft.gdi
 	ProvidesPrerequisite@gdistructure:
 		RequiresPrerequisites: structures.gdi
 		Prerequisite: aircraft.gdi
 	ProvidesPrerequisite@nod:
-		Factions: nod, marked, blackh
+		Factions: nod, marked, blackh, legion
 		Prerequisite: aircraft.nod
 	ProvidesPrerequisite@nodstructure:
 		RequiresPrerequisites: structures.nod
@@ -3892,11 +4033,38 @@ HPAD2:
 		Factions: blackh
 		Prerequisite: aircraft.blackh
 	ProvidesPrerequisite@blackhstructure:
-		RequiresPrerequisites: structures.nod
+		RequiresPrerequisites: structures.blackh
 		Prerequisite: aircraft.blackh
-	ProvidesPrerequisite@all:
-		Factions: allies, england, france, germany, soviet, russia, ukraine, iraq, gdi, talon, zocom, nod, blackh, marked
-		Prerequisite: aircraft.all
+	ProvidesPrerequisite@legion:
+		Factions: legion
+		Prerequisite: aircraft.legion
+	ProvidesPrerequisite@legionstructure:
+		RequiresPrerequisites: structures.legion
+		Prerequisite: aircraft.legion
+	ProvidesPrerequisite@eagle:
+		Factions: eagle
+		Prerequisite: aircraft.eagle
+	ProvidesPrerequisite@eaglestructure:
+		RequiresPrerequisites: structures.eagle
+		Prerequisite: aircraft.eagle
+	ProvidesPrerequisite@marked:
+		Factions: marked
+		Prerequisite: aircraft.marked
+	ProvidesPrerequisite@markedstructure:
+		RequiresPrerequisites: structures.marked
+		Prerequisite: aircraft.marked
+	ProvidesPrerequisite@zocom:
+		Factions: zocom
+		Prerequisite: aircraft.zocom
+	ProvidesPrerequisite@zocomstructure:
+		RequiresPrerequisites: structures.zocom
+		Prerequisite: aircraft.zocom
+	ProvidesPrerequisite@talon:
+		Factions: talon
+		Prerequisite: aircraft.talon
+	ProvidesPrerequisite@talonstructure:
+		RequiresPrerequisites: structures.talon
+		Prerequisite: aircraft.talon
 	ProvidesPrerequisite@buildingname:
 	Targetable:
 		TargetTypes: Ground, C4, DetonateAttack, Structure, SpyInfiltrate
@@ -3914,14 +4082,27 @@ HPAD2:
 		Proxy: powerproxy.paratroopers2
 	SpawnActorPower@GDIDropzone:
 		Actor: FLARE.dropzone
-		Prerequisites: ~radar.gdi
-		LifeTime: 250
+		Prerequisites: ~radar.gdi, ~structures.gdi, ~techlevel.low
+		LifeTime: 280
 		OrderName: dropzone
 		Icon: orcaca
 		IconPalette: chrometd
 		ChargeInterval: 9000
 		Description: Reinforcements
 		LongDesc: An Orca Carryall drops reinforcements\nat the target location.
+		EndChargeSpeechNotification: ReinforceAva
+		LaunchSpeechNotification: ReinforcementsArrived
+		SelectTargetSpeechNotification: SelectTarget
+	SpawnActorPower@GDIHeavyDropzone:
+		Actor: FLAREH.dropzone
+		Prerequisites: ~gtek, ~structures.eagle, ~techlevel.low
+		LifeTime: 280
+		OrderName: hdropzone
+		Icon: orcacah
+		IconPalette: chrometd
+		ChargeInterval: 9000
+		Description: Heavy Reinforcements
+		LongDesc: An Orca Carryall drops a Mammoth Tank\nat the target location.
 		EndChargeSpeechNotification: ReinforceAva
 		LaunchSpeechNotification: ReinforcementsArrived
 		SelectTargetSpeechNotification: SelectTarget
@@ -3942,8 +4123,9 @@ PROC2:
 			nod: nodproc
 			blackh: nodproc
 			marked: nodproc
+			legion: nodproc
 	Valued:
-		Cost: 1400
+		Cost: 2000
 	Tooltip:
 		Name: Refinery
 	Buildable:
@@ -4078,7 +4260,7 @@ AFLD.gdi:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 130
-		Prerequisites: radar, ~structures.gdi, ~techlevel.medium
+		Prerequisites: radar, ~structures.gdi, ~techlevel.high
 		Description: Produces and reloads aircraft.\n  Special Ability: Recon Drone
 	Valued:
 		Cost: 500
@@ -4335,7 +4517,7 @@ PRIS:
 		Prerequisites: atek, ~structures.allies, ~techlevel.high
 		Description: Experimental base defense.\nRequires power to operate.\nCan detect cloaked units.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
 	Valued:
-		Cost: 1150
+		Cost: 1200
 	Tooltip:
 		Name: Prism Tower
 	Building:
@@ -4356,17 +4538,23 @@ PRIS:
 		HasMinibib: Yes
 	WithSpriteBody:
 		PauseOnCondition: disabled || emppowerdown
-	WithTeslaChargeAnimation:
+		RequiresCondition: !charging
+	WithChargeSpriteBody:
+		Sequence: active
+		Name: bodyactive
+		RequiresCondition: charging
 	Armament:
 		Weapon: PrisLaser
 		LocalOffset: 0,-85,956
 		PauseOnCondition: disabled || emppowerdown
-	AttackTesla:
+	AttackCharges:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: disabled || emppowerdown
-		ChargeAudio: bpripow.aud
-		MaxCharges: 1
-		ReloadDelay: 60
+		ChargingCondition: charging
+	AmbientSound:
+		RequiresCondition: charging
+		SoundFiles: bpripow.aud
+		Interval: 30, 40
 	Power:
 		Amount: -75
 	DetectCloaked:
@@ -4442,7 +4630,7 @@ SPEN.nod:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@nod:
-		Factions: nod, marked, blackh
+		Factions: nod, marked, blackh, legion
 		Prerequisite: ships.nod
 	ProvidesPrerequisite@nodstructure:
 		RequiresPrerequisites: structures.nod
@@ -4547,7 +4735,7 @@ SYRD.gdi:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@gdi:
-		Factions: gdi, zocom, talon
+		Factions: gdi, zocom, talon, eagle
 		Prerequisite: ships.gdi
 	ProvidesPrerequisite@gdistructure:
 		RequiresPrerequisites: structures.gdi
@@ -4721,7 +4909,7 @@ LTUR:
 		Amount: -25
 
 TTUR:
-	Inherits: ^Defense
+	Inherits: ^DefenseTD
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Defense
@@ -5036,7 +5224,7 @@ LASF:
 		Sequence: disabled-y
 		Name: y-disabled
 	BlocksProjectiles:
-		RequiresCondition: active-posts == 2
+		RequiresCondition: active-posts >= 2
 	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
 		Modifier: 0
 	Interactable:

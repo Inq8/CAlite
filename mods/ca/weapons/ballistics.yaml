@@ -172,7 +172,7 @@ TurretGunTD:
 			Heavy: 25
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
+		Explosions: artillery_explosion
 		ImpactSounds: kaboom25.aud
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
@@ -200,7 +200,7 @@ TurretGunTD:
 	Inherits: 155mmTD
 	MinRange: 1c0
 	Report: tnkfire2.aud
-	Range: 9c512
+	Range: 9c0
 
 8Inch:
 	Inherits: ^Artillery
@@ -244,7 +244,7 @@ TurretGunTD:
 Grenade:
 	Inherits: ^Artillery
 	ReloadDelay: 60
-	Range: 4c0
+	Range: 4c725
 	Report: grenade1.aud
 	Projectile: Bullet
 		Speed: 136
@@ -252,13 +252,24 @@ Grenade:
 		Image: BOMB
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
-		Damage: 6000
+		Damage: 3000
 		Versus:
-			None: 60
+			None: 80
 			Wood: 100
 			Light: 25
 			Heavy: 25
 			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Spread: 28
+		Damage: 3000
+		Versus:
+			None: 200
+			Wood: 100
+			Light: 25
+			Heavy: 25
+			Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion
 		ImpactSounds: kaboom25.aud
@@ -352,7 +363,7 @@ DepthCharge:
 		SmudgeType: Crater
 		InvalidTargets: Vehicle, Tank, Structure, Wall, Husk, Trees
 	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
+		Explosions: artillery_explosion
 		ImpactSounds: kaboom15.aud
 		ValidTargets: Ground, Ship, Trees
 	Warhead@4EffWater: CreateEffect

@@ -783,9 +783,11 @@ flags: buttons.png
 	blackh: 60,127,30,15
 	nod: 0,142,30,15
 	marked: 0,142,30,15
+	legion: 150,112,30,15
 	gdi: 30,142,30,15
 	zocom: 30,142,30,15
 	talon: 60,142,30,15
+	eagle: 180,112,30,15
 	RandomAllies: 30,172,30,15
 	RandomSoviet: 0,172,30,15
 	RandomGDI: 60,172,30,15

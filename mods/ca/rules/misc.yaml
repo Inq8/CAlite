@@ -53,7 +53,7 @@ CRATE:
 	GiveMcvCrateAction@TD:
 		SelectionShares: 0
 		NoBaseSelectionShares: 100
-		ValidFactions: gdi, talon, zocom, nod, blackh, marked
+		ValidFactions: gdi, talon, zocom, eagle, nod, blackh, marked, legion
 		Units: amcv
 	GiveUnitCrateAction@jeep:
 		SelectionShares: 7
@@ -63,17 +63,17 @@ CRATE:
 	GiveUnitCrateAction@hmmv:
 		SelectionShares: 7
 		Units: hmmv
-		ValidFactions: gdi, talon, zocom
+		ValidFactions: gdi, talon, zocom, eagle
 		Prerequisites: techlevel.low
 	GiveUnitCrateAction@bggy:
 		SelectionShares: 7
 		Units: bggy
-		ValidFactions: nod, marked, blackh
+		ValidFactions: nod, marked, blackh, legion
 		Prerequisites: techlevel.low
 	GiveUnitCrateAction@arty:
 		SelectionShares: 6
 		Units: arty
-		ValidFactions: allies, england, france, germany, nod, blackh, marked
+		ValidFactions: allies, england, france, germany, nod, blackh, marked, legion
 		Prerequisites: techlevel.medium, radar
 	GiveUnitCrateAction@v2rl:
 		SelectionShares: 6
@@ -83,17 +83,17 @@ CRATE:
 	GiveUnitCrateAction@msam:
 		SelectionShares: 6
 		Units: msam
-		ValidFactions: gdi, talon, zocom
+		ValidFactions: gdi, talon, zocom, eagle
 		Prerequisites: techlevel.medium, radar
 	GiveUnitCrateAction@mtnk:
 		SelectionShares: 5
 		Units: mtnk
-		ValidFactions: gdi, talon, zocom
+		ValidFactions: gdi, talon, zocom, eagle
 		Prerequisites: techlevel.medium
 	GiveUnitCrateAction@ltnk:
 		SelectionShares: 5
 		Units: mtnk.nod
-		ValidFactions: nod, blackh, marked
+		ValidFactions: nod, blackh, marked, legion
 		Prerequisites: techlevel.medium
 	GiveUnitCrateAction@2tnk:
 		SelectionShares: 4
@@ -113,12 +113,12 @@ CRATE:
 	GiveUnitCrateAction@htnk:
 		SelectionShares: 3
 		Units: htnk
-		ValidFactions: gdi, talon, zocom
+		ValidFactions: gdi, talon, zocom, eagle
 		Prerequisites: techlevel.high, techcenter
 	GiveUnitCrateAction@stnk:
 		SelectionShares: 3
 		Units: stnk.nod
-		ValidFactions: nod, marked, blackh
+		ValidFactions: nod, marked, blackh, legion
 		Prerequisites: techlevel.high, techcenter
 	GiveUnitCrateAction@squadlight:
 		SelectionShares: 7
@@ -127,7 +127,7 @@ CRATE:
 	GiveUnitCrateAction@squadlightTD:
 		SelectionShares: 7
 		Units: n1,n1,n1,n3,n3
-		ValidFactions: gdi, talon, zocom, nod, blackh, marked
+		ValidFactions: gdi, talon, zocom, eagle, nod, blackh, marked, legion
 	GiveUnitCrateAction@squadheavyallies:
 		SelectionShares: 7
 		Units: e1,e1,e1,e1,e3,e3,e3,e6,medi
@@ -141,12 +141,12 @@ CRATE:
 	GiveUnitCrateAction@squadheavynod:
 		SelectionShares: 7
 		Units: n1,n1,n1,n1,n3,n3,n4,n4
-		ValidFactions: nod, blackh, marked
+		ValidFactions: nod, blackh, marked, legion
 		TimeDelay: 4500
 	GiveUnitCrateAction@squadheavygdi:
 		SelectionShares: 7
 		Units: n1,n1,n1,n1,n3,n3,n2,n2
-		ValidFactions: gdi, talon, zocom
+		ValidFactions: gdi, talon, zocom, eagle
 		TimeDelay: 4500
 	GrantExternalConditionCrateAction@invuln:
 		SelectionShares: 5
@@ -272,6 +272,20 @@ FLARE.dropzone:
 		ShowOwnerRow: false
 	FreeActorWithDelivery@2:
 		Actor: APC2.reinforce
+		DeliveryOffset: -1,1
+		DeliveringActor: orcaca.reinforce
+		Facing: 0
+		
+FLAREH.dropzone:
+	Inherits: FLARE
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	Tooltip:
+		Name: Dropzone Flare
+		ShowOwnerRow: false
+	FreeActorWithDelivery@2:
+		Actor: HTNK
 		DeliveryOffset: -1,1
 		DeliveringActor: orcaca.reinforce
 		Facing: 0

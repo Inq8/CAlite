@@ -14,9 +14,11 @@ Metrics:
 	FactionSuffix-gdi: gdi
 	FactionSuffix-talon: gdi
 	FactionSuffix-zocom: gdi
+	FactionSuffix-eagle: gdi
 	FactionSuffix-nod: nod
 	FactionSuffix-blackh: nod
 	FactionSuffix-marked: nod
+	FactionSuffix-legion: nod
 	IncompatibleProtectedGameColor: B22222
 	IncompatibleVersionColor: D3D3D3
 	TextfieldColorHighlight: 562020

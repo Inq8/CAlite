@@ -63,13 +63,13 @@ explosion:
 			INTERIOR: TEMPERAT
 	pulse_explosion: pulsefx1
 		BlendMode: Additive
-		Tick: 80
+		Tick: 40
 	pulse_explosion_small: pulsefx1_small
 		BlendMode: Additive
-		Tick: 80
+		Tick: 40
 	pulse_explosion2: pulsefx2
 		BlendMode: Additive
-		Tick: 80
+		Tick: 40
 	ion_ring: ring1
 		BlendMode: Alpha
 		Tick: 40
@@ -329,6 +329,11 @@ torpedo:
 	idle: missile
 		Facings: 32
 		ZOffset: -1023
+		
+scrintorp:
+	idle:
+		Length: *
+		ZOffset: 1023
 
 litning:
 	bright:
@@ -521,6 +526,11 @@ bomblet:
 	idle:
 		Length: *
 		ZOffset: 1023
+		
+empbomblet:
+	idle:
+		Length: *
+		ZOffset: 1023
 
 parabomb:
 	open:
@@ -564,12 +574,13 @@ fire:
 		ZOffset: 511
 	1: fire1
 	2: fire2
-	3: fire3
+	3: fire7
 	4: fire4
 	5: fire5
-	6: fire1
+	6: fire6
+	7: fire6
 		FlipX: true
-	7: fire3
+	8: fire7
 		FlipX: true
 		
 rank:
@@ -672,6 +683,7 @@ icon:
 	airdropicon: airdropicon
 	forceshieldicon: forceshieldicon
 	orcaca: orcacarein
+	orcacah: orcacahrein
 	invis: invisicon
 	infbomb: b2bicnh
 	carpetbomb: cbombicon
@@ -1010,6 +1022,13 @@ cb2:
 	idle:
 		Length: *
 		ZOffset: 1023
+		
+sparks_overlay:
+	idle: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		ZOffset: 512
 
 ctnkjump:
 	idle:
@@ -1121,3 +1140,19 @@ paradirection:
 		X: -6
 		y: 5
 		Offset: -15, -15, 0
+
+flameall:
+	idle:
+		Length: 19
+		Facings: -8
+		Tick: 140
+		ZOffset: 1023
+		Offset: 0, 0, 6
+		
+chemall:
+	idle:
+		Length: 19
+		Facings: -8
+		Tick: 140
+		ZOffset: 1023
+		Offset: 0, 0, 6

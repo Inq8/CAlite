@@ -151,9 +151,21 @@
 		Name: ra2effect
 		Filename: animra2.pal
 		ShadowIndex: 4
+	PaletteFromPaletteWithAlpha@RA2effect-nolite-alpha90:
+		Name: ra2effect-ignore-lighting-alpha90
+		Alpha: 0.9
+		BasePalette: ra2effect
+	PaletteFromPaletteWithAlpha@RA2effect-nolite-alpha50:
+		Name: ra2effect-ignore-lighting-alpha50
+		Alpha: 0.5
+		BasePalette: ra2effect
 	PaletteFromPaletteWithAlpha@TSeffect-nolite-alpha75:
 		Name: tseffect-ignore-lighting-alpha75
 		Alpha: 0.75
+		BasePalette: tseffect
+	PaletteFromPaletteWithAlpha@TSeffect-nolite-alpha90:
+		Name: tseffect-ignore-lighting-alpha90
+		Alpha: 0.9
 		BasePalette: tseffect
 	PaletteFromPaletteWithAlpha@effect-nolite-alpha85:
 		Name: effect-ignore-lighting-alpha85
@@ -176,6 +188,12 @@
 		R: 255
 		G: 255
 		B: 255
+		A: 128
+	PaletteFromRGBA@greenhighlight:
+		Name: greenhighlight
+		R: 128
+		G: 255
+		B: 128
 		A: 128
 	PaletteFromRGBA@moveflash:
 		Name: moveflash
@@ -276,7 +294,7 @@
 		Palettes: terrain
 		ExcludeTilesets: DESERT
 	RotationPaletteEffect@actorswater:
-		Palettes: player, effect, playernavy
+		Palettes: player, playertd, effect, playernavy
 	RotationPaletteEffect@desertwater:
 		Palettes: terrain
 		Tilesets: DESERT
@@ -285,7 +303,7 @@
 		Palettes: desert
 		RotationBase: 32
 	LightPaletteRotator:
-		ExcludePalettes: terrain, effect, desert
+		ExcludePalettes: terrain, effect, desert, tseffect, ra2effect, tseffect-ignore-lighting-alpha75, tseffect-ignore-lighting-alpha90, effect-ignore-lighting-alpha85
 	ChronoshiftPaletteEffect:
 	FlashPaletteEffect@NUKE:
 		Type: Nuke

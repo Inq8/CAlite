@@ -59,6 +59,7 @@ ChemballLauncher:
 		Explosions: med_chem
 		ExplosionPalette: temptd
 		ImpactSounds: firetrt1.aud
+	-Warhead@Flames:
 
 Napalmtd:
 	ValidTargets: Ground, Water, Trees
@@ -96,77 +97,58 @@ Napalmtd:
 		Dimensions: 3,3
 		Footprint: xxx xxx xxx
 
-
-Chemspray:
-	ReloadDelay: 65
-	Range: 2c512
-	ValidTargets: Ground, Water
-	InvalidTargets: Wall, Air
-	Report: flamer2.aud
-	Projectile: Bullet
-		Speed: 1c682
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		ValidTargets: Ground, Water
-		InvalidTargets: Wall
-		Damage: 8000
-		Versus:
-			None: 100
-			Wood: 75
-			Light: 75
-			Heavy: 50
-		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
-	Warhead@2Smu: LeaveSmudge
-	Warhead@3Eff: CreateEffect
-
-Flamer:
-	ReloadDelay: 55
-	Range: 2c512
-	ValidTargets: Ground, Water, Trees
-	InvalidTargets: Wall, Air
-	Report: flamer2.aud
-	Projectile: Bullet
-		Speed: 1c682
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 4000
-		ValidTargets: Ground, Water, Trees
-		InvalidTargets: Wall
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Scorch
-	Warhead@3Eff: CreateEffect
-
 BigFlamer:
 	ReloadDelay: 50
-	Range: 2c512
-	ValidTargets: Ground, Water, Trees
-	InvalidTargets: Wall, Air
-	Report: flamtnk1.aud
+	Range: 4c256
+	StartBurstReport: flamer3.aud
 	Projectile: Bullet
-		Speed: 341
-	Burst: 2
-	BurstDelays: 25
+		Speed: 90
+		Inaccuracy: 484
+		Image: flameall
+		Palette: tseffect-ignore-lighting-alpha90
+		LaunchAngle: 5
+	Burst: 5
+	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 7500
-		ValidTargets: Ground, Water, Trees
-		InvalidTargets: Wall
+		Spread: 288
+		Falloff: 100, 50, 25, 12, 6, 3, 0
+		Damage: 2200
 		Versus:
-			None: 100
+			None: 300
 			Wood: 100
-			Concrete: 50
-			Light: 67
-			Heavy: 25
+			Light: 59
+			Heavy: 30
+			Concrete: 2
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
-	Warhead@3Eff: CreateEffect
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@Flames: FireCluster
+		Weapon: BurnFx
+		RandomClusterCount: 1
+		Dimensions: 1,1
+		Footprint: x
+		
+Flamer:
+	Inherits: BigFlamer
+	Projectile: Bullet
+	Range: 3c769
+	StartBurstReport: flamer2.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 288
+		Falloff: 100, 50, 25, 12, 6, 3, 0
+		Damage: 1300
+
+Chemspray:
+	Inherits: Flamer
+	Projectile: Bullet
+		Image: chemall
+		Palette: ra2effect-ignore-lighting-alpha50
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			Heavy: 50
+		DamageTypes: Prone50Percent, TriggerProne, ToxicDeath
+	-Warhead@Flames:
 
 Napalm:
 	Inherits: ^FireWeapon
@@ -251,11 +233,32 @@ Heal:
 
 Repair:
 	Inherits: Heal
+	Range: 2c512
 	Report: fixit1.aud
 	ValidTargets: Repair
 	Warhead@1Dam: SpreadDamage
-		Damage: -2000
+		Damage: -3000
 		ValidTargets: Repair
+	Warhead@highlight: GrantExternalCondition
+		Range: 0c511
+		Duration: 2
+		Condition: highlight
+		ValidTargets: Ground, Vehicle
+		
+RepairIFV:
+	Inherits: Repair
+	Report: repair11.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: -3000
+	Warhead@highlight: GrantExternalCondition
+		Range: 0c511
+		Duration: 2
+		Condition: highlight
+		ValidTargets: Ground, Vehicle
+	Warhead@3Eff: CreateEffect
+		Image: sparks_overlay
+		Explosions: idle
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
 
 Demolish:
 	Warhead@1Dam: SpreadDamage
@@ -413,12 +416,23 @@ PrisLaser:
 PrisTLaser:
 	Inherits: PrisLaser
 	Report: ptnkfire.aud
-	Range: 10c0
+	ReloadDelay: 90
+	Range: 9c0
+	Projectile: LaserZap
+		Blockable: true
 	Warhead@1Dam: SpreadDamage
-		Damage: 10000
+		Damage: 7750
+		Versus:
+			None: 100
+			Wood: 40
+			Concrete: 40
+			Light: 80
+			Heavy: 60  
+	Warhead@Burst: FireCluster
+		Weapon: PrisTBurst
 	
 PrisBurst:
-	Inherits: PrisLaser
+	Inherits: PrisTLaser
 	-Report:
 	Range: 3c0
 	Projectile: LaserZap
@@ -427,7 +441,15 @@ PrisBurst:
 		Spread: 256
 		Damage: 6500
 	-Warhead@Burst:
-	-Warhead@3Eff:
+	Warhead@3Eff: CreateEffect
+		Explosions: small_explosion
+		-ImpactSounds:
+		ValidTargets: Ground, Water, Ship, Trees
+		
+PrisTBurst:
+	Inherits: PrisBurst
+	Warhead@1Dam: SpreadDamage
+		Damage: 4200
 		
 AirshipParaBomb:
 	ReloadDelay: 40
@@ -513,9 +535,9 @@ FrogBomb:
 		
 SonicZap:
 	ReloadDelay: 120
-	Range: 5c768
-	TargetActorCenter: true
-	InvalidTargets: Chrono, Air
+	Range: 6c0
+	TargetActorCenter: false
+	InvalidTargets: Air
 	Report: sonic4.aud
 	Projectile: AreaBeam
 		Speed: 0c428
@@ -523,7 +545,7 @@ SonicZap:
 		DamageInterval: 3
 		Width: 420
 		Shape: Flat
-		ZOffset: 1023
+		ZOffset: 4096
 		BeyondTargetRange: 0c256
 		Blockable: true
 		TrackTarget: true
@@ -555,16 +577,16 @@ SonicZap:
 		
 SonicZapVisual:
 	ReloadDelay: 120
-	Range: 5c768
-	TargetActorCenter: true
-	InvalidTargets: Chrono, Air
+	Range: 6c0
+	TargetActorCenter: false
+	InvalidTargets: Air
 	Projectile: AreaBeam
 		Speed: 0c428
 		Duration: 65
 		DamageInterval: 3
 		Width: 180
 		Shape: Flat
-		ZOffset: 1023
+		ZOffset: 4096
 		BeyondTargetRange: 0c256
 		Blockable: true
 		TrackTarget: true
@@ -692,15 +714,7 @@ BurnFX:
 		Blockable: false
 	Warhead@3Eff: CreateEffect
 		Image: fire
-		Explosions: 1, 3, 6, 7
-		
-FireFX:
-	Inherits: BurnFX
-	ReloadDelay: 20
-	Range: 1c0
-	Warhead@3Eff: CreateEffect
-		Image: fire
-		Explosions: 3, 4
+		Explosions: 3, 6, 7, 8
 		
 LaserFence:
 	TargetActorCenter: true
@@ -709,3 +723,77 @@ LaserFence:
 		DebugOverlayColor: FF0000
 		Damage: 10000000
 		DamageTypes: FireDeath
+		
+OrcaBomb:
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	ReloadDelay: 50
+	Report: chute1.aud
+	Burst: 2
+	BurstDelays: 5
+	Range: 2c0
+	TargetActorCenter: true
+	Projectile: GravityBomb
+		Image: EMPBOMBLET
+		Velocity: 25, 0, -74
+		Acceleration: 0, 0, 0
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 726
+		Damage: 700
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water
+		Versus:
+			None: 100
+			Wood: 20
+			Light: 20
+			Heavy: 20
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+	Warhead@3Eff: CreateEffect
+		Explosions: pulse_explosion_small
+		ExplosionPalette: tseffect-ignore-lighting-alpha75
+		ImpactSounds: expnew16.aud
+	Warhead@emp: GrantExternalCondition
+		Range: 3c0
+		Duration: 400
+		Condition: empdisable
+		ValidTargets: Ground, Structure, Vehicle
+		
+MicrowaveZap:
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	TargetActorCenter: true
+	ReloadDelay: 120
+	Range: 6c0
+	Report: corefir1.aud
+	Projectile: Railgun
+		Duration: 5
+		Blockable: true
+		DamageActorsInLine: false
+		BeamColor: FFFFFFFF
+		BeamWidth: 0c0
+		HelixThickness: 0c32
+		HelixRadius: 0c16
+		HelixAngleDeltaPerTick: 64
+		QuantizationCount: 64
+		HitAnim: sparks_overlay
+		HitAnimPalette: tseffect-ignore-lighting-alpha75
+		ZOffset: 2046
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Air
+		Spread: 512
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		Versus:
+			None: 100
+			Wood: 70
+			Light: 80
+			Heavy: 65
+	Warhead@emp: GrantExternalCondition
+		Range: 0c511
+		Duration: 130
+		Condition: empdisable
+		ValidTargets: Ground, Structure, Vehicle

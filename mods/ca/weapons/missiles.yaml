@@ -518,6 +518,7 @@ HonestJohn:
 		
 BikeRockets:
 	Inherits: Dragon
+	Range: 4c512
 	ReloadDelay: 50
 	Report: bazook1.aud
 	Burst: 2
@@ -533,9 +534,12 @@ BikeRocketsAA:
 	
 IFVRockets:
 	Inherits: Dragon
+	Range: 4c512
 	ReloadDelay: 50
 	Burst: 2
 	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
 
 IFVRocketsAA:
 	Inherits: RedEye
@@ -543,6 +547,26 @@ IFVRocketsAA:
 	ValidTargets: Air
 	Burst: 2
 	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+		
+BTRRockets:
+	Inherits: Dragon
+	Range: 4c512
+	ReloadDelay: 50
+	Burst: 2
+	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+
+BTRRocketsAA:
+	Inherits: RedEye
+	ReloadDelay: 50
+	ValidTargets: Air
+	Burst: 2
+	BurstDelays: 5
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
 
 227mm:
 	Inherits: ^AntiGroundMissile
@@ -591,12 +615,12 @@ IFVRocketsAA:
 	Report: hovrmis1.aud
 
 227mmAA:
+	Inherits: ^AntiAirMissile
 	ReloadDelay: 120
 	Burst: 2
 	BurstDelays: 4
 	Range: 7c5112
 	Report: rocket1.aud
-	ValidTargets: Air
 	Projectile: Missile
 		Speed: 280
 		Arm: 2
@@ -604,7 +628,7 @@ IFVRocketsAA:
 		TrailImage: smokey
 		Image: Dragon
 		Inaccuracy: 0
-		HorizontalRateOfTurn: 20
+		HorizontalRateOfTurn: 15
 		CruiseAltitude: 2c0
 		RangeLimit: 12c0
 	Warhead@1Dam: SpreadDamage
@@ -614,20 +638,11 @@ IFVRocketsAA:
 		Versus:
 			None: 35
 			Wood: 60
-			Light: 20
-			Heavy: 50
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
+			Light: 60
+			Heavy: 90
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion_air
 		ImpactSounds: xplos.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		Explosions: med_splash
-		ImpactSounds: splashl1.aud, splashl2.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
 		
 227mmAAH:
 	Inherits: 227mmAA
@@ -674,12 +689,12 @@ IFVRocketsAA:
 		InvalidTargets: Ship, Structure, Bridge
 
 227mm.stnkAA:
+	Inherits: ^AntiAirMissile
 	ReloadDelay: 70
 	Range: 6c0
 	Report: rocket1.aud
 	Burst: 2
 	BurstDelays: 4
-	ValidTargets: Air
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -704,12 +719,6 @@ IFVRocketsAA:
 	Warhead@3Eff: CreateEffect
 		Explosions: med_explosion_air
 		ImpactSounds: xplos.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		Explosions: med_splash
-		ImpactSounds: splashl1.aud, splashl2.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
 
 BoatMissile:
 	ReloadDelay: 70
@@ -789,12 +798,11 @@ Rah66AG:
 			Concrete: 40
 			Light: 50
 			Heavy: 30
-		DamageTypes: Prone50Percent, TriggerProne, PoisonDeath
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 	Warhead@3Eff: CreateEffect
-		Explosions: small_chem
-		ExplosionPalette: temptd
+		Explosions: small_napalm
 		ImpactSounds: firebl3.aud
 		ValidTargets: Ground, Air, Ship
 	Warhead@4EffWater: CreateEffect
@@ -886,3 +894,75 @@ stnkRocketsAA:
 SubAA:
 	Inherits: HellfireAA
 	MinRange: 0c256
+
+ScrinTorp:
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 50
+	MinRange: 0c512
+	Burst: 3
+	BurstDelays: 5
+	Report: scrin5b.aud
+	Range: 6c512
+	TargetActorCenter: true
+	Projectile: Bullet
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c128
+		Image: scrintorp
+		Palette: tseffect-ignore-lighting-alpha90
+		Speed: 350
+		LaunchAngle: 10
+	Warhead@1Dam: SpreadDamage
+		Spread: 511
+		Damage: 900
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: Ground, Water
+		Versus:
+			None: 10
+			Wood: 35
+			Concrete: 35
+			Light: 90
+			Heavy: 80
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: expnew16.aud, expnew17.aud
+	Warhead@green: GrantExternalCondition
+		Range: 0c511
+		Duration: 2
+		Condition: greenhighlight
+		ValidTargets: Ground, Vehicle
+			
+ScrinTorpAA:
+	Inherits: ^AntiAirMissile
+	ReloadDelay: 60
+	MinRange: 1c256
+	Range: 7c0
+	Report: scrin5b.aud
+	Burst: 3
+	BurstDelays: 4
+	Projectile: Missile
+		Speed: 384
+		Inaccuracy: 128
+		Image: scrintorp
+		Palette: tseffect-ignore-lighting-alpha90
+		HorizontalRateOfTurn: 10
+		-TrailImage:
+		RangeLimit: 12c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+		ValidTargets: Air
+		Versus:
+			Wood: 75
+			Light: 75
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion_air
+		ImpactSounds: expnew17.aud
+	Warhead@green: GrantExternalCondition
+		Range: 0c511
+		Duration: 2
+		Condition: greenhighlight
+		ValidTargets: Air
+	

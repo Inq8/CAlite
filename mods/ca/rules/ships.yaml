@@ -21,7 +21,7 @@ SS:
 		Type: Light
 	Mobile:
 		TurnSpeed: 4
-		Speed: 71
+		Speed: 82
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -95,7 +95,7 @@ MSUB:
 		Type: Light
 	Mobile:
 		TurnSpeed: 3
-		Speed: 42
+		Speed: 56
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -172,7 +172,7 @@ DD:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 7
-		Speed: 85
+		Speed: 82
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -234,7 +234,7 @@ CA:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 3
-		Speed: 42
+		Speed: 56
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False
@@ -307,6 +307,9 @@ LST:
 		Locomotor: lcraft
 		Speed: 113
 		PauseOnCondition: !(!notmobile && !emppowerdown)
+	Hovers:
+		BobDistance: -35
+		RequiresCondition: !emppowerdown
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -348,7 +351,7 @@ PT:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 7
-		Speed: 118
+		Speed: 113
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False
@@ -407,7 +410,7 @@ PT2:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 7
-		Speed: 90
+		Speed: 100
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False
@@ -474,7 +477,7 @@ DD2:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 5
-		Speed: 65
+		Speed: 82
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -535,7 +538,7 @@ SS2:
 		Type: Light
 	Mobile:
 		TurnSpeed: 4
-		Speed: 71
+		Speed: 82
 	RevealsShroud:
 		Range: 6c0
 	Targetable:
@@ -607,7 +610,7 @@ ICBMSUB:
 		Type: Light
 	Mobile:
 		TurnSpeed: 3
-		Speed: 40
+		Speed: 56
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False

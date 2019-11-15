@@ -164,7 +164,7 @@
 		RequiresCondition: emppowerdown
 		Palette: disabled
 	TimedConditionBar@EMPDISABLE:
-		Condition: emppowerdown
+		Condition: empdisable
 		Color: FFFFFF
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
@@ -179,6 +179,20 @@
 		RequiresCondition: empdisable
 		Condition: emppowerdown
 		
+^GreenFlash:
+	ExternalCondition@GHIGH:
+		Condition: greenhighlight
+	WithColoredOverlay@GHIGH:
+		RequiresCondition: greenhighlight
+		Palette: greenhighlight
+		
+^WhiteFlash:
+	ExternalCondition@HIGH:
+		Condition: highlight
+	WithColoredOverlay@HIGH:
+		RequiresCondition: highlight
+		Palette: highlight
+		
 ^Cloakable:
 	Cloak@EXTERNALCLOAK:
 		RequiresCondition: invisibility || crate-cloak && !cloak-force-disabled
@@ -188,7 +202,7 @@
 		Palette: cloakgreen
 		CloakSound: cloak5.aud
 		UncloakSound: appear1.aud
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage, Heal
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Damage
 	TimedConditionBar@STEALTHGEN:
 		Condition: invisibility
 		Color: 33ff33
@@ -272,6 +286,8 @@
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^Cloakable
 	Inherits@5: ^EmpDisable
+	Inherits@gflash: ^GreenFlash
+	Inherits@wflash: ^WhiteFlash
 	Inherits@bounty: ^GlobalBounty
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Huntable:
@@ -394,7 +410,7 @@
 	RevealsShroud:
 		Range: 4c0
 	Mobile:
-		Speed: 56
+		Speed: 37
 		Locomotor: foot
 	DamagedByTerrain:
 		Terrain: Tiberium, BlueTiberium
@@ -594,6 +610,8 @@
 	Inherits@4: ^SpriteActor
 	Inherits@5: ^EmpDisable
 	Inherits@6: ^Cloakable
+	Inherits@gflash: ^GreenFlash
+	Inherits@wflash: ^WhiteFlash
 	Inherits@bounty: ^GlobalBounty
 	Inherits@SELECTION_MODE: ^FlatSelectionMode
 	Huntable:
@@ -674,6 +692,7 @@
 		Bounds: 24,24
 	Aircraft:
 		AirborneCondition: airborne
+		TakeOffOnResupply: true
 	Targetable@GROUND:
 		RequiresCondition: !airborne
 		TargetTypes: Ground, Vehicle
@@ -736,6 +755,8 @@
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^Cloakable
 	Inherits@4: ^EmpDisable
+	Inherits@gflash: ^GreenFlash
+	Inherits@wflash: ^WhiteFlash
 	Cloak@EXTERNALCLOAK:
 		RequiresCondition: invisibility || crate-cloak && !cloak-force-disabled && !airborne
 		InitialDelay: 0
@@ -752,6 +773,8 @@
 		
 ^PlaneTD:
 	Inherits@1: ^Plane
+	RenderSprites:
+		PlayerPalette: playertd
 	EjectOnDeath:
 		PilotActor: N1
 		SuccessRate: 50
@@ -781,6 +804,8 @@
 		
 ^HelicopterTD:
 	Inherits@1: ^Helicopter
+	RenderSprites:
+		PlayerPalette: playertd
 	EjectOnDeath:
 		PilotActor: N1
 		SuccessRate: 50
@@ -979,6 +1004,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@shape: ^1x1Shape
+	Inherits@3: ^Cloakable
 	Interactable:
 		Bounds: 24,24
 	OwnerLostAction:

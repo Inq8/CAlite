@@ -5,7 +5,7 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 80
-		Prerequisites: dome, ~vehicles.ukraine, ~techlevel.medium
+		Prerequisites: dome, ~vehicles.soviet, ~!vehicles.iraq, ~techlevel.medium
 		Description: Long-range rocket artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
 		Cost: 900
@@ -18,7 +18,7 @@ V2RL:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 85
+		Speed: 68
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -59,19 +59,19 @@ V2RL:
 		Prerequisites: weap, ~vehicles.allies, ~!vehicles.germany, ~techlevel.low
 		Description: Fast tank, good for scouting.\n  Strong vs Light armor\n  Weak vs Infantry, Tanks, Aircraft
 	Valued:
-		Cost: 700
+		Cost: 600
 	Tooltip:
 		Name: Scout Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 22000
+		HP: 31000
 	Armor:
 		Type: Heavy
 	Mobile:
 		Locomotor: Amphibious
-		Speed: 118
+		Speed: 113
 	GrantConditionOnTerrain:
 		TerrainTypes: Water
 		Condition: onwater
@@ -118,10 +118,10 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: weap, ~vehicles.allies, ~techlevel.medium
+		Prerequisites: weap, ~vehicles.allies, ~techlevel.low
 		Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 800
 	Tooltip:
 		Name: Medium Tank
 		GenericName: Tank
@@ -132,7 +132,7 @@ V2RL:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 82
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -167,7 +167,7 @@ V2RL:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 120
-		Prerequisites: weap, ~vehicles.soviet, ~techlevel.medium
+		Prerequisites: weap, ~vehicles.soviet, ~techlevel.low
 		Description: Soviet Main Battle Tank, with dual cannons\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 1150
@@ -181,7 +181,7 @@ V2RL:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 71
+		Speed: 68
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -220,18 +220,18 @@ V2RL:
 		BuildDurationModifier: 50
 		Description: Big and slow tank, with anti-air capability.\nCan crush concrete walls.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Nothing
 	Valued:
-		Cost: 2000
+		Cost: 1650
 	Tooltip:
 		Name: Mammoth Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 90000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 50
+		Speed: 56
 		Locomotor: heavytracked
 	Passenger:
 		CargoType: Vehicle
@@ -287,7 +287,7 @@ ARTY:
 		Prerequisites: weap, ~vehicles.allies, ~techlevel.medium
 		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 800
 	Tooltip:
 		Name: Artillery
 	UpdatesPlayerStatistics:
@@ -298,7 +298,7 @@ ARTY:
 		Type: Light
 	Mobile:
 		TurnSpeed: 2
-		Speed: 85
+		Speed: 56
 		Locomotor: lighttracked
 	RevealsShroud:
 		Range: 5c0
@@ -331,7 +331,7 @@ ARTY.nod:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		IconPalette: chrometd
-		Prerequisites: hq, ~vehicles.marked, ~techlevel.medium
+		Prerequisites: ~vehicles.marked, ~techlevel.medium
 		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Armament:
 		Weapon: 155mmTD
@@ -346,7 +346,7 @@ HARV:
 		Prerequisites: ~proc, ~vehicles.ra, ~techlevel.infonly
 		Description: Collects Ore and Gems for processing.\n  Unarmed
 	Valued:
-		Cost: 1100
+		Cost: 1400
 	Tooltip:
 		Name: Ore Truck
 		GenericName: Harvester
@@ -355,18 +355,18 @@ HARV:
 		DecorationBounds: 42,42
 	SelectionDecorations:
 	Harvester:
-		Capacity: 20
+		Capacity: 30
 		Resources: Tiberium, BlueTiberium, Ore, Gems
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 30
 		SearchFromHarvesterRadius: 11
 		EmptyCondition: no-ore
 	Health:
-		HP: 60000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 56
 		Locomotor: heavywheeled
 	RevealsShroud:
 		Range: 4c0
@@ -409,7 +409,7 @@ MCV:
 		Prerequisites: fix, ~vehicles.ra, ~techlevel.medium
 		Description: Deploys into another Construction Yard.\n  Unarmed
 	Valued:
-		Cost: 3000
+		Cost: 5000
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Selectable:
@@ -417,11 +417,11 @@ MCV:
 		DecorationBounds: 42,42
 	SelectionDecorations:
 	Health:
-		HP: 100000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 61
+		Speed: 56
 		Locomotor: heavywheeled
 	RevealsShroud:
 		Range: 4c0
@@ -461,7 +461,7 @@ JEEP:
 		Type: Light
 	Mobile:
 		TurnSpeed: 10
-		Speed: 170
+		Speed: 157
 		PauseOnCondition: !(!being-captured)
 	RevealsShroud:
 		Range: 8c0
@@ -493,7 +493,7 @@ APC:
 		Prerequisites: tent, ~weap, ~!vehicles.soviet, ~!vehicles.germany, ~techlevel.low
 		Description: Tough infantry transport.\n  Strong vs Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 700
 	Tooltip:
 		Name: Armored Personnel Carrier
 	UpdatesPlayerStatistics:
@@ -503,13 +503,13 @@ APC:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 122
+		Speed: 135
 		PauseOnCondition: !(!notmobile && !being-captured)
 	RevealsShroud:
-		Range: 5c0
+		Range: 4c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 4c0
+		Range: 3c0
 	Armament:
 		Weapon: M60mg
 		LocalOffset: 85,0,171
@@ -546,7 +546,7 @@ MNLY:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 128
+		Speed: 135
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -588,7 +588,7 @@ TRUK:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 128
+		Speed: 135
 	RevealsShroud:
 		Range: 4c0
 	DeliversCash:
@@ -617,7 +617,7 @@ MGG:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 82
 	Carryable:
 		CarriedCondition: pickedup
 	WithIdleOverlay@SPINNER:
@@ -655,7 +655,7 @@ MRJ:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 82
 	RevealsShroud:
 		Range: 7c0
 	WithIdleOverlay@SPINNER:
@@ -683,7 +683,7 @@ TTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 170
-		Prerequisites: tsla, dome, ~vehicles.russia, ~techlevel.high
+		Prerequisites: tsla, dome, ~vehicles.russia, ~techlevel.medium
 		Description: Tank with mounted Tesla coil.\n  Strong vs Infantry, Vehicles, Buildings\n  Weak vs Aircraft
 	Valued:
 		Cost: 1350
@@ -697,7 +697,7 @@ TTNK:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 99
+		Speed: 113
 	RevealsShroud:
 		Range: 7c0
 		RevealGeneratedShroud: False
@@ -706,6 +706,7 @@ TTNK:
 	Armament:
 		Weapon: TTankZap
 		LocalOffset: 0,0,213
+		PauseOnCondition: emppowerdown
 	AttackTurreted:
 	Turreted:
 	WithIdleOverlay@SPINNER:
@@ -737,7 +738,7 @@ DTRK:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 85
+		Speed: 82
 	RevealsShroud:
 		Range: 4c0
 	Explodes:
@@ -867,18 +868,18 @@ AMCV:
 		IconPalette: chrometd
 		Description: Deploys into another Construction Yard.\n  Unarmed
 	Valued:
-		Cost: 3000
+		Cost: 5000
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Selectable:
 		Priority: 4
 		Bounds: 42,42
 	Health:
-		HP: 100000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 61
+		Speed: 56
 		Locomotor: heavywheeled
 	RevealsShroud:
 		Range: 4c0
@@ -910,18 +911,18 @@ HMMV:
 		Prerequisites: awep, ~vehicles.gdi, ~techlevel.low
 		Description: Fast scout & anti-infantry vehicle.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 	Valued:
-		Cost: 425
+		Cost: 400
 	Tooltip:
 		Name: Hum-Vee
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 15500
+		HP: 15000
 	Armor:
 		Type: Light
 	Mobile:
 		TurnSpeed: 10
-		Speed: 165
+		Speed: 157
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -956,20 +957,20 @@ BGGY:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 15
 		IconPalette: chrometd
-		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
+		Prerequisites: ~vehicles.nod, ~techlevel.low
 		Description: Fast scout and anti-infantry vehicle.\nCan detect cloaked units.\n  Strong vs Infantry\n  Weak vs Tanks
 	Valued:
-		Cost: 375
+		Cost: 350
 	Tooltip:
 		Name: Buggy
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 14500
+		HP: 14000
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 175
+		Speed: 157
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
@@ -1006,7 +1007,7 @@ APC2:
 		IconPalette: chrometd
 		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 850
+		Cost: 700
 	Tooltip:
 		Name: Armored Personnel Carrier
 	UpdatesPlayerStatistics:
@@ -1016,13 +1017,13 @@ APC2:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 122
+		Speed: 135
 		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
 	RevealsShroud:
-		Range: 5c0
+		Range: 4c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 4c0
+		Range: 3c0
 	Armament:
 		Weapon: M60mgTD
 		LocalOffset: 85,0,171
@@ -1054,12 +1055,89 @@ APC2.reinforce:
 
 APC2.nod:
 	Inherits: APC2
+	RenderSprites:
+		Image: apc2.nod
 	Buildable:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 40
-		Prerequisites: ~vehicles.nod, hand, ~inf.gdi.stolen, ~techlevel.low
+		Prerequisites: ~!vehicles.legion, ~vehicles.nod, hand, ~inf.gdi.stolen, ~techlevel.low
 		IconPalette: chrometd
 		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		
+APC2.legion:
+	Inherits: APC2
+	RenderSprites:
+		Image: apc2.nod
+	Buildable:
+		Queue: Vehicle, Vehicle.Factory
+		BuildPaletteOrder: 40
+		Prerequisites: ~vehicles.legion, hand, ~techlevel.low
+		IconPalette: chrometd
+		Description: Tough infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+
+LTNK:
+	Inherits: ^TankTD
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	RenderSprites:
+		PlayerPalette: playertd
+	Buildable:
+		Queue: Vehicle, Vehicle.Factory
+		BuildPaletteOrder: 40
+		IconPalette: chrometd
+		Prerequisites: astrip, ~!vehicles.legion, ~vehicles.nod, ~techlevel.low
+		Description: Fast, light tank.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
+	Valued:
+		Cost: 675
+	Tooltip:
+		Name: Light Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 41250
+	Armor:
+		Type: Heavy
+	Mobile:
+		Locomotor: Amphibious
+		Speed: 100
+	GrantConditionOnTerrain:
+		TerrainTypes: Water
+		Condition: onwater
+	Targetable:
+		TargetTypes: Ground, Repair, Vehicle
+		RequiresCondition: !onwater && !parachute
+	Targetable@WATER:
+		TargetTypes: Ground, Repair, Vehicle, Water, Ship
+		RequiresCondition: onwater && !parachute
+	WithFacingSpriteBody:
+		RequiresCondition: !onwater || parachute
+	WithFacingSpriteBody@WATER:
+		Sequence: idle-water
+		Name: body-water
+		RequiresCondition: onwater && !parachute
+	RevealsShroud:
+		Range: 5c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 7
+	Armament:
+		Weapon: 30mm
+		Recoil: 85
+		RecoilRecovery: 17
+		LocalOffset: 720,0,90
+		MuzzleSequence: muzzle
+		PauseOnCondition: emppowerdown || parachute
+	AttackTurreted:
+		PauseOnCondition: emppowerdown || parachute
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		Actor: LTNK.Husk
+		RequiresCondition: !onwater
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
 
 MTNK:
 	Inherits: ^TankTD
@@ -1070,22 +1148,22 @@ MTNK:
 	Buildable:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 120
-		Prerequisites: awep, ~vehicles.gdi, ~techlevel.medium
+		Prerequisites: awep, ~vehicles.gdi, ~techlevel.low
 		IconPalette: chrometd
 		Description: GDI Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1050
+		Cost: 850
 	Tooltip:
 		Name: Battle Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 58000
+		HP: 55000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 79
+		Speed: 82
 	RevealsShroud:
 		Range: 6c0
 		RevealGeneratedShroud: False
@@ -1120,12 +1198,29 @@ MTNK.nod:
 		Image: MTNKnod
 	Buildable:
 		Queue: Vehicle, Vehicle.Factory
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 49
 		IconPalette: chrometd
-		Prerequisites: ~veh.gdi.stolen, ~vehicles.nod, ~techlevel.medium
+		Prerequisites: ~veh.gdi.stolen, ~!vehicles.legion, ~vehicles.nod, ~techlevel.low
 		Description: Nod Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1050
+		Cost: 900
+	Tooltip:
+		Name: Battle Tank
+		GenericName: Tank
+		
+MTNK.legion:
+	Inherits: MTNK
+	RenderSprites:
+		PlayerPalette: playertd
+		Image: MTNKnod
+	Buildable:
+		Queue: Vehicle, Vehicle.Factory
+		BuildPaletteOrder: 49
+		IconPalette: chrometd
+		Prerequisites: ~vehicles.legion, ~techlevel.low
+		Description: Nod Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Valued:
+		Cost: 900
 	Tooltip:
 		Name: Battle Tank
 		GenericName: Tank
@@ -1140,21 +1235,21 @@ HTNK:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 190
 		IconPalette: chrometd
-		Prerequisites: gtek, ~vehicles.zocom, ~techlevel.high
+		Prerequisites: gtek, ~vehicles.gdi, ~!vehicles.talon, ~techlevel.high
 		Description: Big and slow tank, with anti-air capability.\n  Strong vs Vehicles, Infantry, Aircraft\n  Weak vs Nothing
 	Valued:
-		Cost: 2000
+		Cost: 1650
 	Tooltip:
 		Name: Mammoth Tank
 		GenericName: Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 90000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 50
+		Speed: 56
 		Locomotor: heavytracked
 	Passenger:
 		CargoType: Vehicle
@@ -1200,70 +1295,6 @@ HTNK:
 	Carryable:
 		LocalOffset: 0,0,500
 
-LTNK:
-	Inherits: ^TankTD
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	RenderSprites:
-		PlayerPalette: playertd
-	Buildable:
-		Queue: Vehicle, Vehicle.Factory
-		BuildPaletteOrder: 40
-		IconPalette: chrometd
-		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
-		Description: Fast, light tank.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Light Tank
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Health:
-		HP: 26000
-	Armor:
-		Type: Heavy
-	Mobile:
-		Locomotor: Amphibious
-		Speed: 110
-	GrantConditionOnTerrain:
-		TerrainTypes: Water
-		Condition: onwater
-	Targetable:
-		TargetTypes: Ground, Repair, Vehicle
-		RequiresCondition: !onwater && !parachute
-	Targetable@WATER:
-		TargetTypes: Ground, Repair, Vehicle, Water, Ship
-		RequiresCondition: onwater && !parachute
-	WithFacingSpriteBody:
-		RequiresCondition: !onwater || parachute
-	WithFacingSpriteBody@WATER:
-		Sequence: idle-water
-		Name: body-water
-		RequiresCondition: onwater && !parachute
-	RevealsShroud:
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	Turreted:
-		TurnSpeed: 7
-	Armament:
-		Weapon: 30mm
-		Recoil: 85
-		RecoilRecovery: 17
-		LocalOffset: 720,0,90
-		MuzzleSequence: muzzle
-		PauseOnCondition: emppowerdown || parachute
-	AttackTurreted:
-		PauseOnCondition: emppowerdown || parachute
-	WithMuzzleOverlay:
-	WithSpriteTurret:
-	SpawnActorOnDeath:
-		Actor: 1TNK.Husk
-		RequiresCondition: !onwater
-	ProducibleWithLevel:
-		Prerequisites: vehicles.upgraded
-
 MSAM:
 	Inherits: ^TankTD
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -1278,12 +1309,12 @@ MSAM:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 130
-		Prerequisites: hq, ~vehicles.zocom, ~techlevel.medium
+		Prerequisites: hq, ~!vehicles.talon, ~vehicles.gdi, ~techlevel.medium
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: GDI Multiple Launch Rocket System.\nLong-range guided artillery.\n  Strong vs Infantry, Vehicles and Buildings
 	Mobile:
-		Speed: 85
+		Speed: 82
 	Health:
 		HP: 22000
 	Armor:
@@ -1307,11 +1338,9 @@ MSAM:
 		LocalOffset: 213,-128,0, 213,128,0
 		LocalYaw: 100, -100
 		PauseOnCondition: emppowerdown
-	AutoTarget:
-		ScanRadius: 10
 	AttackTurreted:
 		TargetFrozenActors: True
-		ForceFireIgnoresActors: True
+		ForceFireIgnoresActors: False
 		PauseOnCondition: emppowerdown
 	WithSpriteTurret:
 	Explodes:
@@ -1329,7 +1358,21 @@ MSAM.nod:
 		PlayerPalette: playertd
 	Buildable:
 		BuildPaletteOrder: 130
-		Prerequisites: ~rad.gdi.stolen, ~hq, ~vehicles.nod
+		Prerequisites: ~rad.gdi.stolen, ~hq, ~vehicles.nod, ~!vehicles.legion, ~techlevel.medium
+		Queue: Vehicle, Vehicle.Factory
+		IconPalette: chrometd
+		Description: Nod Multiple Launch Rocket System.\nLong-range guided artillery.\n  Strong vs Infantry, Vehicles and Buildings
+	Valued:
+		Cost: 900
+		
+MSAM.legion:
+	Inherits: MSAM
+	RenderSprites:
+		Image: msam.nod
+		PlayerPalette: playertd
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~hq, ~vehicles.legion, ~techlevel.medium
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Nod Multiple Launch Rocket System.\nLong-range guided artillery.\n  Strong vs Infantry, Vehicles and Buildings
@@ -1356,7 +1399,7 @@ MLRS:
 		BuildDurationModifier: 20
 		Description: Long-range rocket artillery.\n  Strong vs Infantry, Vehicles and Buildings
 	Mobile:
-		Speed: 79
+		Speed: 82
 	Health:
 		HP: 20000
 	Armor:
@@ -1374,8 +1417,6 @@ MLRS:
 		Weapon: honestjohn
 		LocalOffset: 0,171,0, 0,-171,0
 		PauseOnCondition: emppowerdown
-	AutoTarget:
-		ScanRadius: 10
 	AmmoPool:
 		Ammo: 2
 		PipCount: 0
@@ -1412,7 +1453,7 @@ STNK.nod:
 		PlayerPalette: playertd
 		Image: STNKTnod
 	Valued:
-		Cost: 1350
+		Cost: 900
 	Tooltip:
 		Name: Stealth Tank
 		GenericName: Tank
@@ -1420,21 +1461,21 @@ STNK.nod:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 90
-		Prerequisites: tmpl, ~vehicles.nod, ~techlevel.high
+		Prerequisites: hq, ~vehicles.nod, ~techlevel.high
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Long-range missile tank that can cloak.\nCan attack Aircraft.\nHas weak armor. Can be spotted by infantry and defense structures.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry.
 	Mobile:
-		Speed: 110
+		Speed: 135
 	Health:
-		HP: 35000
+		HP: 20000
 	Armor:
 		Type: Light
 	RevealsShroud:
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 7c0
+		Range: 4c0
 	Cloak@NORMAL:
 		InitialDelay: 90
 		CloakDelay: 90
@@ -1442,6 +1483,7 @@ STNK.nod:
 		UncloakSound: appear1.aud
 		Palette: cloakTD
 		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Damage, Heal
 		RequiresCondition: !cloak-force-disabled && !invisibility
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
@@ -1474,29 +1516,29 @@ BIKE:
 	RenderSprites:
 		PlayerPalette: playertd
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Recon Bike
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 30
-		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
+		Prerequisites: ~vehicles.nod, ~techlevel.low
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Fast scout vehicle, armed with\nrockets.\nCan attack Aircraft.\n  Strong vs Vehicles, Tanks\n  Weak vs Infantry
 	Mobile:
 		TurnSpeed: 10
-		Speed: 150
+		Speed: 180
 	Health:
-		HP: 14000
+		HP: 11000
 	Armor:
 		Type: Light
 	RevealsShroud:
-		Range: 8c0
+		Range: 5c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
-		Range: 7c0
+		Range: 4c0
 	Armament@PRIMARY:
 		Weapon: BikeRockets
 		LocalOffset: -128, -170, 170, -128, 170, 170
@@ -1520,7 +1562,7 @@ FTNK:
 	RenderSprites:
 		PlayerPalette: playertd
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Flame Tank
 		GenericName: Tank
@@ -1528,25 +1570,28 @@ FTNK:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: astrip, ~vehicles.nod, ~techlevel.low
+		Prerequisites: hq, ~vehicles.nod, ~techlevel.low
 		Queue: Vehicle, Vehicle.Factory
 		IconPalette: chrometd
 		Description: Heavily armored flame-throwing vehicle.\n  Strong vs Infantry, Buildings and Vehicles\n  Weak vs Tanks
 	Mobile:
-		Speed: 90
+		Speed: 82
 	Health:
-		HP: 35000
+		HP: 40000
 	Armor:
-		Type: Heavy
+		Type: Light
 	RevealsShroud:
 		Range: 8c0
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
 	Armament:
-		Weapon: FireballLauncher
+		Weapon: BigFlamer
+		MuzzleSequence: muzzle
+		MuzzlePalette: temptd
 		LocalOffset: 512,128,42, 512,-128,42
 		PauseOnCondition: emppowerdown
+	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: emppowerdown
 	Explodes:
@@ -1561,7 +1606,7 @@ HARV2:
 	RenderSprites:
 		PlayerPalette: playertd
 	Valued:
-		Cost: 1100
+		Cost: 1400
 	Tooltip:
 		Name: Harvester
 		GenericName: Harvester
@@ -1575,17 +1620,17 @@ HARV2:
 		Priority: 7
 		DecorationBounds: 36,36
 	Harvester:
-		Capacity: 20
+		Capacity: 30
 		Resources: Tiberium, BlueTiberium, Ore, Gems
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 30
 		SearchFromHarvesterRadius: 15
 		EmptyCondition: no-ore
 	Mobile:
-		Speed: 85
+		Speed: 56
 		Locomotor: heavywheeled
 	Health:
-		HP: 60000
+		HP: 75000
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -1631,11 +1676,11 @@ BTR:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 22000
+		HP: 28000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 120
+		Speed: 135
 		PauseOnCondition: !(!emppowerdown && !being-captured && !notmobile)
 	RevealsShroud:
 		Range: 5c0
@@ -1646,12 +1691,12 @@ BTR:
 		TurnSpeed: 10
 		Offset: 20,0,150
 	Armament@E3:
-		Weapon: IFVrockets
+		Weapon: BTRrockets
 		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	Armament@E3AA:
 		Name: secondary
-		Weapon: IFVrocketsAA
+		Weapon: BTRrocketsAA
 		LocalOffset: 192,0,176
 		PauseOnCondition: emppowerdown
 	AttackTurreted:
@@ -1670,24 +1715,23 @@ BTR:
 IFV:
 	Inherits: ^Tank
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Vehicle, Vehicle.Factory
 		BuildPaletteOrder: 40
 		Prerequisites: tent, ~vehicles.germany, ~techlevel.low
 		Description: Adaptable infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft\n Special Ability: Transform
 	Valued:
-		Cost: 700
+		Cost: 650
 	Tooltip:
 		Name: Infantry Fighting Vehicle
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 28000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 118
+		Speed: 113
 		PauseOnCondition: emppowerdown || being-captured || notmobile
 	RevealsShroud:
 		Range: 5c0
@@ -1765,10 +1809,16 @@ IFV:
 		PauseOnCondition: emppowerdown
 		RequiresCondition: testurr
 	Armament@Repair:
-		Weapon: Repair
+		Weapon: RepairIFV
 		LocalOffset: 0,0,213
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
 		PauseOnCondition: emppowerdown
 		RequiresCondition: engturr
+		MuzzleSequence: emp-overlay
+		MuzzlePalette: tseffect-ignore-lighting-alpha75
 	Armament@Acol:
 		Weapon: LaserTur
 		LocalOffset: 0,0,213
@@ -1843,6 +1893,26 @@ IFV:
 		EnableSound: heal2.aud
 		Condition: hospitalheal
 		Range: 3c0
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+		ScanRadius: 6
+	AutoTargetPriority@DEFAULTAA:
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Air, Defense
+		RequiresCondition: (!stance-attackanything && !assault-move) && samturr
+	AutoTargetPriority@ATTACKANYTHINGAA:
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Air, Structure, Defense
+		RequiresCondition: (stance-attackanything || assault-move) && samturr
+	AutoTargetPriority@DEFAULTG:
+		RequiresCondition: (!stance-attackanything && !assault-move) && (fragturr || gunturr || flamturr || chemturr || acolturr || testurr || commturr)
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+	AutoTargetPriority@ATTACKANYTHINGG:
+		RequiresCondition: (stance-attackanything || assault-move) && (fragturr || gunturr || flamturr || chemturr || acolturr || testurr || commturr)
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Structure, Defense, Mine
+	AttackMove:
+		AssaultMoveCondition: assault-move
+	AutoTargetPriority@DEFAULTREPAIR:
+		ValidTargets: Vehicle, Ship
+		RequiresCondition: engturr
 		
 IFV.AI:
 	Inherits: ^Tank
@@ -1854,17 +1924,17 @@ IFV.AI:
 		Prerequisites: ~tent, ~vehicles.germany, ~botplayer, ~techlevel.low
 		Description: Adaptable infantry transport.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft\n Special Ability: Transform
 	Valued:
-		Cost: 700
+		Cost: 650
 	Tooltip:
 		Name: Infantry Fighting Vehicle
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 20000
+		HP: 28000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 118
+		Speed: 113
 		PauseOnCondition: emppowerdown || being-captured
 	RevealsShroud:
 		Range: 5c0
@@ -1927,7 +1997,7 @@ TITAN:
 		Prerequisites: gtek, ~vehicles.talon, ~techlevel.high
 		Description: Tough Prototype Battle-Mech.\n  Strong vs Infantry, Tanks\n Weak vs Aircraft
 	Valued:
-		Cost: 2250
+		Cost: 2000
 	Selectable:
 		Bounds: 30,40,0,0
 	Tooltip:
@@ -1935,11 +2005,11 @@ TITAN:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 110000
+		HP: 100000
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 50
+		Speed: 56
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
@@ -1975,7 +2045,7 @@ TITAN:
 		EmptyWeapon: UnitExplodeSmall
 		LoadedChance: 100
 	Voiced:
-		VoiceSet: TitanVoice
+		VoiceSet: GhostVoice
 	SelfHealing@DEFAULT:
 		Step: 300
 		Delay: 3
@@ -2019,7 +2089,7 @@ TTRK:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 90
+		Speed: 82
 		Voice: Move
 	Passenger:
 		PipType: Red
@@ -2052,7 +2122,7 @@ DISR:
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 1500
+		Cost: 1350
 	Tooltip:
 		Name: Disruptor
 	UpdatesPlayerStatistics:
@@ -2066,12 +2136,13 @@ DISR:
 		Prerequisites: gtek, ~vehicles.zocom, ~techlevel.high
 		Description: Armored high-tech vehicle with\nlong range and sonic armament.\n  Strong vs Infantry, Vehicles, Buildings\n  Weak vs Aircraft
 	Health:
-		HP: 65000
+		HP: 70000
 	Armor:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 4
-		Speed: 50
+		Speed: 56
+		Voice: Move
 	Passenger:
 		CargoType: Vehicle
 		Weight: 2
@@ -2082,14 +2153,12 @@ DISR:
 		Range: 6c0
 	Armament@PRIMARY:
 		Weapon: SonicZap
-		FireDelay: 0
-		LocalOffset: -120,0,150
+		LocalOffset: 0,0,200
 		PauseOnCondition: emppowerdown
 	Armament@SECONDARY:
 		Weapon: SonicZapVisual
 		Name: secondary
-		FireDelay: 0
-		LocalOffset: -120,0,150
+		LocalOffset: 0,0,200
 		PauseOnCondition: emppowerdown
 	Turreted:
 		TurnSpeed: 5
@@ -2097,6 +2166,7 @@ DISR:
 	AttackTurreted:
 		PauseOnCondition: emppowerdown
 		OpportunityFire: False
+		Voice: Attack
 	WithSpriteTurret:
 	Selectable:
 		DecorationBounds: 44,38,0,-4
@@ -2104,13 +2174,18 @@ DISR:
 		LocalOffset: 0,0,500
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
+	Targetable:
+		RequiresCondition: !parachute
+		TargetTypes: Ground, Vehicle, Disruptor
+	Voiced:
+		VoiceSet: DisrVoice
 	
 HMLRS:
 	Inherits: ^VehicleTD
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Valued:
-		Cost: 1000
+		Cost: 950
 	Tooltip:
 		Name: Hover MLRS
 	UpdatesPlayerStatistics:
@@ -2122,7 +2197,7 @@ HMLRS:
 		IconPalette: chrometd
 		Description: Prototype Hover Multiple Launch Rocket System.\nLong-range guided artillery.\n  Strong vs Infantry, Vehicles and Buildings
 	Mobile:
-		Speed: 100
+		Speed: 113
 		Locomotor: hover
 	LeavesTrails:
 		Image: twake
@@ -2145,6 +2220,7 @@ HMLRS:
 		Offset: -200,0,0
 	Hovers:
 		BobDistance: -35
+		RequiresCondition: !emppowerdown
 	WithShadow:
 		Offset: 43, 128, 0
 		ZOffset: -129
@@ -2183,7 +2259,7 @@ RTNK:
 		Prerequisites: atek, ~vehicles.england, ~techlevel.high
 		Description: Advanced Battle tank that can cloak when stationary.\nHas average armor.\n  Strong vs Vehicles\n  Weak vs Aircraft.
 	Valued:
-		Cost: 950
+		Cost: 900
 	Tooltip:
 		Name: Mirage Tank
 	UpdatesPlayerStatistics:
@@ -2193,7 +2269,7 @@ RTNK:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
+		Speed: 82
 		Voice: Move
 	RevealsShroud:
 		Range: 6c0
@@ -2221,7 +2297,7 @@ RTNK:
 		CloakDelay: 100
 		CloakSound: vmirat2a.aud
 		UncloakSound: appear1.aud
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Move
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Move, Damage, Heal
 		IsPlayerPalette: true
 		RequiresCondition: !cloak-force-disabled && !invisibility
 	GrantConditionOnDamageState@UNCLOAK:
@@ -2243,10 +2319,10 @@ HOWI:
 		Queue: Vehicle
 		BuildPaletteOrder: 70
 		IconPalette: chrometd
-		Prerequisites: astrip, ~vehicles.blackh, ~techlevel.medium
+		Prerequisites: ~vehicles.blackh, ~techlevel.medium
 		Description: Fast Attack Artillery.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 750
+		Cost: 800
 	Tooltip:
 		Name: Howitzer
 	UpdatesPlayerStatistics:
@@ -2256,7 +2332,7 @@ HOWI:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 85
+		Speed: 82
 	RevealsShroud:
 		Range: 5c0
 		RevealGeneratedShroud: False
@@ -2308,7 +2384,7 @@ V3RL:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 78
+		Speed: 56
 		Voice: Move
 	RevealsShroud:
 		Range: 5c0
@@ -2349,10 +2425,10 @@ TNKD:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 115
-		Prerequisites: ~vehicles.germany, dome, ~techlevel.medium
+		Prerequisites: ~vehicles.germany, dome, ~techlevel.low
 		Description: German Tank Destroyer\n  Strong vs Armor\n  Weak vs Infantry, Aircraft
 	Valued:
-		Cost: 1350
+		Cost: 1150
 	Tooltip:
 		Name: Tank Destroyer
 		GenericName: Tank
@@ -2363,7 +2439,7 @@ TNKD:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 61
+		Speed: 68
 		TurnSpeed: 4
 		Voice: Move
 	RevealsShroud:
@@ -2400,7 +2476,7 @@ MSAR:
 	Inherits: ^VehicleTD
 	Inherits@SELECTION_MODE: ^LowPrioritySelectionMode
 	Valued:
-		Cost: 1100
+		Cost: 1000
 	Tooltip:
 		Name: Mobile Sensor Array
 		RequiresCondition: !deployed
@@ -2413,7 +2489,7 @@ MSAR:
 		Queue: Vehicle
 		BuildPaletteOrder: 140
 		IconPalette: chrometd
-		Prerequisites: hq, ~vehicles.gdi, ~techlevel.medium
+		Prerequisites: hq, ~vehicles.gdi, ~techlevel.high
 		BuildDurationModifier: 50
 		Description: Provides radar and jams missiles when deployed.\nCan detect cloaked units.\n  Unarmed
 	Health:
@@ -2421,14 +2497,16 @@ MSAR:
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 85
-		PauseOnCondition: emppowerdown || deployed || being-captured
+		Speed: 82
+		RequireForceMoveCondition: !undeployed
 	RevealsShroud:
 		RequiresCondition: undeployed
 		Range: 6c0
 	RevealsShroud@DEPLOYED:
 		RequiresCondition: !undeployed
 		Range: 10c0
+	RenderSprites:
+		Image: msar
 	Repairable:
 		RequireForceMoveCondition: !undeployed
 	Passenger:
@@ -2436,23 +2514,24 @@ MSAR:
 	GrantCondition@PREVIEWWORKAROUND:
 		Condition: real-actor
 	WithMakeAnimation:
+		BodyNames: deployedbody
 	Carryable:
-		CarriedCondition: pickedup
-		LocalOffset: 0,0,500
-	WithFacingSpriteBody:
-		RequiresCondition: undeployed || pickedup
-		Name: bodymove
+		LocalOffset: 0,0,400
 	WithSpriteBody@deployed:
 		Sequence: idle-static
 		RequiresCondition: !undeployed && real-actor
+		Name: deployedbody
+	WithFacingSpriteBody:
+		RequiresCondition: undeployed
 	GrantConditionOnDeploy:
+		PauseOnCondition: empdisable || being-captured
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		Facing: 165
 		AllowedTerrainTypes: Clear, Road, Rough
 		DeploySounds: placbldg.aud
 		UndeploySounds: clicky1.aud
-		UndeployOnMove: false
+		UndeployOnMove: true
 		UndeployOnPickup: true
 	DetectCloaked@Deployed:
 		Range: 10c0
@@ -2477,10 +2556,10 @@ PTNK:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 130
-		Prerequisites: atek, ~vehicles.allies, ~techlevel.medium
+		Prerequisites: atek, ~vehicles.allies, ~techlevel.high
 		Description: A prototype mobile Prism tower.\n  Strong vs Vehicles, Infantry\n  Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 1100
+		Cost: 1350
 	Tooltip:
 		Name: Prism Tank
 		GenericName: Tank
@@ -2491,7 +2570,7 @@ PTNK:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 85
+		Speed: 82
 		Voice: Move
 	RevealsShroud:
 		Range: 6c0
@@ -2516,6 +2595,66 @@ PTNK:
 	SelectionDecorations:
 	Voiced:
 		VoiceSet: PrismVoice
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	Selectable:
+		DecorationBounds: 28,28
+		
+MWTNK:
+	Inherits: ^TankTD
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 130
+		IconPalette: chrometd
+		Prerequisites: tmpl, ~vehicles.legion, ~techlevel.high
+		Description: Prototype microwave weapon.\nDisables Vehicles & Structures.\n Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+	Valued:
+		Cost: 1350
+	Tooltip:
+		Name: Microwave Tank
+		GenericName: Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 113
+		Voice: Move
+	RevealsShroud:
+		Range: 7c0
+		RevealGeneratedShroud: False
+	RevealsShroud@GAPGEN:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 4
+		Offset: 0,0,0
+	Armament:
+		Weapon: MicrowaveZap
+		LocalOffset: 500,0,140
+		PauseOnCondition: emppowerdown
+		MuzzleSequence: muzzle
+		MuzzlePalette: tseffect-ignore-lighting-alpha75
+		ReloadingCondition: charging
+	AttackTurreted:
+		TargetFrozenActors: True
+		OpportunityFire: False
+		PauseOnCondition: emppowerdown
+		Voice: Attack
+	WithMuzzleOverlay:
+	AmbientSound:
+		RequiresCondition: charging
+		SoundFiles: coreup1.aud
+		Interval: 100, 115
+	WithSpriteTurret:
+	SpawnActorOnDeath:
+		Actor: MWTNK.Husk
+	SelectionDecorations:
+	Voiced:
+		VoiceSet: MWTnkVoice
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
 	Selectable:

@@ -351,6 +351,27 @@ orca:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
+		
+orcab:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	move:
+		Start: 32
+		Facings: 32
+	icon: orcabicnh
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
 
 apch:
 	idle:
@@ -487,6 +508,24 @@ harr:
 		Facings: 32
 		UseClassicFacingFudge: True
 	icon: harricon
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		
+scrin:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	icon: scrinicnh
 	emp-overlay: emp_fx01
 		Length: *
 		BlendMode: Additive

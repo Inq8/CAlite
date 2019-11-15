@@ -1271,7 +1271,7 @@ ttrk:
 	icon: ttrkicon
 
 disr:
-	idle: sonich
+	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
 	turret: sonict
@@ -1292,7 +1292,7 @@ disr:
 	icon: disricon
 	
 disr.destroyed:
-	idle: sonich
+	idle:
 		Facings: 32
 		UseClassicFacingFudge: True
 		ZOffset: -512
@@ -1490,6 +1490,43 @@ ptnk.destroyed:
 		UseClassicFacingFudge: True
 		ZOffset: -512
 	turret: ptnkt
+		Facings: 32
+		UseClassicFacingFudge: True
+		ZOffset: -512
+		
+mwtnk:
+	idle: mwtnk
+		Facings: 32
+		UseClassicFacingFudge: True
+	turret: mwtnkt
+		Facings: 32
+		UseClassicFacingFudge: True
+	muzzle: emp_fx02
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	emp-overlay: emp_fx01
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	chrono-overlay: chronofade
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+	icon: mwtnkicnh
+
+mwtnk.destroyed:
+	idle: mwtnk
+		Facings: 32
+		UseClassicFacingFudge: True
+		ZOffset: -512
+	turret: mwtnkt
 		Facings: 32
 		UseClassicFacingFudge: True
 		ZOffset: -512

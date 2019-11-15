@@ -136,7 +136,7 @@ E2:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 71
+		Speed: 45
 	Armament@PRIMARY:
 		Weapon: Grenade
 		LocalOffset: 0,0,555
@@ -150,6 +150,7 @@ E2:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 		DamageSource: Killer
+		Chance: 33
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 
@@ -171,7 +172,9 @@ E3:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 4500
+		HP: 2500
+	Mobile:
+		Speed: 32
 	Armament@PRIMARY:
 		Weapon: RedEye
 		LocalOffset: 0,0,555
@@ -222,20 +225,21 @@ E4:
 		AddToArmyValue: true
 	Health:
 		HP: 7000
+	Mobile:
+		Speed: 45
 	Armament:
 		Weapon: Flamer
 		LocalOffset: 341,0,256
-		FireDelay: 3
 		MuzzleSequence: muzzle
 		MuzzlePalette: temptd
 	TakeCover:
-		ProneOffset: 160,0,-288
+		ProneOffset: 160,0,-256
 	WithMuzzleOverlay:
 	AttackFrontal:
 	Explodes:
 		Weapon: VisualExplode
 		EmptyWeapon: VisualExplode
-		Chance: 50
+		Chance: 20
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 
@@ -287,6 +291,7 @@ SPY:
 		AddToArmyValue: true
 	-Guard:
 	Mobile:
+		Speed: 45
 		Voice: Move
 	RevealsShroud:
 		Range: 5c0
@@ -336,7 +341,7 @@ E7:
 	Health:
 		HP: 11000
 	Mobile:
-		Speed: 71
+		Speed: 45
 		Voice: Move
 	Guard:
 		Voice: Move
@@ -386,9 +391,7 @@ MEDI:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 6000
-	Mobile:
-		Speed: 50
+		HP: 5000
 	RevealsShroud:
 		Range: 3c0
 	Passenger:
@@ -439,9 +442,8 @@ MECH:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 8000
+		HP: 5000
 	Mobile:
-		Speed: 50
 		Voice: Move
 	RevealsShroud:
 		Range: 3c0
@@ -498,7 +500,7 @@ EINSTEIN:
 	Tooltip:
 		Name: Prof. Einstein
 	Mobile:
-		Speed: 71
+		Speed: 45
 	Voiced:
 		VoiceSet: EinsteinVoice
 
@@ -512,7 +514,7 @@ DELPHI:
 	Tooltip:
 		Name: Agent Delphi
 	Mobile:
-		Speed: 71
+		Speed: 45
 
 CHAN:
 	Inherits: ^CivInfantry
@@ -535,7 +537,7 @@ MOEBIUS:
 	Tooltip:
 		Name: Dr. Moebius
 	Mobile:
-		Speed: 71
+		Speed: 45
 
 GNRL:
 	Inherits@1: ^CivInfantry
@@ -614,7 +616,7 @@ THF:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 	Mobile:
-		Speed: 71
+		Speed: 45
 
 SHOK:
 	Inherits: ^Soldier
@@ -632,7 +634,7 @@ SHOK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 7000
 	Mobile:
 		Voice: Move
 	RevealsShroud:
@@ -693,6 +695,15 @@ N1:
 		DeathSequencePalette: playertd
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+		
+N1R1:
+	Inherits: N1
+	RenderSprites:
+		Image: N1
+	ProducibleWithLevel:
+		Prerequisites: techlevel.infonly
+		InitialLevels: 1
+	-Buildable:
 
 N2:
 	Inherits: ^Soldier
@@ -712,7 +723,7 @@ N2:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 56
+		Speed: 45
 	Armament@PRIMARY:
 		Weapon: Grenade
 		LocalOffset: 0,0,555
@@ -725,8 +736,8 @@ N2:
 		DeathSequencePalette: playertd
 	Explodes:
 		Weapon: UnitExplodeSmall
-		Chance: 50
-		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, FireDeath, ElectricityDeath
+		EmptyWeapon: UnitExplodeSmall
+		Chance: 33
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 
@@ -746,7 +757,9 @@ N3:
 	Tooltip:
 		Name: Rocket Soldier
 	Health:
-		HP: 4500
+		HP: 2500
+	Mobile:
+		Speed: 32
 	Armament@PRIMARY:
 		Weapon: RedEye
 		LocalOffset: 0,0,555
@@ -774,6 +787,15 @@ N3:
 		ScanRadius: 5
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+		
+N3R1:
+	Inherits: N3
+	RenderSprites:
+		Image: N3
+	ProducibleWithLevel:
+		Prerequisites: techlevel.infonly
+		InitialLevels: 1
+	-Buildable:
 
 N4:
 	Inherits: ^Soldier
@@ -783,7 +805,7 @@ N4:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 70
-		Prerequisites: ~infantry.blackh, hand, ~techlevel.infonly
+		Prerequisites: ~infantry.nod, ~!infantry.marked, hand, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Advanced Anti-infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
 	Valued:
@@ -793,15 +815,14 @@ N4:
 	Health:
 		HP: 7000
 	Mobile:
-		Speed: 56
+		Speed: 45
 	Armament:
 		Weapon: Flamer
-		LocalOffset: 341,0,256
-		FireDelay: 3
+		LocalOffset: 341,0,254
 		MuzzleSequence: muzzle
 		MuzzlePalette: temptd
 	TakeCover:
-		ProneOffset: 160,0,-288
+		ProneOffset: 160,0,-254
 	AttackFrontal:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -811,8 +832,7 @@ N4:
 	Explodes:
 		Weapon: VisualExplode
 		EmptyWeapon: VisualExplode
-		Chance: 30
-		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, FireDeath, ElectricityDeath
+		Chance: 33
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 
@@ -824,7 +844,7 @@ N5:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 115
-		Prerequisites: ~infantry.marked, hand, ~techlevel.high
+		Prerequisites: ~infantry.marked, hand, ~techlevel.infonly
 		IconPalette: chrometd
 		Description: Advanced general-purpose infantry.\n  Strong vs all Ground units
 	Valued:
@@ -832,20 +852,18 @@ N5:
 	Tooltip:
 		Name: Chemical Warrior
 	Health:
-		HP: 8000
+		HP: 7000
 	WithDeathAnimation:
 		DeathSequencePalette: playertd
 	Armament:
 		Weapon: Chemspray
-		LocalOffset: 341,0,256
-		FireDelay: 3
+		LocalOffset: 341,0,254
 		MuzzleSequence: muzzle
 		MuzzlePalette: temptd
 	TakeCover:
-		ProneOffset: 160,0,-288
+		ProneOffset: 160,0,-254
 	Mobile:
 		Locomotor: chem
-		Speed: 56
 	AttackFrontal:
 	-Crushable:
 	WithInfantryBody:
@@ -854,17 +872,25 @@ N5:
 	Explodes:
 		Weapon: VisualExplodeChem
 		EmptyWeapon: VisualExplodeChem
-		Chance: 30
-		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, FireDeath, ElectricityDeath
+		Chance: 33
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
+		
+N5R1:
+	Inherits: N5
+	RenderSprites:
+		Image: N5
+	ProducibleWithLevel:
+		Prerequisites: techlevel.infonly
+		InitialLevels: 1
+	-Buildable:
 
 RMBO:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Valued:
-		Cost: 1100
+		Cost: 1000
 	Tooltip:
 		Name: Commando
 	Buildable:
@@ -875,12 +901,12 @@ RMBO:
 		BuildLimit: 1
 		Description: Elite infantry unit. Armed with\nSMG and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.
 	Mobile:
-		Speed: 71
+		Speed: 45
 		Voice: Move
 	Guard:
 		Voice: Move
 	Health:
-		HP: 10000
+		HP: 8000
 	Passenger:
 		PipType: Red
 		Voice: Move
@@ -959,20 +985,20 @@ SNIPER:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 55
-		Prerequisites: ~infantry.england, dome, ~techlevel.high
+		Prerequisites: ~infantry.england, dome, ~techlevel.medium
 		Description: Special marksman infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft\n Special Ability: Stealth
 	Valued:
 		Cost: 500
 	Tooltip:
 		Name: Sniper
 	Health:
-		HP: 5000
+		HP: 2500
 	RevealsShroud:
 		Range: 8c0
 	Armament@PRIMARY:
 		Weapon: sniper
 	Mobile:
-		Speed: 51
+		Speed: 45
 		Locomotor: foot
 		Voice: Move
 	Cloak:
@@ -1021,13 +1047,13 @@ BORIS:
 		BuildLimit: 1
 		Description: Elite commando infantry. Armed with C4.\nCan detect cloaked units.\n Maximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Aircraft\n  Special Ability: Destroy Building with C4
 	Valued:
-		Cost: 1200
+		Cost: 1000
 	Tooltip:
 		Name: Boris
 	Health:
-		HP: 11000
+		HP: 8000
 	Mobile:
-		Speed: 71
+		Speed: 45
 		Voice: Move
 	-Crushable:
 	Guard:
@@ -1075,8 +1101,10 @@ MORT:
 		Cost: 250
 	Tooltip:
 		Name: Chemical Mortar
+	Mobile:
+		Speed: 45
 	Health:
-		HP: 5000
+		HP: 2500
 	Armament@PRIMARY:
 		Weapon: mortar
 		LocalOffset: 0,0,155
@@ -1126,10 +1154,10 @@ SAB:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 90
-		Prerequisites: hq, ~infantry.nod, ~techlevel.infonly
+		Prerequisites: hq, ~infantry.nod, ~techlevel.medium
 		Description: Covert Infantry. Infiltrates enemy structures and steals technology.\nCan detect cloaked units and spies.\n  Special Ability: Infiltrate\n Special Ability: Stealth
 	Valued:
-		Cost: 800
+		Cost: 500
 	Tooltip:
 		Name: Infiltrator
 	RevealsShroud:
@@ -1155,7 +1183,7 @@ SAB:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 61
+		Speed: 45
 		Voice: Move
 	Armament:
 		Weapon: SilencedPPK
@@ -1194,8 +1222,9 @@ ACOL:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 5000
+		HP: 7000
 	Mobile:
+		Speed: 45
 		Voice: Move
 	RevealsShroud:
 		Range: 5c0
@@ -1217,7 +1246,7 @@ ACOL:
 	Guard:
 		Voice: Move
 	Voiced:
-		VoiceSet: AcolVoice
+		VoiceSet: CyborgVoice
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	-GrantConditionOnPrerequisite@BIO:

@@ -2320,12 +2320,12 @@ pris:
 		Offset: 0,-13
 	active:
 		Length: 3
-		Tick: 250
+		Tick: 200
 		Offset: 0,-13
 	damaged-active:
 		Start: 19
 		Length: 3
-		Tick: 250
+		Tick: 200
 		Offset: 0,-13
 	make: prismake
 		Length: 8
